@@ -204,7 +204,8 @@ const DETAIL = {
     const next = D.quests.filter((q) => q.pre === r.id);
     return `<div class="card"><h1>${esc(r.n)}</h1><span class="tag">${esc(r.k)}</span>${r.s ? '<span class="tag good">scripted on XIVLegacy</span>' : '<span class="tag warn">no server script yet</span>'}
       ${facts([["Level", r.lv], ["Code", esc(r.code)], ["Quest id", r.id], ["Starts with", r.giver?.n ? link("npcs", r.giver.id, r.giver.n) : null],
-        ["Where", r.giver?.z ? zoneLink(r.giver.z) : null], ["Requires", pre]])}</div>
+        ["Where", r.giver?.z ? zoneLink(r.giver.z) : r.zam?.zone ? esc(r.zam.zone) : null], ["Requires", pre], ["ZAM category", r.zam?.cat ? esc(r.zam.cat) : null]])}</div>
+      ${r.zam?.rewards?.length ? `<h2>Rewards</h2><ul class="plain">${r.zam.rewards.map((w) => `<li>${itemLink(w[0])}${w[2] && w[2] !== "1" ? ` ×${esc(w[2])}` : ""}</li>`).join("")}</ul>` : ""}
       ${next.length ? `<h2>Leads to</h2><ul class="plain">${next.map((q) => `<li>${link("quests", q.id, q.n)}</li>`).join("")}</ul>` : ""}
       <p class="src"><a href="${ZAM}quest.html?ffxivquest=${r.id}">ZAM's archived page</a></p>`;
   },

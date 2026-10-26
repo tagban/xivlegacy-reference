@@ -150,7 +150,7 @@ def main():
                          FROM server_battlenpc_groups g JOIN server_battlenpc_pools p ON p.poolId = g.poolId"""):
         if not spawn_counts[r["groupId"]]:
             continue
-        mobs.append({"id": r["groupId"], "n": pretty(r["pname"]), "z": r["zoneId"],
+        mobs.append({"id": r["groupId"], "cls": r["actorClassId"], "n": pretty(r["pname"]), "z": r["zoneId"],
                      "lv": [r["minLevel"], r["maxLevel"]], "g": genus.get(r["genusId"]),
                      "ag": 1 if r["aggroType"] else 0, "sp": spawn_counts[r["groupId"]],
                      "re": r["respawnTime"], "pa": r["privateAreaName"] or None})
@@ -206,12 +206,45 @@ def merge_zam(zam_dir, items, mobs, quests):
         print("no parsed ZAM data yet")
         return
     zam = json.load(open(path))
+
+    def rows(page, tab):
+        return page.get("tabs", {}).get(tab, {}).get("rows", [])
+
     by_id = {it["id"]: it for it in items}
-    for cid, facts in zam.get("items", {}).items():
+    merged = 0
+    for cid, page in zam.get("item", {}).items():
         it = by_id.get(int(cid))
-        if it:
+        if not it:
+            continue
+        facts = {}
+        drops = [[r[0][0], r[1][0], r[2][0], r[0][1]] for r in rows(page, "Dropped_By") if len(r) >= 3]
+        harvest = [[r[1][0], r[2][0], r[3][0]] for r in rows(page, "Harvested_From") if len(r) >= 4]
+        if drops:
+            facts["drops"] = drops
+        if harvest:
+            facts["harvest"] = harvest
+        if facts:
             it["zam"] = facts
-    print(f"zam: merged {len(zam.get('items', {}))} items")
+            merged += 1
+
+    by_quest = {q["id"]: q for q in quests}
+    for qid, page in zam.get("quest", {}).items():
+        q = by_quest.get(int(qid))
+        if not q:
+            continue
+        info = page.get("info", {})
+        z = {}
+        for key, out in (("Category", "cat"), ("Zone", "zone"), ("Rank", "rank")):
+            if key in info and info[key][0]:
+                z[out] = info[key][0]
+        if "Start NPC" in info:
+            z["npc"] = info["Start NPC"]
+        rewards = [[r[0][1], r[0][0], r[4][0] if len(r) > 4 else "1"] for r in rows(page, "Rewards") if r and r[0][1]]
+        if rewards:
+            z["rewards"] = rewards
+        if z:
+            q["zam"] = z
+    print(f"zam: {merged} items with drops/harvesting, {len(zam.get('quest', {}))} quest pages")
 
 
 if __name__ == "__main__":
