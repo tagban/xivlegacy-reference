@@ -199,8 +199,8 @@ def main():
 
     # --- leves ---------------------------------------------------------------
     leves = []
-    for r in rows(db, "SELECT * FROM gamedata_guildleves WHERE name != ''"):
-        leves.append({"id": r["id"], "n": r["name"], "lv": r["level"], "z": r["zoneId"],
+    for r in rows(db, "SELECT * FROM gamedata_guildleves WHERE id > 0"):
+        leves.append({"id": r["id"], "n": r["name"] or None, "lv": r["level"], "z": r["zoneId"],
                       "d": r["difficulty"], "t": r["leveType"], "cls": r["classType"],
                       "exp": r["rewardExp"], "gil": r["rewardGil"], "lim": r["timeLimit"],
                       "items": [r[f"item{i}"] for i in range(1, 5) if r[f"item{i}"]],
@@ -226,7 +226,9 @@ def main():
                     for r in rows(db, "SELECT * FROM gamedata_achievements") if r["name"]]
 
     if zam_dir:
-        merge_zam(zam_dir, items, mobs, quests)
+        merge_zam(zam_dir, items, mobs, quests, leves)
+    # a leve is shown once something names it (the client data doesn't)
+    leves = [lv for lv in leves if lv["n"]]
 
     write("items", items)
     write("recipes", recipes)
@@ -243,7 +245,7 @@ def main():
                    "zam": bool(zam_dir)}, f)
 
 
-def merge_zam(zam_dir, items, mobs, quests):
+def merge_zam(zam_dir, items, mobs, quests, leves):
     """Merge parsed ZAM facts (tools/zam_parse.py output) when present."""
     path = os.path.join(zam_dir, "parsed.json")
     if not os.path.exists(path):
@@ -311,6 +313,17 @@ def merge_zam(zam_dir, items, mobs, quests):
             z["rewards"] = rewards
         if z:
             q["zam"] = z
+    by_leve = {lv["id"]: lv for lv in leves}
+    for lid, (name, rank, cls) in zam.get("levelist", {}).items():
+        lv = by_leve.get(int(lid))
+        if lv is None:
+            lv = {"id": int(lid), "items": [], "mobs": []}
+            leves.append(lv)
+            by_leve[lv["id"]] = lv
+        lv["n"] = name
+        lv["cat"] = cls
+        if rank.isdigit():
+            lv["lv"] = int(rank)
     print(f"zam: {merged} items with ZAM details, {len(zam.get('quest', {}))} quest pages")
 
 

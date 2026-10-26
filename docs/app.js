@@ -79,13 +79,14 @@ const SECTIONS = {
     key: (r) => r.id,
   },
   leves: {
-    title: "Leves", lede: "Guildleves from ZAM's archived database.",
+    title: "Leves", lede: "Guildleves by rank and discipline. Names from ZAM's archived leve lists; targets from the game data.",
     cols: [
       ["Leve", (r) => link("leves", r.id, r.n), (r) => r.n],
-      ["Lv", (r) => r.lv || "", (r) => r.lv || 0, "num"],
-      ["Zone", (r) => zoneLink(r.z), (r) => zone(r.z)],
+      ["Rank", (r) => r.lv || "", (r) => r.lv || 0, "num"],
+      ["Class", (r) => esc(r.cat || ""), (r) => r.cat || ""],
+      ["Time limit", (r) => (r.lim ? `${r.lim} min` : ""), (r) => r.lim || 0, "num hide-sm"],
     ],
-    filters: [],
+    filters: [["Class", (r) => r.cat]],
     text: (r) => r.n,
   },
   harvest: {
@@ -248,8 +249,16 @@ const DETAIL = {
       ${all.length > 1 ? `<h2>Appears in</h2><ul class="plain">${all.map((n) => `<li>${zoneLink(n.z)} at ${n.p.join(", ")}${n.pa ? ' <span class="tag">story instance</span>' : ""}</li>`).join("")}</ul>` : ""}`;
   },
   leves(r) {
-    return `<div class="card"><h1>${esc(r.n)}</h1>${facts([["Level", r.lv], ["Zone", zoneLink(r.z)], ["Leve id", r.id]])}${r.desc ? `<p>${esc(r.desc)}</p>` : ""}</div>
-      <p class="src">From ZAM. <a href="${ZAM}leve.html?ffxivleve=${r.id}">ZAM's archived page</a></p>`;
+    const mob = (id) => { const m = D.monsters.find((x) => x.cls === id); return m ? link("monsters", m.id, m.n) : null; };
+    const mobs = [...new Set(r.mobs || [])].map(mob).filter(Boolean);
+    return `<div class="crumb-path"><a href="#leves">Leves</a> › ${esc(r.cat || "")} › ${esc(r.n)}</div>
+      <div class="card"><h1>${esc(r.n)}</h1><table class="infobox">
+        ${[["Rank", r.lv], ["Class", esc(r.cat)], ["Zone", r.z ? zoneLink(r.z) : null], ["Time limit", r.lim ? `${r.lim} minutes` : null],
+          ["Experience", r.exp ? num(r.exp) : null], ["Gil", r.gil ? num(r.gil) : null], ["Leve id", r.id]].filter((x) => x[1]).map(([k, v]) => `<tr><th>${k}</th><td>${v}</td></tr>`).join("")}
+      </table></div>
+      ${r.items?.length ? `<h2>Items</h2><ul class="plain">${r.items.map((id) => `<li>${itemLink(id)}</li>`).join("")}</ul>` : ""}
+      ${mobs.length ? `<h2>Targets</h2><ul class="plain">${mobs.map((l) => `<li>${l}</li>`).join("")}</ul>` : ""}
+      <p class="src">Name, rank and class from ZAM. <a href="${ZAM}guildleve.html?ffxivguildleve=${r.id}">ZAM's archived page</a></p>`;
   },
   harvest(r) {
     return `<div class="card"><h1>${esc(r.n)}</h1>${r.placed.length ? `<span class="tag good">placed on XIVLegacy</span>` : '<span class="tag warn">not placed on XIVLegacy yet</span>'}
@@ -270,7 +279,7 @@ function detail(sec, id) {
   const r = IX[sec]?.[id];
   if (!r || !DETAIL[sec]) return `<p class="empty">Nothing here with id ${esc(id)}.</p>`;
   document.title = `${r.n} · XIVLegacy Reference`;
-  const crumb = sec === "items" || sec === "quests" ? "" : `<div class="crumb">${link(sec, "", SECTIONS[sec].title).replace(`#${sec}/`, `#${sec}`)} ›</div>`;
+  const crumb = ["items", "quests", "leves"].includes(sec) ? "" : `<div class="crumb">${link(sec, "", SECTIONS[sec].title).replace(`#${sec}/`, `#${sec}`)} ›</div>`;
   return crumb + DETAIL[sec](r);
 }
 

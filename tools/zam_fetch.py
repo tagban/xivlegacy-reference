@@ -11,7 +11,7 @@ errors. Rerunning skips pages already saved.
 """
 import json, os, re, sys, time, urllib.parse, urllib.request
 
-KINDS = {"item": "ffxivitem", "mob": "ffxivmob", "quest": "ffxivquest", "levelist": None}
+KINDS = {"item": "ffxivitem", "mob": "ffxivmob", "quest": "ffxivquest", "levelist": None, "guildleve": "ffxivguildleve"}
 # Leves only ever had list pages (levelist.html?class=..&page=..): those are
 # keyed by their query string instead of an id.
 CDX = "https://web.archive.org/cdx/search/cdx"

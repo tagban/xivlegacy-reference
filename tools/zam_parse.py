@@ -116,7 +116,7 @@ def parse(page):
 def main():
     cache = sys.argv[1]
     out = {}
-    for kind in ("item", "mob", "quest", "leve"):
+    for kind in ("item", "mob", "quest", "guildleve"):
         folder = os.path.join(cache, kind)
         out[kind] = {}
         if not os.path.isdir(folder):
@@ -126,6 +126,18 @@ def main():
                 page = open(os.path.join(folder, f), errors="ignore").read()
                 out[kind][f[:-5]] = parse(page)
         print(f"{kind}: {len(out[kind])}")
+    # leve list pages: name, rank and class of every leve they list
+    leves = {}
+    folder = os.path.join(cache, "levelist")
+    for f in sorted(os.listdir(folder)) if os.path.isdir(folder) else []:
+        page = open(os.path.join(folder, f), errors="ignore").read()
+        m = re.search(r'<table id="GLTableSortable"[^>]*>(.*?)</table>', page, re.S)
+        if m:
+            for row in table(m.group(1))["rows"]:
+                if row and row[0][1]:
+                    leves[str(row[0][1])] = [row[0][0]] + [c[0] for c in row[1:3]]
+    out["levelist"] = leves
+    print(f"levelist: {len(leves)} leves")
     with open(os.path.join(cache, "parsed.json"), "w") as fh:
         json.dump(out, fh, separators=(",", ":"), ensure_ascii=False)
 
