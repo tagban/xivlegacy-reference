@@ -228,20 +228,35 @@ def merge_zam(zam_dir, items, mobs, quests):
         return page.get("tabs", {}).get(tab, {}).get("rows", [])
 
     by_id = {it["id"]: it for it in items}
+    detail_dir = os.path.join(OUT, "item")
+    os.makedirs(detail_dir, exist_ok=True)
     merged = 0
     for cid, page in zam.get("item", {}).items():
         it = by_id.get(int(cid))
         if not it:
             continue
         facts = {}
+        tt = page.get("tt") or {}
+        if tt:
+            facts["tt"] = tt
+            if tt.get("icon"):
+                it["ic"] = tt["icon"]
+            slot = next((m.split("Slot:", 1)[1].strip() for m in tt.get("misc", []) if "Slot:" in m), None)
+            if slot:
+                it["sl"] = slot
         drops = [[r[0][0], r[1][0], r[2][0], r[0][1]] for r in rows(page, "Dropped_By") if len(r) >= 3]
         harvest = [[r[1][0], r[2][0], r[3][0]] for r in rows(page, "Harvested_From") if len(r) >= 4]
+        sold = [[r[0][0], r[1][0], r[-1][0], r[0][1]] for r in rows(page, "Sold_By") if len(r) >= 3]
         if drops:
             facts["drops"] = drops
         if harvest:
             facts["harvest"] = harvest
+        if sold:
+            facts["sold"] = sold
         if facts:
-            it["zam"] = facts
+            with open(os.path.join(detail_dir, f"{cid}.json"), "w") as f:
+                json.dump(facts, f, separators=(",", ":"), ensure_ascii=False)
+            it["zam"] = 1
             merged += 1
 
     by_quest = {q["id"]: q for q in quests}
@@ -261,7 +276,7 @@ def merge_zam(zam_dir, items, mobs, quests):
             z["rewards"] = rewards
         if z:
             q["zam"] = z
-    print(f"zam: {merged} items with drops/harvesting, {len(zam.get('quest', {}))} quest pages")
+    print(f"zam: {merged} items with ZAM details, {len(zam.get('quest', {}))} quest pages")
 
 
 if __name__ == "__main__":

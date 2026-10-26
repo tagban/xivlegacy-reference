@@ -1,25 +1,32 @@
 /* The 1.0 UI: deep navy glass panels, thin gold rules, parchment text. */
 :root {
-  --bg: #0b1220;
-  --bg-2: #111b2e;
-  --panel: rgba(23, 37, 64, 0.82);
-  --panel-edge: #2d4570;
-  --gold: #d6b25e;
-  --gold-dim: #8f7740;
-  --text: #e8e2d0;
-  --muted: #9aa6bd;
-  --link: #9cc4ff;
-  --good: #7fcf8f;
+  /* sampled from the 1.23b client's own windows */
+  --bg: #07071a;
+  --bg-2: #0e0d25;
+  --panel: rgba(14, 13, 37, 0.92);
+  --panel-2: #181846;
+  --panel-edge: #33436d;
+  --edge-dark: #121839;
+  --gold: #b89d49;
+  --gold-dim: #7d6a33;
+  --cream: #cfc69c;
+  --text: #e9e7dc;
+  --muted: #9a9cb6;
+  --link: #8fc3e6;
+  --good: #87dc9c;
+  --unique: #dac837;
+  --untradable: #68bf94;
   --warn: #e7a85a;
-  --row: rgba(255, 255, 255, 0.03);
-  --row-hover: rgba(214, 178, 94, 0.08);
+  --select: #2a658c;
+  --row: rgba(24, 24, 70, 0.45);
+  --row-hover: rgba(42, 101, 140, 0.35);
   color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
 body {
   margin: 0;
-  background: radial-gradient(1200px 600px at 20% -10%, #1b2c4d 0%, transparent 60%), var(--bg);
+  background: radial-gradient(1200px 600px at 20% -10%, #181846 0%, transparent 60%), var(--bg);
   color: var(--text);
   font: 15px/1.5 "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
   min-height: 100vh;
@@ -30,12 +37,12 @@ a:hover { text-decoration: underline; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 
 /* header */
-.top { background: linear-gradient(#0e1729, #0b1220); border-bottom: 1px solid var(--gold-dim); position: sticky; top: 0; z-index: 5; }
+.top { background: linear-gradient(#11103a, #07071a); border-bottom: 1px solid var(--gold-dim); position: sticky; top: 0; z-index: 5; }
 .top-row { display: flex; gap: 16px; align-items: center; justify-content: space-between; flex-wrap: wrap; padding-block: 14px 10px; }
 .brand { display: flex; gap: 12px; align-items: center; color: var(--text); }
 .brand:hover { text-decoration: none; }
 .brand-mark { color: var(--gold); font-size: 26px; line-height: 1; }
-.brand-name { display: block; font-family: Cinzel, Georgia, serif; font-weight: 700; font-size: 20px; letter-spacing: 0.04em; color: var(--gold); }
+.brand-name { display: block; font-family: Cinzel, Georgia, serif; font-weight: 700; font-size: 20px; letter-spacing: 0.04em; color: var(--cream); }
 .brand-sub { display: block; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
 .search { flex: 1 1 280px; max-width: 460px; }
 .search input { width: 100%; padding: 9px 12px; border-radius: 6px; border: 1px solid var(--panel-edge); background: var(--bg-2); color: var(--text); font: inherit; }
@@ -43,12 +50,12 @@ a:hover { text-decoration: underline; }
 .tabs { display: flex; gap: 2px; overflow-x: auto; padding-bottom: 0; }
 .tabs a { padding: 8px 14px; color: var(--muted); border-bottom: 2px solid transparent; white-space: nowrap; font-weight: 600; font-size: 14px; letter-spacing: 0.02em; }
 .tabs a:hover { color: var(--text); text-decoration: none; }
-.tabs a[aria-current="page"] { color: var(--gold); border-bottom-color: var(--gold); }
+.tabs a[aria-current="page"] { color: var(--cream); border-bottom-color: var(--select); background: linear-gradient(transparent, rgba(42, 101, 140, 0.35)); }
 .tabs .n { color: var(--gold-dim); font-weight: 400; font-size: 12px; margin-left: 4px; }
 
 main { padding-block: 22px 40px; outline: none; }
 .loading { color: var(--muted); }
-h1, h2, h3 { font-family: Cinzel, Georgia, serif; color: var(--gold); font-weight: 500; text-wrap: balance; }
+h1, h2, h3 { font-family: Cinzel, Georgia, serif; color: var(--cream); font-weight: 500; text-wrap: balance; }
 h1 { font-size: 26px; margin: 0 0 4px; }
 h2 { font-size: 17px; margin: 26px 0 8px; letter-spacing: 0.03em; }
 .lede { color: var(--muted); margin: 0 0 16px; max-width: 70ch; }
@@ -61,7 +68,7 @@ h2 { font-size: 17px; margin: 26px 0 8px; letter-spacing: 0.03em; }
 .table-box { overflow-x: auto; border: 1px solid var(--panel-edge); border-radius: 8px; background: var(--panel); }
 table { width: 100%; border-collapse: collapse; font-size: 14px; }
 th, td { padding: 7px 12px; text-align: left; border-bottom: 1px solid rgba(45, 69, 112, 0.5); vertical-align: top; }
-th { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 600; background: rgba(0, 0, 0, 0.18); position: sticky; top: 0; cursor: pointer; user-select: none; }
+th { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--cream); font-weight: 600; background: var(--panel-2); position: sticky; top: 0; cursor: pointer; user-select: none; }
 th.num, td.num { text-align: right; font-variant-numeric: tabular-nums; }
 tbody tr:nth-child(even) { background: var(--row); }
 tbody tr:hover { background: var(--row-hover); }
@@ -70,7 +77,7 @@ tbody tr:hover { background: var(--row-hover); }
 
 /* detail pages */
 .crumb { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
-.card { background: var(--panel); border: 1px solid var(--panel-edge); border-radius: 10px; padding: 18px 20px; }
+.card { background: linear-gradient(var(--panel-2), var(--bg-2) 60%); border: 1px solid var(--panel-edge); box-shadow: inset 0 0 0 2px var(--edge-dark); border-radius: 10px; padding: 18px 20px; }
 .facts { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 10px 22px; margin: 14px 0 0; }
 .facts div { min-width: 0; }
 .facts dt { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
@@ -79,6 +86,8 @@ tbody tr:hover { background: var(--row-hover); }
 .tag.good { color: var(--good); border-color: rgba(127, 207, 143, 0.4); }
 .tag.warn { color: var(--warn); border-color: rgba(231, 168, 90, 0.4); }
 .tag.gold { color: var(--gold); border-color: var(--gold-dim); }
+.tag.unique { background: var(--unique); color: #1a1600; border-color: var(--unique); }
+.tag.untradable { background: var(--untradable); color: #04170e; border-color: var(--untradable); }
 .src { font-size: 13px; color: var(--muted); margin-top: 14px; }
 .empty { color: var(--muted); font-style: italic; }
 ul.plain { list-style: none; padding: 0; margin: 0; }
@@ -89,7 +98,7 @@ ul.plain li { padding: 4px 0; border-bottom: 1px solid rgba(45, 69, 112, 0.4); }
 .tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin-top: 18px; }
 .tile { background: var(--panel); border: 1px solid var(--panel-edge); border-radius: 10px; padding: 14px 16px; color: var(--text); }
 .tile:hover { border-color: var(--gold-dim); text-decoration: none; }
-.tile b { display: block; font-family: Cinzel, Georgia, serif; color: var(--gold); font-weight: 500; font-size: 16px; }
+.tile b { display: block; font-family: Cinzel, Georgia, serif; color: var(--cream); font-weight: 500; font-size: 16px; }
 .tile span { font-size: 26px; font-variant-numeric: tabular-nums; }
 .tile small { display: block; color: var(--muted); font-size: 13px; }
 
@@ -101,3 +110,42 @@ ul.plain li { padding: 4px 0; border-bottom: 1px solid rgba(45, 69, 112, 0.4); }
   th, td { padding: 6px 8px; }
   .hide-sm { display: none; }
 }
+
+/* --- item card: the in-game tooltip, as ZAM showed it --------------------- */
+.crumb-path { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+.item-layout { display: grid; grid-template-columns: minmax(0, 380px) minmax(0, 1fr); gap: 22px; align-items: start; }
+@media (max-width: 860px) { .item-layout { grid-template-columns: minmax(0, 1fr); } }
+.tt { background: linear-gradient(180deg, #1b1a4e 0%, #0e0d25 38%, #0b0b26 100%); border: 1px solid var(--panel-edge); box-shadow: inset 0 0 0 2px var(--edge-dark), 0 6px 24px rgba(0, 0, 0, 0.45); border-radius: 8px; padding: 14px 16px; font-size: 14px; }
+.tt hr { border: 0; border-top: 1px solid #2a2a52; margin: 10px 0; }
+.tt-head { display: flex; gap: 12px; align-items: flex-start; }
+.tt-head h1 { font-family: "Source Sans 3", system-ui, sans-serif; font-size: 19px; font-weight: 600; color: var(--text); margin: 0; }
+.icon { width: 40px; height: 40px; flex: none; border-radius: 4px; background: #05051d; box-shadow: inset 0 0 0 1px #33436d; object-fit: contain; display: inline-block; vertical-align: middle; }
+.name-cell { display: inline-flex; align-items: center; gap: 8px; }
+.name-cell .icon { width: 24px; height: 24px; }
+.tt-type { color: var(--cream); font-size: 13px; }
+.tt-flags { margin-top: 4px; }
+.tt-flags .tag { font-size: 11px; padding: 0 7px; }
+.tt-base { color: var(--muted); margin-top: 10px; }
+.tt-desc { margin-top: 8px; }
+.tt-req { color: var(--good); }
+.tt-res { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; }
+.res { min-width: 34px; text-align: center; padding: 1px 6px; border-radius: 4px; background: #05051d; border: 1px solid #2a2a52; font-variant-numeric: tabular-nums; }
+.res-fire { color: #f08a6a; } .res-ice { color: #9ad8f0; } .res-air { color: #8fe0a0; } .res-earth { color: #e0c070; } .res-lightning { color: #c9a0f0; } .res-water { color: #7fb0f0; }
+.tt-stats { width: 100%; font-size: 13px; }
+.tt-stats th { background: transparent; position: static; color: var(--cream); font-size: 11px; }
+.tt-stats td, .tt-stats th { padding: 3px 6px; border-bottom: 1px solid #1d1d44; }
+.tt-own { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 16px; margin: 0; }
+.tt-own dt { color: var(--muted); font-size: 12px; }
+.tt-own dd { margin: 0; font-variant-numeric: tabular-nums; }
+.tt-own div { display: flex; justify-content: space-between; gap: 8px; }
+.tt-misc { color: var(--text); font-size: 13px; }
+.tt-foot { width: 100%; margin-top: 10px; font-size: 12px; }
+.tt-foot th { background: transparent; position: static; color: var(--cream); font-size: 11px; padding: 2px 6px; }
+.tt-foot td { padding: 2px 6px; border: 0; }
+.tt-price { margin-top: 10px; color: var(--muted); font-size: 12px; text-align: right; }
+
+/* ZAM's tab strip */
+.tablist { list-style: none; display: flex; flex-wrap: wrap; gap: 2px; padding: 0; margin: 0 0 10px; border-bottom: 1px solid var(--panel-edge); }
+.tablist button { background: var(--bg-2); color: var(--muted); border: 1px solid var(--panel-edge); border-bottom: 0; border-radius: 6px 6px 0 0; padding: 6px 12px; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; }
+.tablist button[aria-selected="true"] { background: var(--select); color: var(--text); }
+@media (max-width: 700px) { .top { position: static; } }

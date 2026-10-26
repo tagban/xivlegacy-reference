@@ -7,11 +7,13 @@ newest capture, and saves the raw page under the cache folder (not in the
 repo). Polite: one request at a time, a pause between requests, backoff on
 errors. Rerunning skips pages already saved.
 
-    tools/zam_fetch.py <cache dir> [kind ...]     kinds: item mob quest leve
+    tools/zam_fetch.py <cache dir> [kind ...]     kinds: item mob quest levelist
 """
 import json, os, re, sys, time, urllib.parse, urllib.request
 
-KINDS = {"item": "ffxivitem", "mob": "ffxivmob", "quest": "ffxivquest", "leve": "ffxivleve"}
+KINDS = {"item": "ffxivitem", "mob": "ffxivmob", "quest": "ffxivquest", "levelist": None}
+# Leves only ever had list pages (levelist.html?class=..&page=..): those are
+# keyed by their query string instead of an id.
 CDX = "https://web.archive.org/cdx/search/cdx"
 UA = "xivlegacy-reference/0.1 (FFXIV 1.0 preservation; github.com/tagban)"
 PAUSE = 1.2
@@ -40,9 +42,16 @@ def captures(kind, param):
     raw = get(f"{CDX}?{q}")
     best = {}
     for ts, orig in json.loads(raw or b"[]")[1:]:
-        m = re.search(param + r"=(\d+)", orig)
-        if m and (m.group(1) not in best or ts > best[m.group(1)][0]):
-            best[m.group(1)] = (ts, orig)
+        if param is None:
+            query = re.sub(r"&?setcookie=\d+", "", orig.split("?", 1)[1] if "?" in orig else "")
+            key = re.sub(r"[^\w=&-]", "_", query)[:120] or "index"
+        else:
+            m = re.search(param + r"=(\d+)", orig)
+            if not m:
+                continue
+            key = m.group(1)
+        if key not in best or ts > best[key][0]:
+            best[key] = (ts, orig)
     return best
 
 
@@ -58,7 +67,7 @@ def main():
         else:
             best = captures(kind, KINDS[kind])
             json.dump(best, open(index, "w"))
-        todo = [i for i in sorted(best, key=int) if not os.path.exists(os.path.join(folder, f"{i}.html"))]
+        todo = [i for i in sorted(best) if not os.path.exists(os.path.join(folder, f"{i}.html"))]
         print(f"{kind}: {len(best)} captured, {len(todo)} to fetch", flush=True)
         for n, i in enumerate(todo, 1):
             ts, orig = best[i]

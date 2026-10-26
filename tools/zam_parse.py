@@ -36,6 +36,46 @@ def table(fragment):
     return {"h": head, "rows": rows}
 
 
+def tooltip(page):
+    """ZAM's in-game item card ("xivtt"): icon, type, flags, requirements,
+    resists, attributes, delay/slot, wear and repair."""
+    a = page.find('class="xivtt-inner"')
+    if a < 0:
+        return None
+    b = page.find('class="tabwrapper"', a)
+    tt = page[a:b if b > 0 else a + 20000]
+    out = {}
+    icon = re.search(r'<img src="[^"]*/([0-9A-Fa-f]{8})\.png"', tt)
+    if icon:
+        out["icon"] = icon.group(1).upper()
+    head = re.search(r"</h2>(.*?)<div class=\"xivtt-flags\">(.*?)</div>", tt, re.S)
+    if head:
+        out["type"] = text(head.group(1))
+        out["flags"] = [text(f) for f in re.findall(r"<span[^>]*>(.*?)</span>", head.group(2), re.S)]
+    for cls, key in (("xivtt-subhead", "base"), ("xivtt-desc", "desc"), ("xivtt-misc", "misc")):
+        m = re.search(rf'<div class="{cls}">(.*?)</div>', tt, re.S)
+        if m:
+            lines = [text(x) for x in re.split(r"<br\s*/?>", m.group(1))]
+            lines = [x for x in lines if x]
+            if lines:
+                out[key] = lines
+    res = re.findall(r'<div class="xivtt-res-\w+" title="([^"]+)"><b>([^<]*)</b>', tt)
+    if res and any(v.strip() not in ("0", "") for _, v in res):
+        out["resists"] = [[t.replace(" Resistance", ""), v] for t, v in res]
+    stats = re.search(r'<div class="xivtt-maininfo">.*?<table>(.*?)</table>', tt, re.S)
+    if stats:
+        t = table(stats.group(1))
+        rows = [[c[0] for c in r] for r in t["rows"] if any(c[0] for c in r)]
+        if rows:
+            out["stats"] = {"h": t["h"], "rows": rows}
+    foot = re.search(r'<table class="wearAndRepair">(.*?)</table>', tt, re.S)
+    if foot:
+        t = table(foot.group(1))
+        if t["rows"]:
+            out["repair"] = {"h": t["h"], "row": t["rows"][0]}
+    return out
+
+
 def parse(page):
     title = re.search(r"<title>(.*?)</title>", page, re.S)
     name = text(title.group(1)).split(" :: ")[0] if title else None
@@ -54,7 +94,7 @@ def parse(page):
         body = page[m.end():end]
         if m.group(1) != "Comments" and "<table" in body:
             tabs[m.group(1)] = table(body[: body.find("</table>")])
-    return {"name": name, "info": info, "tabs": tabs}
+    return {"name": name, "info": info, "tabs": tabs, "tt": tooltip(page)}
 
 
 def main():

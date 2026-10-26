@@ -22,13 +22,13 @@ const SECTIONS = {
   items: {
     title: "Items", lede: "Every item in the 1.23b client: gear, materials, food, key items.",
     cols: [
-      ["Name", (r) => link("items", r.id, r.n), (r) => r.n],
-      ["Type", (r) => esc(r.c || ""), (r) => r.c || ""],
+      ["Name", (r) => `<span class="name-cell">${icon(r.ic)}${link("items", r.id, r.n)}</span>`, (r) => r.n],
+      ["Slot", (r) => esc(r.sl || r.c || ""), (r) => r.sl || r.c || ""],
       ["iLv", (r) => r.il || "", (r) => r.il || 0, "num"],
       ["Equip Lv", (r) => r.el || "", (r) => r.el || 0, "num hide-sm"],
       ["Sell", (r) => (r.sp ? num(r.sp) : ""), (r) => r.sp || 0, "num hide-sm"],
     ],
-    filters: [["Type", (r) => r.c]],
+    filters: [["Slot", (r) => r.sl], ["Type", (r) => r.c]],
     text: (r) => r.n,
   },
   recipes: {
@@ -197,19 +197,10 @@ function recipeList(rs) {
 
 const DETAIL = {
   items(r) {
-    const z = r.zam || {};
-    return `<div class="card"><h1>${esc(r.n)}</h1>
-      ${r.rare ? '<span class="tag gold">Unique</span>' : ""}${r.ex ? '<span class="tag gold">Untradable</span>' : ""}<span class="tag">${esc(r.c || "Item")}</span>
-      ${facts([["Item level", r.il], ["Equip level", r.el], ["Stack", r.st], ["Sells for", r.sp && num(r.sp) + " gil"], ["Buy price", r.bp && num(r.bp) + " gil"],
-        ["Damage", r.w?.dmg], ["Delay", r.w?.dly], ["Attack", r.w?.atk], ["Magic attack", r.w?.matk], ["Parry", r.w?.par],
-        ["Defense", r.a?.def], ["Magic defense", r.a?.mdef], ["Evasion", r.a?.eva], ["Catalog id", r.id]])}
-      ${z.desc ? `<p>${esc(z.desc)}</p>` : ""}</div>
-      ${D.madeFrom[r.id] ? `<h2>Crafted by</h2>${recipeList(D.madeFrom[r.id])}` : ""}
-      ${D.usedIn[r.id] ? `<h2>Used in ${D.usedIn[r.id].length} recipes</h2>${recipeList(D.usedIn[r.id].slice(0, 60))}` : ""}
-      ${z.drops?.length ? `<h2>Dropped by</h2><div class="table-box"><table><thead><tr><th>Monster</th><th>Zone</th><th class="num">Level</th></tr></thead><tbody>${z.drops.map((d) => `<tr><td>${esc(d[0])}</td><td>${esc(d[1])}</td><td class="num">${esc(d[2])}</td></tr>`).join("")}</tbody></table></div>` : ""}
-      ${(() => { const nodes = D.harvest.filter((h) => h.y.some((y) => y[0] === r.id)); return nodes.length ? `<h2>Gathering nodes</h2><ul class="plain">${nodes.map((h) => `<li>${link("harvest", h.id, h.n)} <span class="tag">grade ${h.gr}</span>${h.placed.length ? "" : ' <span class="tag">not placed</span>'}</li>`).join("")}</ul>` : ""; })()}
-      ${z.harvest?.length ? `<h2>Harvested from</h2><ul class="plain">${z.harvest.map((h) => `<li>${esc(h[0])} · grade ${esc(h[1])} · ${esc(h[2])}</li>`).join("")}</ul>` : ""}
-      <p class="src">${z.drops || z.harvest ? "Drops and harvesting from ZAM. " : ""}<a href="${ZAM}item.html?ffxivitem=${r.id}">ZAM's archived page</a></p>`;
+    // ZAM's item page: the in-game card, then tabs. ZAM's facts load per item.
+    setTimeout(() => itemDetail(r), 0);
+    const crumbs = `<a href="#items">Items</a>${r.sl ? ` › <a href="#items" data-slot="${esc(r.sl)}">${esc(r.sl)}</a>` : ""} › ${esc(r.n)}`;
+    return `<div class="crumb-path">${crumbs}</div><div class="item-layout"><div id="tt">${card(r, null)}</div><div id="item-tabs" class="item-tabs"></div></div>`;
   },
   quests(r) {
     const pre = r.pre ? (IX.quests[r.pre] ? link("quests", r.pre, IX.quests[r.pre].n) : r.pre) : null;
@@ -258,7 +249,8 @@ function detail(sec, id) {
   const r = IX[sec]?.[id];
   if (!r || !DETAIL[sec]) return `<p class="empty">Nothing here with id ${esc(id)}.</p>`;
   document.title = `${r.n} · XIVLegacy Reference`;
-  return `<div class="crumb">${link(sec, "", SECTIONS[sec].title).replace(`#${sec}/`, `#${sec}`)} ›</div>${DETAIL[sec](r)}`;
+  const crumb = sec === "items" ? "" : `<div class="crumb">${link(sec, "", SECTIONS[sec].title).replace(`#${sec}/`, `#${sec}`)} ›</div>`;
+  return crumb + DETAIL[sec](r);
 }
 
 function search(text) {
@@ -273,6 +265,61 @@ function search(text) {
       `<li>${DETAIL[k] ? link(k, r.id, r.n) : esc(r.n)}</li>`).join("")}</ul>${uniq.length > 12 ? `<a href="#${k}" data-carry="${esc(text)}">All ${num(uniq.length)} ${S.title.toLowerCase()} →</a>` : ""}`;
   }).join("");
   return `<h1>Search: ${esc(text)}</h1>${parts || '<p class="empty">No matches.</p>'}`;
+}
+
+
+// --- the item card (ZAM's "xivtt", after the in-game tooltip) -----------------
+
+const icon = (code, alt = "") => (code ? `<img class="icon" src="icons/${esc(code)}.png" alt="${esc(alt)}" loading="lazy" onerror="this.style.visibility='hidden'">` : `<span class="icon"></span>`);
+
+function card(r, z) {
+  const tt = z?.tt || {};
+  const flags = (tt.flags?.length ? tt.flags : [r.rare && "Unique", r.ex && "Untradable"].filter(Boolean))
+    .map((f) => `<span class="tag ${f.toLowerCase()}">${esc(f)}</span>`).join(" ");
+  const type = tt.type || r.c || "";
+  const desc = (tt.desc || []).map((l) => (/^(Requires|Optimal Rank)/.test(l) ? `<div class="tt-req">${esc(l)}</div>` : `<div>${esc(l)}</div>`)).join("");
+  const own = [["Item level", r.il], ["Equip level", r.el], ["Damage", r.w?.dmg], ["Delay", r.w?.dly], ["Attack", r.w?.atk], ["Magic attack", r.w?.matk],
+    ["Parry", r.w?.par], ["Defense", r.a?.def], ["Magic defense", r.a?.mdef], ["Evasion", r.a?.eva]].filter((p) => p[1]);
+  const stats = tt.stats ? `<table class="tt-stats"><thead><tr>${tt.stats.h.map((h) => `<th>${esc(h)}</th>`).join("")}</tr></thead><tbody>${tt.stats.rows.map((row) => `<tr>${row.map((c) => `<td>${esc(c)}</td>`).join("")}</tr>`).join("")}</tbody></table>` : "";
+  const resists = tt.resists ? `<div class="tt-res">${tt.resists.map(([n, v]) => `<span title="${esc(n)}" class="res res-${esc(n.toLowerCase())}">${esc(v)}</span>`).join("")}</div>` : "";
+  const rep = tt.repair ? `<table class="tt-foot"><tr>${tt.repair.h.map((h) => `<th>${esc(h)}</th>`).join("")}</tr><tr>${tt.repair.row.map((c) => `<td>${c[1] && IX.items[c[1]] ? link("items", c[1], c[0]) : esc(c[0])}</td>`).join("")}</tr></table>` : "";
+  return `<div class="tt">
+    <div class="tt-head">${icon(r.ic, r.n)}<div><h1>${esc(r.n)}</h1><div class="tt-type">${esc(type)}</div><div class="tt-flags">${flags}</div></div></div>
+    ${tt.base ? `<div class="tt-base">${tt.base.map(esc).join("<br>")}</div>` : ""}
+    ${desc ? `<div class="tt-desc">${desc}</div>` : ""}
+    ${resists || stats ? `<hr>${resists}${stats}` : ""}
+    ${own.length ? `<hr><dl class="tt-own">${own.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join("")}</dl>` : ""}
+    ${tt.misc ? `<hr><div class="tt-misc">${tt.misc.map(esc).join("<br>")}</div>` : ""}
+    ${rep}
+    <div class="tt-price">${r.sp ? `Sells for ${num(r.sp)} gil` : "Cannot be sold"}${r.bp ? ` · Buy ${num(r.bp)} gil` : ""}</div>
+  </div>`;
+}
+
+function tabsHtml(tabs) {
+  const live = tabs.filter((t) => t[2]);
+  if (!live.length) return "";
+  return `<ul class="tablist" role="tablist">${live.map(([id, label, , n], i) => `<li><button role="tab" data-tab="${id}" aria-selected="${i === 0}">${label}${n != null ? ` (${num(n)})` : ""}</button></li>`).join("")}</ul>
+    ${live.map(([id, , html], i) => `<div class="tabpane" data-pane="${id}"${i ? " hidden" : ""}>${html}</div>`).join("")}`;
+}
+
+async function itemDetail(r) {
+  let z = null;
+  if (r.zam) {
+    try { z = await fetch(`data/item/${r.id}.json`).then((x) => (x.ok ? x.json() : null)); } catch { z = null; }
+  }
+  const tt = $("#tt"), box = $("#item-tabs");
+  if (!tt || !box) return;
+  if (z) tt.innerHTML = card(r, z);
+  const nodes = D.harvest.filter((h) => h.y.some((y) => y[0] === r.id));
+  const mobRow = (d) => { const m = d[3] && D.monsters.find((x) => x.cls === d[3]); return `<tr><td>${m ? link("monsters", m.id, d[0]) : esc(d[0])}</td><td>${esc(d[1])}</td><td class="num">${esc(d[2])}</td></tr>`; };
+  box.innerHTML = tabsHtml([
+    ["crafted", "Recipe", D.madeFrom[r.id] && recipeList(D.madeFrom[r.id]), D.madeFrom[r.id]?.length],
+    ["used", "Used In", D.usedIn[r.id] && recipeList(D.usedIn[r.id]), D.usedIn[r.id]?.length],
+    ["drops", "Dropped By", z?.drops?.length && `<div class="table-box"><table><thead><tr><th>Name</th><th>Zone</th><th class="num">Rank</th></tr></thead><tbody>${z.drops.map(mobRow).join("")}</tbody></table></div>`, z?.drops?.length],
+    ["harvest", "Harvested From", z?.harvest?.length && `<div class="table-box"><table><thead><tr><th>Node</th><th class="num">Grade</th><th>Zone</th></tr></thead><tbody>${z.harvest.map((h) => `<tr><td>${esc(h[0])}</td><td class="num">${esc(h[1])}</td><td>${esc(h[2])}</td></tr>`).join("")}</tbody></table></div>`, z?.harvest?.length],
+    ["sold", "Sold By", z?.sold?.length && `<div class="table-box"><table><thead><tr><th>Vendor</th><th>Zone</th><th class="num">Price</th></tr></thead><tbody>${z.sold.map((v) => `<tr><td>${v[3] && IX.npcs[v[3]] ? link("npcs", v[3], v[0]) : esc(v[0])}</td><td>${esc(v[1])}</td><td class="num">${esc(v[2])}</td></tr>`).join("")}</tbody></table></div>`, z?.sold?.length],
+    ["nodes", "Gathering Nodes", nodes.length && `<ul class="plain">${nodes.map((h) => `<li>${link("harvest", h.id, h.n)} <span class="tag">grade ${h.gr}</span>${h.placed.length ? ' <span class="tag good">placed</span>' : ' <span class="tag">not placed on XIVLegacy</span>'}</li>`).join("")}</ul>`, nodes.length],
+  ]) + `<p class="src">${z ? "Card, drops, harvesting and vendors from ZAM's FFXIV database. " : ""}<a href="${ZAM}item.html?ffxivitem=${r.id}">ZAM's archived page</a></p>`;
 }
 
 // --- routing ---------------------------------------------------------------
@@ -310,6 +357,15 @@ function wire() {
     $("#main").innerHTML = list(sec);
   });
   $("#main").addEventListener("click", (e) => {
+    const tab = e.target.closest("[data-tab]");
+    if (tab) {
+      const box = tab.closest(".item-tabs");
+      box.querySelectorAll("[data-tab]").forEach((b) => b.setAttribute("aria-selected", b === tab));
+      box.querySelectorAll("[data-pane]").forEach((p) => (p.hidden = p.dataset.pane !== tab.dataset.tab));
+      return;
+    }
+    const slot = e.target.closest("[data-slot]");
+    if (slot) { (state.filter.items ||= {}).Slot = slot.dataset.slot; }
     const th = e.target.closest("th[data-col]");
     const more = e.target.closest("[data-more]");
     const sec = location.hash.slice(1).split("/")[0];
