@@ -3,6 +3,8 @@
 A player reference for FINAL FANTASY XIV version 1.0 at its last patch, 1.23b: items, recipes,
 quests, monsters, NPCs, leves, achievements and zones.
 
+**Community:** questions, testing and news on the [XIVLegacy Discord](https://discord.gg/D9k3khqvy8).
+
 It's also the checklist for the [XIVLegacy server](https://github.com/tagban/xivlegacy-server):
 each quest shows whether the server has a script for it yet.
 
