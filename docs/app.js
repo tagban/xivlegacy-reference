@@ -203,14 +203,35 @@ const DETAIL = {
     return `<div class="crumb-path">${crumbs}</div><div class="item-layout"><div id="tt">${card(r, null)}</div><div id="item-tabs" class="item-tabs"></div></div>`;
   },
   quests(r) {
+    // ZAM's quest page: infobox, then Journal / Rewards / Related tabs, plus
+    // the server script's steps.
+    const z = r.zam || {};
     const pre = r.pre ? (IX.quests[r.pre] ? link("quests", r.pre, IX.quests[r.pre].n) : r.pre) : null;
     const next = D.quests.filter((q) => q.pre === r.id);
-    return `<div class="card"><h1>${esc(r.n)}</h1><span class="tag">${esc(r.k)}</span>${r.s ? '<span class="tag good">scripted on XIVLegacy</span>' : '<span class="tag warn">no server script yet</span>'}
-      ${facts([["Level", r.lv], ["Code", esc(r.code)], ["Quest id", r.id], ["Starts with", r.giver?.n ? link("npcs", r.giver.id, r.giver.n) : null],
-        ["Where", r.giver?.z ? zoneLink(r.giver.z) : r.zam?.zone ? esc(r.zam.zone) : null], ["Requires", pre], ["ZAM category", r.zam?.cat ? esc(r.zam.cat) : null]])}</div>
-      ${r.zam?.rewards?.length ? `<h2>Rewards</h2><ul class="plain">${r.zam.rewards.map((w) => `<li>${itemLink(w[0])}${w[2] && w[2] !== "1" ? ` ×${esc(w[2])}` : ""}</li>`).join("")}</ul>` : ""}
-      ${next.length ? `<h2>Leads to</h2><ul class="plain">${next.map((q) => `<li>${link("quests", q.id, q.n)}</li>`).join("")}</ul>` : ""}
-      <p class="src"><a href="${ZAM}quest.html?ffxivquest=${r.id}">ZAM's archived page</a></p>`;
+    const npcRef = (name, id) => (id && IX.npcs[id] ? link("npcs", id, name) : id && D.monsters.find((m) => m.cls === id) ? link("monsters", D.monsters.find((m) => m.cls === id).id, name) : esc(name));
+    const start = z.npc ? npcRef(z.npc[0], z.npc[1]) : r.giver?.n ? link("npcs", r.giver.id, r.giver.n) : null;
+    const info = [["Rank", z.rank || r.lv], ["Category", esc(z.cat || r.k)], ["Zone", z.zone ? esc(z.zone) : r.giver?.z ? zoneLink(r.giver.z) : null],
+      ["Start NPC", start], ["Requires", pre], ["On XIVLegacy", r.s ? '<span class="tag good">scripted</span>' : '<span class="tag warn">no script yet</span>']]
+      .filter((x) => x[1] != null && x[1] !== "");
+    const steps = r.steps || [];
+    const entries = z.journal?.entries || [];
+    const journal = entries.length ? `<div class="tt journal"><div class="tt-head"><div><h1>${esc(r.n)}</h1>${z.journal.npc ? `<div class="tt-type">${npcRef(z.journal.npc[0], z.journal.npc[1])}</div>` : ""}</div></div><hr>${entries.map((e) => `<p>${esc(e)}</p>`).join("")}</div>` : "";
+    const stepList = steps.length ? `<ol class="steps">${steps.map(([seq, note], k) => `<li><span class="tag">step ${seq}</span> ${esc(note)}${entries[k] && entries.length === steps.length ? `<div class="step-journal">${esc(entries[k])}</div>` : ""}</li>`).join("")}</ol><p class="src">Steps from the XIVLegacy server's quest script.</p>` : "";
+    const actors = (r.act || []).map((id) => (IX.npcs[id] ? [link("npcs", id, IX.npcs[id].n), "NPC"] : D.monsters.find((m) => m.cls === id) ? [link("monsters", D.monsters.find((m) => m.cls === id).id, D.monsters.find((m) => m.cls === id).n), "Monster"] : null)).filter(Boolean);
+    const relRows = (z.rel || []).map((x) => `<tr><td>${npcRef(x[0], x[1])}</td><td>${esc(x[2])}</td><td>${esc(x[3])}</td><td>${esc(x[4])}</td></tr>`).join("");
+    const related = relRows || actors.length ? `${relRows ? `<div class="table-box"><table><thead><tr><th>Name</th><th>Zone</th><th>Role</th><th>Relation</th></tr></thead><tbody>${relRows}</tbody></table></div>` : ""}
+      ${actors.length ? `<h2>Named in the server script</h2><ul class="plain">${actors.map(([l, kind]) => `<li>${l} <span class="tag">${kind}</span></li>`).join("")}</ul>` : ""}` : "";
+    return `<div class="crumb-path"><a href="#quests">Quests</a> › ${esc(z.cat || r.k)} › ${esc(r.n)}</div>
+      <div class="item-layout"><div><div class="card"><h1>${esc(r.n)}</h1><table class="infobox">${info.map(([k, v]) => `<tr><th>${k}</th><td>${v}</td></tr>`).join("")}</table></div>
+        ${next.length ? `<h2>Leads to</h2><ul class="plain">${next.map((q) => `<li>${link("quests", q.id, q.n)}</li>`).join("")}</ul>` : ""}</div>
+      <div class="item-tabs">${tabsHtml([
+        ["journal", "Journal", journal || (entries.length ? "" : stepList && ""), null],
+        ["steps", "Steps", stepList, steps.length],
+        ["rewards", "Rewards", z.rewards?.length && `<ul class="plain">${z.rewards.map((w) => `<li><span class="name-cell">${icon(IX.items[w[0]]?.ic)}${itemLink(w[0])}</span>${w[2] && w[2] !== "1" ? ` ×${esc(w[2])}` : ""}</li>`).join("")}</ul>`, z.rewards?.length],
+        ["zones", "Related Zones", z.zones?.length && `<ul class="plain">${z.zones.map((x) => `<li>${esc(x[0])} <span class="tag">${esc(x[1])}</span> ${esc(x[2])}</li>`).join("")}</ul>`, z.zones?.length],
+        ["related", "Related NPCs / Mobs", related, (z.rel?.length || 0) + actors.length],
+      ])}
+      <p class="src">${r.zam ? "Rank, journal, rewards and related NPCs from ZAM. " : ""}<a href="${ZAM}quest.html?ffxivquest=${r.id}">ZAM's archived page</a></p></div></div>`;
   },
   monsters(r) {
     const same = D.monsters.filter((m) => m.n === r.n && m.id !== r.id);
@@ -249,7 +270,7 @@ function detail(sec, id) {
   const r = IX[sec]?.[id];
   if (!r || !DETAIL[sec]) return `<p class="empty">Nothing here with id ${esc(id)}.</p>`;
   document.title = `${r.n} · XIVLegacy Reference`;
-  const crumb = sec === "items" ? "" : `<div class="crumb">${link(sec, "", SECTIONS[sec].title).replace(`#${sec}/`, `#${sec}`)} ›</div>`;
+  const crumb = sec === "items" || sec === "quests" ? "" : `<div class="crumb">${link(sec, "", SECTIONS[sec].title).replace(`#${sec}/`, `#${sec}`)} ›</div>`;
   return crumb + DETAIL[sec](r);
 }
 
@@ -359,7 +380,7 @@ function wire() {
   $("#main").addEventListener("click", (e) => {
     const tab = e.target.closest("[data-tab]");
     if (tab) {
-      const box = tab.closest(".item-tabs");
+      const box = tab.closest(".item-tabs") || tab.closest("main");
       box.querySelectorAll("[data-tab]").forEach((b) => b.setAttribute("aria-selected", b === tab));
       box.querySelectorAll("[data-pane]").forEach((p) => (p.hidden = p.dataset.pane !== tab.dataset.tab));
       return;

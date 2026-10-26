@@ -149,3 +149,10 @@ ul.plain li { padding: 4px 0; border-bottom: 1px solid rgba(45, 69, 112, 0.4); }
 .tablist button { background: var(--bg-2); color: var(--muted); border: 1px solid var(--panel-edge); border-bottom: 0; border-radius: 6px 6px 0 0; padding: 6px 12px; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; }
 .tablist button[aria-selected="true"] { background: var(--select); color: var(--text); }
 @media (max-width: 700px) { .top { position: static; } }
+.infobox { width: 100%; margin-top: 10px; font-size: 14px; }
+.infobox th { position: static; background: transparent; width: 40%; color: var(--cream); font-size: 12px; cursor: default; }
+.infobox td, .infobox th { border-bottom: 1px solid #1d1d44; padding: 6px 8px; }
+.journal p { margin: 0 0 10px; line-height: 1.6; }
+.steps { padding-left: 20px; margin: 0; }
+.steps li { margin-bottom: 10px; }
+.step-journal { color: var(--muted); font-size: 13px; margin-top: 4px; border-left: 2px solid var(--panel-edge); padding-left: 10px; }

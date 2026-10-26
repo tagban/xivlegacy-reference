@@ -76,6 +76,22 @@ def tooltip(page):
     return out
 
 
+def journal(page):
+    """A quest's Journal tab: the in-game journal card (name, NPC, text)."""
+    a = page.find('id="Journal_t"')
+    if a < 0:
+        return None
+    seg = page[a:page.find("<script", a)]
+    npc = re.search(r'<div class="right i">(.*?)</div>', seg, re.S)
+    body = re.search(r'<div class="xivtt-body">(.*?)<div class="clear">', seg, re.S)
+    if not body:
+        return None
+    raw = text(body.group(1))
+    # the journal's entries (one per step) run together: ".When" / ".The"
+    entries = [e.strip() for e in re.split(r"(?<=[.!?])(?=[A-Z])", raw) if e.strip()]
+    return {"npc": cell(npc.group(1)) if npc else None, "entries": entries}
+
+
 def parse(page):
     title = re.search(r"<title>(.*?)</title>", page, re.S)
     name = text(title.group(1)).split(" :: ")[0] if title else None
@@ -94,7 +110,7 @@ def parse(page):
         body = page[m.end():end]
         if m.group(1) != "Comments" and "<table" in body:
             tabs[m.group(1)] = table(body[: body.find("</table>")])
-    return {"name": name, "info": info, "tabs": tabs, "tt": tooltip(page)}
+    return {"name": name, "info": info, "tabs": tabs, "tt": tooltip(page), "journal": journal(page)}
 
 
 def main():

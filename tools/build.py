@@ -81,6 +81,25 @@ def quest_giver(text):
     return int(const.group(1)) if const else None
 
 
+def quest_steps(text):
+    """The script's step list: SEQ_nnn = n; -- what the player does."""
+    steps = []
+    for m in re.finditer(r"^\s*SEQ_(\d+)\s*=\s*(\d+)\s*;?\s*--\s*(.+)$", text, re.M):
+        note = re.sub(r"\s*Info:.*$", "", m.group(3)).strip()
+        steps.append([int(m.group(2)), note])
+    return steps
+
+
+def quest_actors(text):
+    """Class ids the script names: ENPC_/BNPC_ constants and NPC tables."""
+    ids = set()
+    for m in re.finditer(r"^\s*([A-Z][A-Z0-9_]*)\s*=\s*(\d{7})\s*;", text, re.M):
+        name, val = m.group(1), int(m.group(2))
+        if not name.startswith(("MRKR", "SEQ", "FLAG", "CNTR", "COUNTER")) and (1000000 <= val < 1100000 or 2000000 <= val < 3000000):
+            ids.add(val)
+    return sorted(ids)
+
+
 def main():
     db = sqlite3.connect(f"file:{sys.argv[1]}?mode=ro", uri=True)
     zam_dir = sys.argv[2] if len(sys.argv) > 2 else None
@@ -165,7 +184,15 @@ def main():
         text = scripts.get(code)
         giver = quest_giver(text) if text else None
         g = npc_name.get(giver) if giver else None
-        quests.append({"id": q["id"], "n": q["questName"], "code": q["className"],
+        extra = {}
+        if text:
+            steps = quest_steps(text)
+            if steps:
+                extra["steps"] = steps
+            actors = quest_actors(text)
+            if actors:
+                extra["act"] = actors
+        quests.append(extra | {"id": q["id"], "n": q["questName"], "code": q["className"],
                        "k": QUEST_KINDS.get(code[:3], "Other"), "lv": q["minLevel"],
                        "pre": q["prerequisite"] or None, "s": 1 if text else 0,
                        "giver": {"id": giver, "n": g["n"] if g else None, "z": g["z"] if g else None} if giver else None})
@@ -271,6 +298,14 @@ def merge_zam(zam_dir, items, mobs, quests):
                 z[out] = info[key][0]
         if "Start NPC" in info:
             z["npc"] = info["Start NPC"]
+        if page.get("journal"):
+            z["journal"] = page["journal"]
+        rel = [[r[0][0], r[0][1], r[1][0], r[4][0] if len(r) > 4 else "", r[-1][0]] for r in rows(page, "Related_NPCs___Mobs") if r]
+        if rel:
+            z["rel"] = rel
+        zones_rel = [[r[0][0], r[1][0], r[2][0]] for r in rows(page, "Related_Zones") if len(r) >= 3]
+        if zones_rel:
+            z["zones"] = zones_rel
         rewards = [[r[0][1], r[0][0], r[4][0] if len(r) > 4 else "1"] for r in rows(page, "Rewards") if r and r[0][1]]
         if rewards:
             z["rewards"] = rewards
