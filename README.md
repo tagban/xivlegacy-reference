@@ -8,6 +8,12 @@ quests, monsters, NPCs, leves, achievements and zones.
 It's also the checklist for the [XIVLegacy server](https://github.com/tagban/xivlegacy-server):
 each quest shows whether the server has a script for it yet.
 
+## Related
+
+- [XIVLegacy Server](https://github.com/tagban/xivlegacy-server) and its [documentation](https://github.com/tagban/xivlegacy-server-docs)
+- [XIVLegacy client documentation](https://github.com/tagban/xivlegacy-client-docs): protocol, opcodes and client behavior
+- [XIVLegacy Launcher](https://github.com/tagban/xivlegacy-launcher)
+
 ## Where the data comes from
 
 - **The game:** names, stats, recipes, quests, spawns and zones come from the 1.23b client data the
