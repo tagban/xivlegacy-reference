@@ -88,6 +88,17 @@ const SECTIONS = {
     filters: [],
     text: (r) => r.n,
   },
+  harvest: {
+    title: "Harvesting", lede: "Gathering nodes and what they yield. “On XIVLegacy” marks nodes the server has placed in the world; most still need placing.",
+    cols: [
+      ["Node", (r) => link("harvest", r.id, r.n), (r) => r.id],
+      ["Grade", (r) => r.gr, (r) => r.gr, "num"],
+      ["Yields", (r) => r.y.map((y) => itemLink(y[0])).join(", "), (r) => r.y.length],
+      ["On XIVLegacy", (r) => (r.placed.length ? `<span class="tag good">placed: ${r.placed.map(zone).join(", ")}</span>` : '<span class="tag">not placed</span>'), (r) => r.placed.length],
+    ],
+    filters: [["Grade", (r) => r.gr], ["On XIVLegacy", (r) => (r.placed.length ? "placed" : "not placed")]],
+    text: (r) => `${r.n} ${r.y.map((y) => IX.items[y[0]]?.n || "").join(" ")}`,
+  },
   achievements: {
     title: "Achievements", lede: "All achievements in 1.23b.",
     cols: [
@@ -196,6 +207,7 @@ const DETAIL = {
       ${D.madeFrom[r.id] ? `<h2>Crafted by</h2>${recipeList(D.madeFrom[r.id])}` : ""}
       ${D.usedIn[r.id] ? `<h2>Used in ${D.usedIn[r.id].length} recipes</h2>${recipeList(D.usedIn[r.id].slice(0, 60))}` : ""}
       ${z.drops?.length ? `<h2>Dropped by</h2><div class="table-box"><table><thead><tr><th>Monster</th><th>Zone</th><th class="num">Level</th></tr></thead><tbody>${z.drops.map((d) => `<tr><td>${esc(d[0])}</td><td>${esc(d[1])}</td><td class="num">${esc(d[2])}</td></tr>`).join("")}</tbody></table></div>` : ""}
+      ${(() => { const nodes = D.harvest.filter((h) => h.y.some((y) => y[0] === r.id)); return nodes.length ? `<h2>Gathering nodes</h2><ul class="plain">${nodes.map((h) => `<li>${link("harvest", h.id, h.n)} <span class="tag">grade ${h.gr}</span>${h.placed.length ? "" : ' <span class="tag">not placed</span>'}</li>`).join("")}</ul>` : ""; })()}
       ${z.harvest?.length ? `<h2>Harvested from</h2><ul class="plain">${z.harvest.map((h) => `<li>${esc(h[0])} · grade ${esc(h[1])} · ${esc(h[2])}</li>`).join("")}</ul>` : ""}
       <p class="src">${z.drops || z.harvest ? "Drops and harvesting from ZAM. " : ""}<a href="${ZAM}item.html?ffxivitem=${r.id}">ZAM's archived page</a></p>`;
   },
@@ -226,6 +238,11 @@ const DETAIL = {
   leves(r) {
     return `<div class="card"><h1>${esc(r.n)}</h1>${facts([["Level", r.lv], ["Zone", zoneLink(r.z)], ["Leve id", r.id]])}${r.desc ? `<p>${esc(r.desc)}</p>` : ""}</div>
       <p class="src">From ZAM. <a href="${ZAM}leve.html?ffxivleve=${r.id}">ZAM's archived page</a></p>`;
+  },
+  harvest(r) {
+    return `<div class="card"><h1>${esc(r.n)}</h1>${r.placed.length ? `<span class="tag good">placed on XIVLegacy</span>` : '<span class="tag warn">not placed on XIVLegacy yet</span>'}
+      ${facts([["Grade", r.gr], ["Attempts", r.at], ["Placed in", r.placed.map(zoneLink).join(", ") || null]])}</div>
+      <h2>Yields</h2><ul class="plain">${r.y.map((y) => `<li>${itemLink(y[0])} <span class="tag">up to ${y[1]}</span></li>`).join("")}</ul>`;
   },
   zones(r) {
     const npcs = D.npcs.filter((n) => n.z === r.id && !n.pa);

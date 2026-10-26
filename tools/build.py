@@ -179,6 +179,22 @@ def main():
                       "items": [r[f"item{i}"] for i in range(1, 5) if r[f"item{i}"]],
                       "mobs": [r[f"mob{i}"] for i in range(1, 5) if r[f"mob{i}"]]})
 
+    # --- harvesting ----------------------------------------------------------
+    node_items = {r["id"]: r for r in rows(db, "SELECT * FROM gamedata_gather_node_items")}
+    placed = defaultdict(list)
+    for r in rows(db, "SELECT * FROM server_gather_node_spawns"):
+        placed[r["harvestNodeId"]].append(r["zoneId"])
+    harvest = []
+    for r in rows(db, "SELECT * FROM gamedata_gather_nodes"):
+        yields = []
+        for i in range(1, 12):
+            ref = r.get(f"item{i}")
+            if ref not in (None, "", 0) and int(ref) in node_items:
+                ni = node_items[int(ref)]
+                yields.append([ni["itemCatalogId"], ni["maxYield"]])
+        harvest.append({"id": r["id"], "n": f"Node {r['id']}", "gr": r["grade"], "at": r["attempts"],
+                        "y": yields, "placed": sorted(set(placed.get(r["id"], [])))})
+
     achievements = [{"id": r["achievementId"], "n": r["name"], "pts": r["rewardPoints"]}
                     for r in rows(db, "SELECT * FROM gamedata_achievements") if r["name"]]
 
@@ -192,9 +208,10 @@ def main():
     write("quests", quests)
     write("leves", leves)
     write("achievements", achievements)
+    write("harvest", harvest)
     with open(os.path.join(OUT, "meta.json"), "w") as f:
         json.dump({"counts": {"items": len(items), "recipes": len(recipes), "npcs": len(npc_list),
-                              "monsters": len(mobs), "quests": len(quests), "leves": len(leves),
+                              "monsters": len(mobs), "quests": len(quests), "leves": len(leves), "harvest": len(harvest),
                               "achievements": len(achievements)},
                    "zam": bool(zam_dir)}, f)
 
