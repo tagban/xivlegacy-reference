@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """Copy the item icons ZAM showed into docs/icons/, so the site needs no
-outside host. Reads the icon codes from <cache>/parsed.json; skips icons
-already copied. ZAM's image host first, the Wayback Machine if it's gone.
+outside host. Takes the icon codes from docs/data/items.json (tools/build.py
+computes them from the client's icon numbers); skips icons already copied.
+ZAM's image host first, then the Wayback Machine; retries gateway errors.
 
-    tools/zam_icons.py <cache dir>
+    tools/zam_icons.py
 """
-import json, os, sys, time, urllib.request
+import json, os, sys, time, urllib.error, urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "docs", "icons")
@@ -14,19 +15,25 @@ SOURCES = ["https://zam.zamimg.com/ffxiv/icons/{}.png",
            "https://web.archive.org/web/2012id_/http://zam.zamimg.com/ffxiv/icons/{}.png"]
 
 
-def fetch(url):
-    try:
-        req = urllib.request.Request(url, headers={"User-Agent": UA})
-        with urllib.request.urlopen(req, timeout=30) as r:
-            body = r.read()
-            return body if body[:8] == b"\x89PNG\r\n\x1a\n" else None
-    except Exception:
-        return None
+def fetch(url, tries=3):
+    for n in range(tries):
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": UA})
+            with urllib.request.urlopen(req, timeout=30) as r:
+                body = r.read()
+                return body if body[:8] == b"\x89PNG\r\n\x1a\n" else None
+        except urllib.error.HTTPError as e:
+            if e.code == 404:
+                return None
+            time.sleep(3 * (n + 1))
+        except Exception:
+            time.sleep(3 * (n + 1))
+    return None
 
 
 def main():
-    parsed = json.load(open(os.path.join(sys.argv[1], "parsed.json")))
-    codes = sorted({(p.get("tt") or {}).get("icon") for p in parsed.get("item", {}).values()} - {None})
+    items = json.load(open(os.path.join(ROOT, "docs", "data", "items.json")))
+    codes = sorted({it.get("ic") for it in items} - {None})
     os.makedirs(OUT, exist_ok=True)
     todo = [c for c in codes if not os.path.exists(os.path.join(OUT, f"{c}.png"))]
     print(f"{len(codes)} icons, {len(todo)} to copy", flush=True)

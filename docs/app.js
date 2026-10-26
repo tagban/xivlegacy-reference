@@ -24,11 +24,13 @@ const SECTIONS = {
     cols: [
       ["Name", (r) => `<span class="name-cell">${icon(r.ic)}${link("items", r.id, r.n)}</span>`, (r) => r.n],
       ["Slot", (r) => esc(r.sl || r.c || ""), (r) => r.sl || r.c || ""],
-      ["iLv", (r) => r.il || "", (r) => r.il || 0, "num"],
-      ["Equip Lv", (r) => r.el || "", (r) => r.el || 0, "num hide-sm"],
+      ["Rank", (r) => (r.sl || r.req ? r.lv || "" : ""), (r) => r.lv || 0, "num"],
+      ["Class", (r) => esc(r.req || ""), (r) => r.req || "", "hide-sm"],
+      ["Def / Dmg", (r) => r.w?.dmg || r.a?.def || "", (r) => r.w?.dmg || r.a?.def || 0, "num hide-sm"],
+      ["Bonuses", (r) => (r.b || []).map(([k, v]) => `${esc(k)} ${v > 0 ? "+" : ""}${v}`).join(", "), (r) => (r.b || []).length, "hide-sm small"],
       ["Sell", (r) => (r.sp ? num(r.sp) : ""), (r) => r.sp || 0, "num hide-sm"],
     ],
-    filters: [["Slot", (r) => r.sl], ["Type", (r) => r.c]],
+    filters: [["Slot", (r) => r.sl], ["Type", (r) => r.c], ["Class", (r) => r.req]],
     text: (r) => r.n,
   },
   recipes: {
@@ -303,25 +305,31 @@ function search(text) {
 const icon = (code, alt = "") => (code ? `<img class="icon" src="icons/${esc(code)}.png" alt="${esc(alt)}" loading="lazy" onerror="this.style.visibility='hidden'">` : `<span class="icon"></span>`);
 
 function card(r, z) {
+  // Built from the game data; ZAM adds the base material and description.
   const tt = z?.tt || {};
   const flags = (tt.flags?.length ? tt.flags : [r.rare && "Unique", r.ex && "Untradable"].filter(Boolean))
     .map((f) => `<span class="tag ${f.toLowerCase()}">${esc(f)}</span>`).join(" ");
-  const type = tt.type || r.c || "";
-  const desc = (tt.desc || []).map((l) => (/^(Requires|Optimal Rank)/.test(l) ? `<div class="tt-req">${esc(l)}</div>` : `<div>${esc(l)}</div>`)).join("");
-  const own = [["Item level", r.il], ["Equip level", r.el], ["Damage", r.w?.dmg], ["Delay", r.w?.dly], ["Attack", r.w?.atk], ["Magic attack", r.w?.matk],
-    ["Parry", r.w?.par], ["Defense", r.a?.def], ["Magic defense", r.a?.mdef], ["Evasion", r.a?.eva]].filter((p) => p[1]);
-  const stats = tt.stats ? `<table class="tt-stats"><thead><tr>${tt.stats.h.map((h) => `<th>${esc(h)}</th>`).join("")}</tr></thead><tbody>${tt.stats.rows.map((row) => `<tr>${row.map((c) => `<td>${esc(c)}</td>`).join("")}</tr>`).join("")}</tbody></table>` : "";
+  const type = tt.type || (r.req ? `${r.req}'s ${r.sl && /Weapon|Bow/.test(r.sl) ? "Arm" : r.sl || r.c}` : r.sl || r.c || "");
+  const prose = (tt.desc || []).filter((l) => !/^(Requires|Optimal Rank|Suits)/.test(l));
+  const suits = (tt.desc || []).find((l) => /^Suits/.test(l));
+  const req = [r.req && `Requires: ${r.req}`, suits, r.lv && (r.sl || r.c === "Food" || r.c === "Medicine") && `Optimal Rank: ${r.lv}`].filter(Boolean);
+  const attrs = r.a ? [["Defense", r.a.def], ["Magic Defense", r.a.mdef], ["Evasion", r.a.eva], ["Resilience", r.a.res]] : [];
+  const weap = r.w ? [["Damage", r.w.dmg], ["Attack Power", r.w.atk || null], ["Magic Attack", r.w.matk || null], ["Parry", r.w.par || null]].filter((x) => x[1] != null) : [];
+  const rows = [...weap, ...attrs];
+  const stats = rows.length ? `<table class="tt-stats"><tbody>${rows.map(([k, v]) => `<tr><th>${k}</th><td class="num">${v ?? 0}</td></tr>`).join("")}</tbody></table>` : "";
+  const bonus = r.b?.length ? `<ul class="tt-bonus">${r.b.map(([k, v]) => `<li><span>${esc(k)}</span><b>${v > 0 ? "+" : ""}${v}</b></li>`).join("")}</ul>` : "";
   const resists = tt.resists ? `<div class="tt-res">${tt.resists.map(([n, v]) => `<span title="${esc(n)}" class="res res-${esc(n.toLowerCase())}">${esc(v)}</span>`).join("")}</div>` : "";
-  const rep = tt.repair ? `<table class="tt-foot"><tr>${tt.repair.h.map((h) => `<th>${esc(h)}</th>`).join("")}</tr><tr>${tt.repair.row.map((c) => `<td>${c[1] && IX.items[c[1]] ? link("items", c[1], c[0]) : esc(c[0])}</td>`).join("")}</tr></table>` : "";
+  const misc = [r.w && `Delay: ${r.w.dly}s${r.w.hits ? ` · Number of Attacks: ${r.w.hits}` : ""}`, r.w?.type && `Damage Type: ${r.w.type}`, r.sl && `Slot: ${r.sl}`].filter(Boolean);
+  const rep = r.dur || r.rep ? `<table class="tt-foot"><tr><th>Wear</th><th>Repair Materials</th><th>Repaired By</th></tr><tr><td>${r.dur ? `${num(r.dur)}/${num(r.dur)}` : "—"}</td><td>${r.rep?.[1] ? `${itemLink(r.rep[1])} × ${r.rep[2] || 1}` : "—"}</td><td>${r.rep ? esc(r.rep[0]) : "—"}</td></tr></table>` : "";
   return `<div class="tt">
     <div class="tt-head">${icon(r.ic, r.n)}<div><h1>${esc(r.n)}</h1><div class="tt-type">${esc(type)}</div><div class="tt-flags">${flags}</div></div></div>
     ${tt.base ? `<div class="tt-base">${tt.base.map(esc).join("<br>")}</div>` : ""}
-    ${desc ? `<div class="tt-desc">${desc}</div>` : ""}
+    ${prose.length || req.length ? `<div class="tt-desc">${prose.map((l) => `<div>${esc(l)}</div>`).join("")}${req.map((l) => `<div class="tt-req">${esc(l)}</div>`).join("")}</div>` : ""}
     ${resists || stats ? `<hr>${resists}${stats}` : ""}
-    ${own.length ? `<hr><dl class="tt-own">${own.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join("")}</dl>` : ""}
-    ${tt.misc ? `<hr><div class="tt-misc">${tt.misc.map(esc).join("<br>")}</div>` : ""}
+    ${bonus ? `<hr>${bonus}` : ""}
+    ${misc.length ? `<hr><div class="tt-misc">${misc.map(esc).join("<br>")}</div>` : ""}
     ${rep}
-    <div class="tt-price">${r.sp ? `Sells for ${num(r.sp)} gil` : "Cannot be sold"}${r.bp ? ` · Buy ${num(r.bp)} gil` : ""}</div>
+    <div class="tt-price">${r.sp ? `Sells for ${num(r.sp)} gil` : "Cannot be sold"}${r.bp ? ` · Buy ${num(r.bp)} gil` : ""}${r.st > 1 ? ` · Stack ${num(r.st)}` : ""}</div>
   </div>`;
 }
 

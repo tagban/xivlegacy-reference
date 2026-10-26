@@ -25,6 +25,48 @@ ITEM_KINDS = {"StandardItem": "Item", "FoodItem": "Food", "PotionItem": "Medicin
               "CmnBadStatusItem": "Medicine", "CmnRemoveStatusItem": "Remedy", "CmnGoodStatusItem": "Medicine",
               "RaiseItem": "Revival", "AdditionalEffectEquipItem": "Gear", "SpecialEquipItem": "Gear",
               "EnchantItem": "Enhancement", "DummyItem": "Other"}
+# ZAM's item slots, by the client's equipPoint (ZAM's itemlist.html?slot=).
+SLOTS = {2: "Shield", 5: "Throwing Weapon", 6: "Pack", 9: "Head", 10: "Undershirt", 11: "Body",
+         12: "Undergarment", 13: "Legs", 14: "Hands", 15: "Feet", 16: "Waist", 17: "Neck",
+         36: "One-Handed Weapon", 37: "Two-Handed Weapon", 38: "Bow", 39: "Primary Tool",
+         40: "Secondary Tool", 42: "Cowl", 43: "Wrist", 44: "Legs", 45: "Ear", 47: "Finger", 49: "Wrist"}
+CLASSES = {2: "Pugilist", 3: "Gladiator", 4: "Marauder", 7: "Archer", 8: "Lancer", 22: "Thaumaturge",
+           23: "Conjurer", 29: "Carpenter", 30: "Blacksmith", 31: "Armorer", 32: "Goldsmith",
+           33: "Leatherworker", 34: "Weaver", 35: "Alchemist", 36: "Culinarian", 39: "Miner",
+           40: "Botanist", 41: "Fisher"}
+# Item bonus codes: 15001 + the stat's id (food uses 1015001 +). Labels as
+# ZAM printed them; checked against ZAM's cards (Dated Cotton Coif, Meat Miq'abob).
+STATS = {0: "HP", 1: "MP", 2: "TP", 3: "Strength", 4: "Vitality", 5: "Dexterity", 6: "Intelligence",
+         7: "Mind", 8: "Piety", 9: "Fire Resistance", 10: "Ice Resistance", 11: "Wind Resistance",
+         12: "Earth Resistance", 13: "Lightning Resistance", 14: "Water Resistance", 15: "Accuracy",
+         16: "Evasion", 17: "Attack Power", 18: "Defense", 19: "Critical Hit Rate",
+         20: "Critical Hit Evasion", 21: "Critical Hit Potency", 22: "Critical Hit Resilience",
+         23: "Attack Magic Potency", 24: "Healing Magic Potency", 25: "Enhancement Magic Potency",
+         26: "Enfeebling Magic Potency", 27: "Magic Accuracy", 28: "Magic Evasion", 29: "Craftsmanship",
+         30: "Magic Craftsmanship", 31: "Control", 32: "Gathering", 33: "Output", 34: "Perception",
+         39: "Parry", 40: "Block Rate", 41: "Block", 48: "Regen", 49: "Refresh", 50: "Store TP",
+         51: "Enmity", 53: "Haste", 56: "Reduced Durability Loss", 57: "Spiritbond Gain",
+         61: "Movement Speed", 62: "EXP Bonus", 63: "Resting HP", 64: "Resting MP",
+         65: "Slashing Resistance", 66: "Piercing Resistance", 67: "Blunt Resistance"}
+DAMAGE_TYPES = {1: "Slashing", 2: "Piercing", 3: "Blunt", 4: "Projectile"}
+
+
+def bonuses(eq):
+    out = []
+    for i in range(1, 11):
+        t, v = eq.get(f"paramBonusType{i}"), eq.get(f"paramBonusValue{i}")
+        if t is None or t < 0 or not v:
+            continue
+        food = t >= 1000000
+        code = t - 1000000 if food else t
+        # food's 1015063 isn't on ZAM's cards: unverified, left out
+        if food and code == 15063:
+            continue
+        if 15001 <= code <= 15105 and (code - 15001) in STATS:
+            out.append([STATS[code - 15001], v])
+    return out
+
+
 QUEST_KINDS = {"man": "Main Scenario", "etc": "Side Quest", "wld": "Guild / Class",
                "pgl": "Grand Company", "trl": "Tutorial", "dft": "Default Talk"}
 
@@ -33,6 +75,14 @@ def pretty(name):
     """'wharf_rat' -> 'Wharf Rat'; drops a quest prefix like 'man0l1_'."""
     name = re.sub(r"^[a-z]{3}\d[a-z]\d_", "", name or "")
     return " ".join(w[:1].upper() + w[1:] for w in re.split(r"[_\s]+", name) if w)
+
+
+def icon_code(icon):
+    """The client's icon number as ZAM named its icon files:
+    60001 -> 1C5F0001 (0x1C59 + icon / 10000, then icon % 10000)."""
+    if not icon or icon >= 600000:
+        return None
+    return "%04X%04X" % (0x1C59 + icon // 10000, icon % 10000)
 
 
 def item_kind(r, weapons, armor):
@@ -110,6 +160,7 @@ def main():
 
     # --- items ---------------------------------------------------------------
     weapons = {r["catalogID"]: r for r in rows(db, "SELECT * FROM gamedata_items_weapon")}
+    equipment = {r["catalogID"]: r for r in rows(db, "SELECT * FROM gamedata_items_equipment")}
     armor = {r["catalogID"]: r for r in rows(db, "SELECT * FROM gamedata_items_armor")}
     items = []
     names = {}
@@ -119,16 +170,28 @@ def main():
         it = {"id": cid, "n": r["name"], "c": item_kind(r, weapons, armor),
               "lv": r["level"], "il": r["itemLevel"], "el": r["equipLevel"], "st": r["stackSize"],
               "sp": r["sellPrice"], "bp": r["buyPrice"], "r": r["rarity"],
-              "rare": r["isRare"], "ex": r["isExclusive"]}
-        if r["repairSkill"]:
-            it["rep"] = [r["repairSkill"], r["repairLevel"]]
+              "rare": r["isRare"], "ex": r["isExclusive"], "ic": icon_code(r["icon"])}
+        eq = equipment.get(cid)
+        if eq:
+            if eq["equipPoint"] in SLOTS:
+                it["sl"] = SLOTS[eq["equipPoint"]]
+            b = bonuses(eq)
+            if b:
+                it["b"] = b
+        if r["mainSkill"] in CLASSES:
+            it["req"] = CLASSES[r["mainSkill"]]
+        if r["durability"]:
+            it["dur"] = r["durability"]
+        if r["repairSkill"] in CLASSES:
+            it["rep"] = [CLASSES[r["repairSkill"]], r["repairItem"], r["repairItemNum"], r["repairLevel"]]
         w = weapons.get(cid)
         if w and w["damagePower"]:
             it["w"] = {"dmg": w["damagePower"], "dly": w["damageInterval"], "atk": w["attack"],
-                       "matk": w["magicAttack"], "par": w["parry"]}
+                       "matk": w["magicAttack"], "par": w["parry"], "hits": w["frequency"],
+                       "type": DAMAGE_TYPES.get(w["damageAttributeType1"])}
         a = armor.get(cid)
         if a and (a["defense"] or a["magicDefense"] or a["evasion"]):
-            it["a"] = {"def": a["defense"], "mdef": a["magicDefense"], "eva": a["evasion"]}
+            it["a"] = {"def": a["defense"], "mdef": a["magicDefense"], "eva": a["evasion"], "res": a["criticalDefense"]}
         items.append({k: v for k, v in it.items() if v not in (None, 0, "", 0.0)} | {"id": cid, "n": r["name"]})
 
     # --- recipes -------------------------------------------------------------
@@ -271,7 +334,7 @@ def merge_zam(zam_dir, items, mobs, quests, leves):
             if tt.get("icon"):
                 it["ic"] = tt["icon"]
             slot = next((m.split("Slot:", 1)[1].strip() for m in tt.get("misc", []) if "Slot:" in m), None)
-            if slot:
+            if slot and not it.get("sl"):
                 it["sl"] = slot
         drops = [[r[0][0], r[1][0], r[2][0], r[0][1]] for r in rows(page, "Dropped_By") if len(r) >= 3]
         harvest = [[r[1][0], r[2][0], r[3][0]] for r in rows(page, "Harvested_From") if len(r) >= 4]

@@ -156,3 +156,8 @@ ul.plain li { padding: 4px 0; border-bottom: 1px solid rgba(45, 69, 112, 0.4); }
 .steps { padding-left: 20px; margin: 0; }
 .steps li { margin-bottom: 10px; }
 .step-journal { color: var(--muted); font-size: 13px; margin-top: 4px; border-left: 2px solid var(--panel-edge); padding-left: 10px; }
+.tt-stats th { text-transform: none; letter-spacing: 0; font-size: 13px; font-weight: 400; color: var(--muted); width: 60%; }
+.tt-bonus { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3px 18px; font-size: 13px; }
+.tt-bonus li { display: flex; justify-content: space-between; gap: 8px; }
+.tt-bonus b { color: var(--good); font-weight: 600; font-variant-numeric: tabular-nums; }
+td.small { font-size: 12px; color: var(--muted); max-width: 320px; }
