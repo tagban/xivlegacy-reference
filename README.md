@@ -11,6 +11,9 @@ each quest shows whether the server has a script for it yet.
 - **The game:** names, stats, recipes, quests, spawns and zones come from the 1.23b client data the
   XIVLegacy server ships with. `tools/build.py` reads only the game-data tables of a server
   database, never characters or accounts.
+- **The client's own files:** icons (`tools/game_icons.py`, GTEX textures → PNG) and item
+  descriptions (`tools/game_text.py`, the XOR-0x73 text sheets in `data/0B/45`), read straight
+  from a 1.23b install.
 - **ZAM:** drops, harvesting and leve details come from ZAM's FFXIV database (2010–2012), preserved
   by the Internet Archive. `tools/zam_fetch.py` fetches the archived pages; only factual tables
   are used (no user comments), and each page links back to its archived original.
@@ -18,6 +21,8 @@ each quest shows whether the server has a script for it yet.
 ## Building
 
 ```bash
+tools/game_icons.py "<1.23b install>"     # icons -> docs/icons
+tools/game_text.py "<1.23b install>" <cache dir>
 tools/zam_fetch.py <cache dir>            # slow and polite: the Wayback Machine, one page at a time
 tools/build.py <server db> [<cache dir>]  # writes docs/data/*.json
 python3 -m http.server -d docs            # preview

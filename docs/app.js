@@ -102,6 +102,10 @@ const SECTIONS = {
     filters: [["Grade", (r) => r.gr], ["On XIVLegacy", (r) => (r.placed.length ? "placed" : "not placed")]],
     text: (r) => `${r.n} ${r.y.map((y) => IX.items[y[0]]?.n || "").join(" ")}`,
   },
+  icons: {
+    title: "Unseen Icons", lede: "Item icons in the 1.23b client that no item uses: cut items, unreleased gear, and art no database ever showed.",
+    cols: [], filters: [], text: (r) => r.n,
+  },
   achievements: {
     title: "Achievements", lede: "All achievements in 1.23b.",
     cols: [
@@ -126,13 +130,19 @@ const SECTIONS = {
 // --- data ------------------------------------------------------------------
 
 async function load() {
-  const names = [...Object.keys(SECTIONS), "meta"];
+  const names = [...Object.keys(SECTIONS).filter((n) => n !== "icons"), "meta"];
   const got = await Promise.all(names.map((n) => fetch(`data/${n}.json`).then((r) => (r.ok ? r.json() : n === "meta" ? {} : []))));
   names.forEach((n, i) => (D[n] = got[i]));
-  for (const n of Object.keys(SECTIONS)) {
+  D.iconIndex = await fetch("data/icons.json").then((r) => (r.ok ? r.json() : [])).catch(() => []);
+  D.icons = [];
+  for (const n of Object.keys(SECTIONS).filter((k) => k !== "icons")) {
     IX[n] = {};
     for (const r of D[n]) if (!(r.id in IX[n])) IX[n][r.id] = r;
   }
+  // icons no item uses (the item-icon folders, 64px)
+  const used = new Set(D.items.map((i) => i.ic));
+  D.icons = (D.iconIndex || []).filter(([c, w, , blank]) => w === 64 && !blank && ["5F", "60", "61"].includes(c.slice(2, 4)) && !used.has(c)).map(([c]) => ({ id: c, n: c }));
+  IX.icons = {};
   // relations used by detail pages
   D.madeFrom = {}; D.usedIn = {};
   for (const r of D.recipes) {
@@ -162,7 +172,15 @@ function home() {
     <div class="tiles">${tiles}</div>`;
 }
 
+function iconGallery() {
+  tabs("icons");
+  const S = SECTIONS.icons;
+  return `<h1>${S.title}</h1><p class="lede">${esc(S.lede)} ${num(D.icons.length)} icons.</p>
+    <div class="gallery">${D.icons.map((r) => `<figure>${icon(r.id, r.id)}<figcaption>${esc(r.id)}</figcaption></figure>`).join("")}</div>`;
+}
+
 function list(sec, query) {
+  if (sec === "icons") return iconGallery();
   const S = SECTIONS[sec];
   tabs(sec);
   let rows = D[sec];
@@ -310,7 +328,7 @@ function card(r, z) {
   const flags = (tt.flags?.length ? tt.flags : [r.rare && "Unique", r.ex && "Untradable"].filter(Boolean))
     .map((f) => `<span class="tag ${f.toLowerCase()}">${esc(f)}</span>`).join(" ");
   const type = tt.type || (r.req ? `${r.req}'s ${r.sl && /Weapon|Bow/.test(r.sl) ? "Arm" : r.sl || r.c}` : r.sl || r.c || "");
-  const prose = (tt.desc || []).filter((l) => !/^(Requires|Optimal Rank|Suits)/.test(l));
+  const prose = r.d ? [r.d] : (tt.desc || []).filter((l) => !/^(Requires|Optimal Rank|Suits)/.test(l));
   const suits = (tt.desc || []).find((l) => /^Suits/.test(l));
   const req = [r.req && `Requires: ${r.req}`, suits, r.lv && (r.sl || r.c === "Food" || r.c === "Medicine") && `Optimal Rank: ${r.lv}`].filter(Boolean);
   const attrs = r.a ? [["Defense", r.a.def], ["Magic Defense", r.a.mdef], ["Evasion", r.a.eva], ["Resilience", r.a.res]] : [];

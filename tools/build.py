@@ -290,6 +290,12 @@ def main():
 
     if zam_dir:
         merge_zam(zam_dir, items, mobs, quests, leves)
+        text = os.path.join(zam_dir, "game_text.json")
+        if os.path.exists(text):
+            desc = json.load(open(text))["items"]
+            for it in items:
+                if it["n"] in desc:
+                    it["d"] = desc[it["n"]]
     # a leve is shown once something names it (the client data doesn't)
     leves = [lv for lv in leves if lv["n"]]
 
