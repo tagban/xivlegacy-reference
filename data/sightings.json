@@ -71,5 +71,29 @@
   "note": "Target of the leve \"Crabs in the Cellar\" (started at 13:00); the game's own leve text places it in the flooded chambers of the Mun-Tuy Cellars.",
   "era": "December 2010 (patch 1.15)",
   "leve": 13025
+ },
+ {
+  "zone": 157,
+  "name": "Alux",
+  "ids": [
+   3102611
+  ],
+  "nm": true,
+  "video": "MiNYqixW7Tc",
+  "t": 78,
+  "note": "One of the Cellars' two notorious monsters (Speakers Network, \"Remnants of a Realm\" episode V).",
+  "era": "1.0 (retrospective, 2017)"
+ },
+ {
+  "zone": 157,
+  "name": "Prince of Pestilence",
+  "ids": [
+   3100612
+  ],
+  "nm": true,
+  "video": "MiNYqixW7Tc",
+  "t": 78,
+  "note": "One of the Cellars' two notorious monsters (Speakers Network, \"Remnants of a Realm\" episode V).",
+  "era": "1.0 (retrospective, 2017)"
  }
 ]

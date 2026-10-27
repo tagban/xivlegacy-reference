@@ -320,6 +320,8 @@ def main():
             by_cls.setdefault(m["cls"], []).append(m)
         for sg in json.load(open(sight_path)):
             seen = {"zone": sg["zone"], "video": sg["video"], "t": sg["t"], "note": sg.get("note"), "era": sg.get("era")}
+            if sg.get("nm"):
+                seen["nm"] = 1
             hits = [m for i in sg["ids"] for m in by_cls.get(i, [])]
             if not hits:
                 m = {"id": sg["ids"][0], "cls": sg["ids"][0], "n": sg["name"], "z": sg["zone"], "lv": [0, 0],
@@ -355,6 +357,9 @@ def main():
     write("leves", leves)
     write("achievements", achievements)
     write("harvest", harvest)
+    notes_path = os.path.join(ROOT, "data", "zone_notes.json")
+    with open(os.path.join(OUT, "zone_notes.json"), "w") as f:
+        json.dump(json.load(open(notes_path)) if os.path.exists(notes_path) else {}, f, ensure_ascii=False)
     with open(os.path.join(OUT, "meta.json"), "w") as f:
         json.dump({"counts": {"items": len(items), "recipes": len(recipes), "npcs": len(npc_list),
                               "monsters": len(mobs), "quests": len(quests), "leves": len(leves), "harvest": len(harvest),

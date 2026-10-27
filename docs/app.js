@@ -133,6 +133,7 @@ async function load() {
   const names = [...Object.keys(SECTIONS).filter((n) => n !== "icons"), "meta"];
   const got = await Promise.all(names.map((n) => fetch(`data/${n}.json`).then((r) => (r.ok ? r.json() : n === "meta" ? {} : []))));
   names.forEach((n, i) => (D[n] = got[i]));
+  D.zoneNotes = await fetch("data/zone_notes.json").then((r) => (r.ok ? r.json() : {})).catch(() => ({}));
   D.iconIndex = await fetch("data/icons.json").then((r) => (r.ok ? r.json() : [])).catch(() => []);
   D.icons = [];
   for (const n of Object.keys(SECTIONS).filter((k) => k !== "icons")) {
@@ -293,8 +294,14 @@ const DETAIL = {
   zones(r) {
     const npcs = D.npcs.filter((n) => n.z === r.id && !n.pa);
     const mobs = D.monsters.filter((m) => m.z === r.id || (m.zz || []).includes(r.id));
-    return `<div class="card"><h1>${esc(r.n)}</h1>${facts([["NPCs", num(npcs.length)], ["Monsters", num(mobs.length)], ["Zone id", r.id]])}</div>
-      ${mobs.length ? `<h2>Monsters</h2>${mobs.some((m) => (m.zn || []).some((n) => ["La Noscea", "Thanalan", "The Black Shroud", "Coerthas", "Mor Dhona"].includes(n))) ? '<p class="src">ZAM recorded outdoor monsters by region (La Noscea, Thanalan, the Black Shroud…), so they appear on every field zone of their region.</p>' : ""}<ul class="plain">${mobs.sort((a, b) => a.lv[0] - b.lv[0]).map((m) => `<li>${link("monsters", m.id, m.n)}${lv(m.lv) !== "—" ? ` <span class="tag">level ${lv(m.lv)}</span>` : ""}${m.sp ? ' <span class="tag good">spawns on XIVLegacy</span>' : ' <span class="tag">not spawned yet</span>'}${(m.seen || []).some((x) => x.zone === r.id) ? ' <span class="tag gold">seen in era video</span>' : ""}</li>`).join("")}</ul>` : ""}
+    const zn = D.zoneNotes[r.id];
+    const notesHtml = zn ? `<div class="card leve-text">${zn.about ? `<p>${esc(zn.about)}</p>` : ""}
+      ${zn.entrances ? `<h2>Getting there</h2><ul class="plain">${zn.entrances.map((e) => `<li>${esc(e)}</li>`).join("")}</ul>` : ""}
+      ${zn.areas ? `<h2>Areas</h2><p>${zn.areas.map(esc).join(" · ")}</p>` : ""}
+      ${zn.fish ? `<h2>Fishing</h2><ul class="plain">${zn.fish.map((id) => `<li><span class="name-cell">${icon(IX.items[id]?.ic)}${itemLink(id)}</span></li>`).join("")}</ul>` : ""}
+      ${zn.sources ? `<p class="src">Sources: ${zn.sources.map(([t, u]) => `<a href="${esc(u)}">${esc(t)}</a>`).join(" · ")}</p>` : ""}</div>` : "";
+    return `<div class="card"><h1>${esc(r.n)}</h1>${facts([["NPCs", num(npcs.length)], ["Monsters", num(mobs.length)], ["Zone id", r.id]])}</div>${notesHtml}
+      ${mobs.length ? `<h2>Monsters</h2>${mobs.some((m) => (m.zn || []).some((n) => ["La Noscea", "Thanalan", "The Black Shroud", "Coerthas", "Mor Dhona"].includes(n))) ? '<p class="src">ZAM recorded outdoor monsters by region (La Noscea, Thanalan, the Black Shroud…), so they appear on every field zone of their region.</p>' : ""}<ul class="plain">${mobs.sort((a, b) => a.lv[0] - b.lv[0]).map((m) => `<li>${link("monsters", m.id, m.n)}${lv(m.lv) !== "—" ? ` <span class="tag">level ${lv(m.lv)}</span>` : ""}${m.sp ? ' <span class="tag good">spawns on XIVLegacy</span>' : ' <span class="tag">not spawned yet</span>'}${(m.seen || []).some((x) => x.zone === r.id && x.nm) ? ' <span class="tag unique">notorious monster</span>' : ""}${(m.seen || []).some((x) => x.zone === r.id) ? ' <span class="tag gold">seen in era video</span>' : ""}</li>`).join("")}</ul>` : ""}
       ${npcs.length ? `<h2>NPCs</h2><ul class="plain">${npcs.map((n) => `<li>${link("npcs", n.id, n.n)}</li>`).join("")}</ul>` : ""}`;
   },
 };
