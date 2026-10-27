@@ -393,7 +393,9 @@ def merge_zam_monsters(zam, mobs, zone_map, game_names):
             for m in by_cls[cls]:
                 m.update({k: v for k, v in facts.items() if v})
         else:
-            name = game_names.get(cls) or page.get("name") or f"Monster {cls}"
+            name = game_names.get(cls) or page.get("name")
+            if not name or name.startswith("Not Found"):
+                continue
             mobs.append({"id": cls, "cls": cls, "n": name[0].upper() + name[1:], "z": zids[0] if zids else None,
                          "lv": [lv[0], lv[-1]] if lv else [0, 0], "g": facts["race"],
                          "ag": 1 if (info.get("Aggressive") or [""])[0] == "Yes" else 0,

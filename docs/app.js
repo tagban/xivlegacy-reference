@@ -14,7 +14,7 @@ const zone = (id) => (IX.zones[id] ? IX.zones[id].n : id ? `Zone ${id}` : "—")
 const link = (sec, id, text) => `<a href="#${sec}/${id}">${esc(text ?? id)}</a>`;
 const itemLink = (id) => (IX.items[id] ? link("items", id, IX.items[id].n) : `<span class="empty">item ${id}</span>`);
 const zoneLink = (id) => (IX.zones[id] ? link("zones", id, IX.zones[id].n) : esc(zone(id)));
-const lv = (a) => (Array.isArray(a) ? (a[0] === a[1] ? a[0] : `${a[0]}–${a[1]}`) : a || "—");
+const lv = (a) => (Array.isArray(a) ? (!a[0] && !a[1] ? "—" : a[0] === a[1] ? a[0] : `${a[0]}–${a[1]}`) : a || "—");
 
 // --- sections --------------------------------------------------------------
 
@@ -293,7 +293,7 @@ const DETAIL = {
     const npcs = D.npcs.filter((n) => n.z === r.id && !n.pa);
     const mobs = D.monsters.filter((m) => m.z === r.id || (m.zz || []).includes(r.id));
     return `<div class="card"><h1>${esc(r.n)}</h1>${facts([["NPCs", num(npcs.length)], ["Monsters", num(mobs.length)], ["Zone id", r.id]])}</div>
-      ${mobs.length ? `<h2>Monsters</h2>${mobs.some((m) => m.zam && m.z !== r.id) ? '<p class="src">ZAM recorded outdoor monsters by region (La Noscea, Thanalan, the Black Shroud…), so they appear on every field zone of their region.</p>' : ""}<ul class="plain">${mobs.sort((a, b) => a.lv[0] - b.lv[0]).map((m) => `<li>${link("monsters", m.id, m.n)} <span class="tag">level ${lv(m.lv)}</span>${m.sp ? ' <span class="tag good">spawns on XIVLegacy</span>' : ' <span class="tag">not spawned yet</span>'}</li>`).join("")}</ul>` : ""}
+      ${mobs.length ? `<h2>Monsters</h2>${mobs.some((m) => (m.zn || []).some((n) => ["La Noscea", "Thanalan", "The Black Shroud", "Coerthas", "Mor Dhona"].includes(n))) ? '<p class="src">ZAM recorded outdoor monsters by region (La Noscea, Thanalan, the Black Shroud…), so they appear on every field zone of their region.</p>' : ""}<ul class="plain">${mobs.sort((a, b) => a.lv[0] - b.lv[0]).map((m) => `<li>${link("monsters", m.id, m.n)}${lv(m.lv) !== "—" ? ` <span class="tag">level ${lv(m.lv)}</span>` : ""}${m.sp ? ' <span class="tag good">spawns on XIVLegacy</span>' : ' <span class="tag">not spawned yet</span>'}</li>`).join("")}</ul>` : ""}
       ${npcs.length ? `<h2>NPCs</h2><ul class="plain">${npcs.map((n) => `<li>${link("npcs", n.id, n.n)}</li>`).join("")}</ul>` : ""}`;
   },
 };
