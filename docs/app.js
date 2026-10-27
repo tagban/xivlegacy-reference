@@ -260,6 +260,7 @@ const DETAIL = {
     return `<div class="card"><h1>${esc(r.n)}</h1><span class="tag">${esc(r.g || "Monster")}</span>${r.ag ? '<span class="tag warn">aggressive</span>' : ""}
       ${r.sp ? '<span class="tag good">spawns on XIVLegacy</span>' : '<span class="tag warn">not spawned on XIVLegacy yet</span>'}
       ${facts([["Level", lv(r.lv)], ["Zone", r.zz?.length ? r.zz.map(zoneLink).join(", ") : r.z ? zoneLink(r.z) : esc((r.zn || []).join(", "))], ["Spawn points", r.sp], ["Respawn", r.re ? r.re + " s" : null], ["Family", esc(r.g)], ["Element", esc(r.el)]])}</div>
+      ${r.seen?.length ? `<h2>Seen in era videos</h2><ul class="plain">${r.seen.map((x) => `<li>${zoneLink(x.zone)} · <a href="https://youtu.be/${esc(x.video)}?t=${x.t}">video at ${Math.floor(x.t / 60)}:${String(x.t % 60).padStart(2, "0")}</a>${x.era ? ` <span class="tag">${esc(x.era)}</span>` : ""}${x.note ? `<div class="step-journal">${esc(x.note)}</div>` : ""}</li>`).join("")}</ul>` : ""}
       ${r.dr?.length ? `<h2>Drops</h2><ul class="plain">${r.dr.map((id) => `<li><span class="name-cell">${icon(IX.items[id]?.ic)}${itemLink(id)}</span></li>`).join("")}</ul><p class="src">Drops from ZAM.</p>` : ""}
       ${same.length ? `<h2>Also found</h2><ul class="plain">${same.map((m) => `<li>${link("monsters", m.id, m.n)} · ${zoneLink(m.z)} · level ${lv(m.lv)}</li>`).join("")}</ul>` : ""}`;
   },
@@ -293,7 +294,7 @@ const DETAIL = {
     const npcs = D.npcs.filter((n) => n.z === r.id && !n.pa);
     const mobs = D.monsters.filter((m) => m.z === r.id || (m.zz || []).includes(r.id));
     return `<div class="card"><h1>${esc(r.n)}</h1>${facts([["NPCs", num(npcs.length)], ["Monsters", num(mobs.length)], ["Zone id", r.id]])}</div>
-      ${mobs.length ? `<h2>Monsters</h2>${mobs.some((m) => (m.zn || []).some((n) => ["La Noscea", "Thanalan", "The Black Shroud", "Coerthas", "Mor Dhona"].includes(n))) ? '<p class="src">ZAM recorded outdoor monsters by region (La Noscea, Thanalan, the Black Shroud…), so they appear on every field zone of their region.</p>' : ""}<ul class="plain">${mobs.sort((a, b) => a.lv[0] - b.lv[0]).map((m) => `<li>${link("monsters", m.id, m.n)}${lv(m.lv) !== "—" ? ` <span class="tag">level ${lv(m.lv)}</span>` : ""}${m.sp ? ' <span class="tag good">spawns on XIVLegacy</span>' : ' <span class="tag">not spawned yet</span>'}</li>`).join("")}</ul>` : ""}
+      ${mobs.length ? `<h2>Monsters</h2>${mobs.some((m) => (m.zn || []).some((n) => ["La Noscea", "Thanalan", "The Black Shroud", "Coerthas", "Mor Dhona"].includes(n))) ? '<p class="src">ZAM recorded outdoor monsters by region (La Noscea, Thanalan, the Black Shroud…), so they appear on every field zone of their region.</p>' : ""}<ul class="plain">${mobs.sort((a, b) => a.lv[0] - b.lv[0]).map((m) => `<li>${link("monsters", m.id, m.n)}${lv(m.lv) !== "—" ? ` <span class="tag">level ${lv(m.lv)}</span>` : ""}${m.sp ? ' <span class="tag good">spawns on XIVLegacy</span>' : ' <span class="tag">not spawned yet</span>'}${(m.seen || []).some((x) => x.zone === r.id) ? ' <span class="tag gold">seen in era video</span>' : ""}</li>`).join("")}</ul>` : ""}
       ${npcs.length ? `<h2>NPCs</h2><ul class="plain">${npcs.map((n) => `<li>${link("npcs", n.id, n.n)}</li>`).join("")}</ul>` : ""}`;
   },
 };

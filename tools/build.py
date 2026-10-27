@@ -311,6 +311,26 @@ def main():
             for it in items:
                 if it["n"] in desc:
                     it["d"] = desc[it["n"]]
+    # community sightings (data/sightings.json): monsters seen in era videos
+    sight_path = os.path.join(ROOT, "data", "sightings.json")
+    if os.path.exists(sight_path):
+        by_cls = {}
+        for m in mobs:
+            by_cls.setdefault(m["cls"], []).append(m)
+        for sg in json.load(open(sight_path)):
+            seen = {"zone": sg["zone"], "video": sg["video"], "t": sg["t"], "note": sg.get("note"), "era": sg.get("era")}
+            hits = [m for i in sg["ids"] for m in by_cls.get(i, [])]
+            if not hits:
+                m = {"id": sg["ids"][0], "cls": sg["ids"][0], "n": sg["name"], "z": sg["zone"], "lv": [0, 0],
+                     "sp": 0, "zam": 0}
+                mobs.append(m)
+                by_cls[m["cls"]] = [m]
+                hits = [m]
+            for m in hits[:1]:
+                m["zz"] = sorted(set(m.get("zz", [])) | {sg["zone"]})
+                m.setdefault("seen", []).append(seen)
+        print(f"sightings: {sum(1 for _ in json.load(open(sight_path)))}")
+
     # a leve is shown once something names it; targets by the game's names
     leves = [lv for lv in leves if lv.get("n")]
     sheet_names = {}

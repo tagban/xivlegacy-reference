@@ -1,0 +1,14 @@
+[
+  {"zone": 157, "name": "Deepground puk", "ids": [3200103, 3200104], "level": "~30", "video": "ty6f9Gy0uws", "t": 95,
+   "note": "Target of the leve \"Winning Up\" (eliminate 8); drops puk wings.", "era": "December 2010 (patch 1.15)"},
+  {"zone": 157, "name": "Mun-Tuy squirrel", "ids": [3104007], "video": "ty6f9Gy0uws", "t": 95,
+   "note": "Seen in the tunnels.", "era": "December 2010 (patch 1.15)"},
+  {"zone": 157, "name": "Opo-opo", "ids": [3100503, 3100504], "video": "ty6f9Gy0uws", "t": 420,
+   "note": "Fought after \"Winning Up\" completes.", "era": "December 2010 (patch 1.15)"},
+  {"zone": 157, "name": "Croft kalong", "ids": [3204104, 3204105, 3204106], "video": "ty6f9Gy0uws", "t": 620,
+   "note": "Appears during the leve \"Necrologos: The Ever-tracking Claw\" (\"An unexpected monster appears!\"); drops cotton bolls.", "era": "December 2010 (patch 1.15)"},
+  {"zone": 157, "name": "Bog yarzon", "ids": [3205507], "video": "ty6f9Gy0uws", "t": 710,
+   "note": "Summoned from a torn Necrologos page.", "era": "December 2010 (patch 1.15)"},
+  {"zone": 157, "name": "Delta crab", "ids": [3207604], "video": "ty6f9Gy0uws", "t": 780,
+   "note": "Target of the leve \"Crabs in the Cellar\" (started at 13:00); the game's own leve text places it in the flooded chambers of the Mun-Tuy Cellars.", "era": "December 2010 (patch 1.15)"}
+]

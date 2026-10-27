@@ -29,6 +29,10 @@ each quest shows whether the server has a script for it yet.
   by the Internet Archive. `tools/zam_fetch.py` fetches the archived pages; only factual tables
   are used (no user comments), and each page links back to its archived original.
 
+- **Era videos:** monsters seen in 2010–2012 gameplay videos, for places no database recorded,
+  are kept by hand in `data/sightings.json` (zone, game ids, video and timestamp, notes). Send new
+  ones on the Discord.
+
 ## Building
 
 ```bash
