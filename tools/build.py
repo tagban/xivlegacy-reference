@@ -387,8 +387,14 @@ ZAM_ZONE_NAMES = {1: "La Noscea", 2: "Limsa Lominsa", 5: "Thanalan", 6: "The Bla
 MONSTER_ROLES = ("Monster", "Notorious Monster", "Leve Monster")
 
 
+# boss arenas share their region's field-zone prefix (Thornmarch even shares
+# West Shroud's name): ZAM's region monsters don't belong there
+ARENAS = ("The Howling Eye", "The Bowl of Embers", "Thornmarch", "Transmission Tower", "Rivenroad")
+
+
 def zam_zone_ids(db):
-    names = list(db.execute("SELECT id, zoneName FROM server_zones WHERE zoneName != ''"))
+    names = [(i, n) for i, n, p in db.execute("SELECT id, zoneName, placeName FROM server_zones WHERE zoneName != ''")
+             if p not in ARENAS]
     out = {}
     for zid, rule in ZAM_ZONES.items():
         if rule[0] == "prefix":

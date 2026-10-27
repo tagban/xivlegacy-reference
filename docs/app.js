@@ -298,6 +298,8 @@ const DETAIL = {
     const notesHtml = zn ? `<div class="card leve-text">${zn.about ? `<p>${esc(zn.about)}</p>` : ""}
       ${zn.entrances ? `<h2>Getting there</h2><ul class="plain">${zn.entrances.map((e) => `<li>${esc(e)}</li>`).join("")}</ul>` : ""}
       ${zn.areas ? `<h2>Areas</h2><p>${zn.areas.map(esc).join(" · ")}</p>` : ""}
+      ${zn.chests ? `<h2>Treasure chests</h2><ul class="plain">${zn.chests.map((c) => `<li>${esc(c)}</li>`).join("")}</ul>` : ""}
+      ${zn.mining ? `<h2>Mining</h2><ul class="plain">${zn.mining.map((id) => `<li><span class="name-cell">${icon(IX.items[id]?.ic)}${itemLink(id)}</span></li>`).join("")}</ul>` : ""}
       ${zn.fish ? `<h2>Fishing</h2><ul class="plain">${zn.fish.map((id) => `<li><span class="name-cell">${icon(IX.items[id]?.ic)}${itemLink(id)}</span></li>`).join("")}</ul>` : ""}
       ${zn.sources ? `<p class="src">Sources: ${zn.sources.map(([t, u]) => `<a href="${esc(u)}">${esc(t)}</a>`).join(" · ")}</p>` : ""}</div>` : "";
     return `<div class="card"><h1>${esc(r.n)}</h1>${facts([["NPCs", num(npcs.length)], ["Monsters", num(mobs.length)], ["Zone id", r.id]])}</div>${notesHtml}

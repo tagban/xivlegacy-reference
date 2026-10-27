@@ -95,5 +95,173 @@
   "t": 78,
   "note": "One of the Cellars' two notorious monsters (Speakers Network, \"Remnants of a Realm\" episode V).",
   "era": "1.0 (retrospective, 2017)"
+ },
+ {
+  "zone": 176,
+  "name": "Bardi",
+  "ids": [
+   3101415
+  ],
+  "nm": true,
+  "video": "_hV_Z4d3Rkw",
+  "t": 144,
+  "note": "One of Nanawa Mines' two notorious monsters (Speakers Network, \"Remnants of a Realm\" episode IV).",
+  "era": "1.0 (retrospective, 2017)"
+ },
+ {
+  "zone": 176,
+  "name": "Kokoroon Quickfingers",
+  "ids": [
+   3106312
+  ],
+  "nm": true,
+  "video": "_hV_Z4d3Rkw",
+  "t": 144,
+  "note": "One of Nanawa Mines' two notorious monsters (Speakers Network, \"Remnants of a Realm\" episode IV).",
+  "era": "1.0 (retrospective, 2017)"
+ },
+ {
+  "zone": 159,
+  "name": "Antares",
+  "ids": [
+   3201108
+  ],
+  "nm": true,
+  "video": "_hV_Z4d3Rkw",
+  "t": 294,
+  "note": "One of three bosses; a party faced only one per run (Speakers Network, \"Remnants of a Realm\" episode IV).",
+  "era": "1.0 (retrospective, 2017)"
+ },
+ {
+  "zone": 159,
+  "name": "Sargas",
+  "ids": [
+   3201109
+  ],
+  "nm": true,
+  "video": "_hV_Z4d3Rkw",
+  "t": 294,
+  "note": "One of three bosses; a party faced only one per run (Speakers Network, \"Remnants of a Realm\" episode IV).",
+  "era": "1.0 (retrospective, 2017)"
+ },
+ {
+  "zone": 159,
+  "name": "Shaula",
+  "ids": [
+   3201110
+  ],
+  "nm": true,
+  "video": "_hV_Z4d3Rkw",
+  "t": 294,
+  "note": "One of three bosses; a party faced only one per run (Speakers Network, \"Remnants of a Realm\" episode IV).",
+  "era": "1.0 (retrospective, 2017)"
+ },
+ {
+  "zone": 231,
+  "name": "Deepvoid slave",
+  "ids": [
+   3202503
+  ],
+  "nm": true,
+  "video": "u-OWLkzFfzQ",
+  "t": 258,
+  "note": "First boss; artifact gear for Monk and White Mage was found in its room. Renamed Taulurd in A Realm Reborn (Speakers Network, \"Remnants of a Realm\" episode VI).",
+  "era": "1.0 (retrospective, 2017)"
+ },
+ {
+  "zone": 231,
+  "name": "Batraal",
+  "ids": [
+   3203503
+  ],
+  "nm": true,
+  "video": "u-OWLkzFfzQ",
+  "t": 296,
+  "note": "Final boss; summoned skeletons in 1.0 (Speakers Network, \"Remnants of a Realm\" episode VI).",
+  "era": "1.0 (retrospective, 2017)"
+ },
+ {
+  "zone": 231,
+  "name": "All-seeing Eye",
+  "ids": [
+   3201705
+  ],
+  "nm": true,
+  "video": "u-OWLkzFfzQ",
+  "t": 319,
+  "note": "Stalked parties through the dungeon casting area attacks and couldn't be killed in 1.0 (Speakers Network, \"Remnants of a Realm\" episode VI).",
+  "era": "1.0 (retrospective, 2017)"
+ },
+ {
+  "zone": 245,
+  "name": "Coincounter",
+  "ids": [
+   3310701
+  ],
+  "nm": true,
+  "video": "j0xDrEcVHek",
+  "t": 454,
+  "note": "First boss (Speakers Network, \"Remnants of a Realm\" episode VII).",
+  "era": "1.0 (retrospective, 2017)"
+ },
+ {
+  "zone": 245,
+  "name": "Miser's Mistress",
+  "ids": [
+   3301001
+  ],
+  "nm": true,
+  "video": "j0xDrEcVHek",
+  "t": 471,
+  "note": "Final boss (Speakers Network, \"Remnants of a Realm\" episode VII).",
+  "era": "1.0 (retrospective, 2017)"
+ },
+ {
+  "zone": 137,
+  "name": "Third Order Patriarch Zu Ga",
+  "ids": [
+   3106628
+  ],
+  "nm": true,
+  "video": "o5N-rrWOBdU",
+  "t": 569,
+  "note": "Final boss, a notorious monster; defeating him opened three gold coffers (Speakers Network, \"Remnants of a Realm\" episode XV).",
+  "era": "1.0 (retrospective, 2017)"
+ },
+ {
+  "zone": 132,
+  "name": "Bomb baron",
+  "ids": [
+   3101612
+  ],
+  "nm": true,
+  "video": "QvWUcMi6Vho",
+  "t": 242,
+  "note": "One of Cassiopeia Hollow's two notorious monsters (Speakers Network, \"Remnants of a Realm\" episode XI).",
+  "era": "1.0 (retrospective, 2017)"
+ },
+ {
+  "zone": 132,
+  "name": "Unknown soldier",
+  "ids": [
+   3104323
+  ],
+  "nm": true,
+  "video": "QvWUcMi6Vho",
+  "t": 242,
+  "note": "One of Cassiopeia Hollow's two notorious monsters (Speakers Network, \"Remnants of a Realm\" episode XI).",
+  "era": "1.0 (retrospective, 2017)"
+ },
+ {
+  "zone": 129,
+  "name": "Great buffalo",
+  "ids": [
+   3100801
+  ],
+  "nm": true,
+  "video": "HDUweGCeAvU",
+  "t": 212,
+  "note": "Notorious monster around Camp Bald Knoll, Western La Noscea (Speakers Network, \"Remnants of a Realm\" episode XVII).",
+  "era": "1.0 (retrospective, 2017)"
  }
 ]
