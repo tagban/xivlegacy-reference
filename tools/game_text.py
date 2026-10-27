@@ -11,9 +11,16 @@ Writes <out>/game_text.json: {"items": {name: description}, "strings": [...]}.
 
     tools/game_text.py "<1.23b install>" <out dir>
 """
-import json, os, sys
+import json, os, re, sys
 
 KEY = 0x73
+# inline control codes: \x02 <code> \x01 \x03 (0x10 line break, 0x16 hyphenation
+# hint, 0x1D French non-breaking space, ...)
+CONTROL = re.compile("\x02(.)\x01\x03", re.S)
+
+
+def clean(s):
+    return CONTROL.sub(lambda m: " " if m.group(1) in "\x10\x1d" else "", s)
 
 
 def fields(data):
@@ -24,7 +31,7 @@ def fields(data):
         if i + 2 < n and data[i + 2] == 0xFF and 0 < size and i + 2 + size <= n:
             raw = bytes(b ^ KEY for b in data[i + 3:i + 2 + size]).rstrip(b"\x00")
             try:
-                out.append((i, raw.decode("utf-8")))
+                out.append((i, clean(raw.decode("utf-8"))))
             except UnicodeDecodeError:
                 out.append((i, None))
             i += 2 + size

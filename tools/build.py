@@ -206,12 +206,21 @@ def main():
                         "m": mats, "cr": crystals})
 
     # --- npcs ----------------------------------------------------------------
+    # names from the client's own name sheets (tools/game_sheets.py) via the
+    # actor class's displayNameId; the spawn row's uniqueId when missing
+    game_names = {}
+    names_path = os.path.join(zam_dir, "npc_names.json") if zam_dir else None
+    if names_path and os.path.exists(names_path):
+        sheet = json.load(open(names_path))
+        for cls, dn in db.execute("SELECT id, displayNameId FROM gamedata_actor_class WHERE displayNameId > 0"):
+            if str(dn) in sheet:
+                game_names[cls] = sheet[str(dn)]
     npcs = {}
     for r in rows(db, "SELECT * FROM server_spawn_locations"):
         key = (r["actorClassId"], r["zoneId"], r["privateAreaName"] or "")
         if key in npcs or not r["uniqueId"]:
             continue
-        npcs[key] = {"id": r["actorClassId"], "n": r["customDisplayName"] or pretty(r["uniqueId"]),
+        npcs[key] = {"id": r["actorClassId"], "n": game_names.get(r["actorClassId"]) or r["customDisplayName"] or pretty(r["uniqueId"]),
                      "z": r["zoneId"], "pa": r["privateAreaName"] or None,
                      "p": [round(r["positionX"], 1), round(r["positionY"], 1), round(r["positionZ"], 1)]}
     npc_list = sorted(npcs.values(), key=lambda n: (n["n"], n["z"]))
@@ -232,7 +241,7 @@ def main():
                          FROM server_battlenpc_groups g JOIN server_battlenpc_pools p ON p.poolId = g.poolId"""):
         if not spawn_counts[r["groupId"]]:
             continue
-        mobs.append({"id": r["groupId"], "cls": r["actorClassId"], "n": pretty(r["pname"]), "z": r["zoneId"],
+        mobs.append({"id": r["groupId"], "cls": r["actorClassId"], "n": game_names.get(r["actorClassId"]) or pretty(r["pname"]), "z": r["zoneId"],
                      "lv": [r["minLevel"], r["maxLevel"]], "g": genus.get(r["genusId"]),
                      "ag": 1 if r["aggroType"] else 0, "sp": spawn_counts[r["groupId"]],
                      "re": r["respawnTime"], "pa": r["privateAreaName"] or None})
