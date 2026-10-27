@@ -299,6 +299,12 @@ def main():
 
     if zam_dir:
         merge_zam(zam_dir, items, mobs, quests, leves)
+        parsed = os.path.join(zam_dir, "parsed.json")
+        if os.path.exists(parsed):
+            monster_names = {}
+            if names_path and os.path.exists(names_path):
+                monster_names = {int(k): v for k, v in json.load(open(names_path)).items()}
+            merge_zam_monsters(json.load(open(parsed)), mobs, zam_zone_ids(db), monster_names)
         text = os.path.join(zam_dir, "game_text.json")
         if os.path.exists(text):
             desc = json.load(open(text))["items"]
@@ -328,6 +334,97 @@ def main():
                               "monsters": len(mobs), "quests": len(quests), "leves": len(leves), "harvest": len(harvest),
                               "achievements": len(achievements)},
                    "zam": bool(zam_dir)}, f)
+
+
+# ZAM's zone ids -> our zones: a region covers every field zone with its
+# internal prefix; cities and dungeons are single places. ZAM filed Limsa
+# Lominsa as "Locke's Lie" (2) and Gridania as "Stateroom" (8). The market
+# wards (13, 15, 17, 18) can't be tied to one city and stay unlinked.
+ZAM_ZONES = {1: ("prefix", "sea0Field"), 2: ("names", "sea0Town01", "sea0Town01a"),
+             5: ("prefix", "wil0Field"), 6: ("prefix", "fst0Field"),
+             7: ("names", "wil0Town01", "wil0Town01a"), 8: ("names", "fst0Town01", "fst0Town01a"),
+             9: ("prefix", "roc0Field"), 10: ("prefix", "lak0Field01"),
+             11: ("names", "wil0Dungeon04"), 12: ("names", "wil0Dungeon02"),
+             14: ("names", "fst0Dungeon02"), 16: ("names", "sea0Dungeon03"),
+             # the wards, by each ZAM zone page's "Connected Zones"
+             13: ("names", "fst0Market01"), 15: ("names", "sea0Market01"),
+             17: ("names", "wil0Market01"), 18: ("names", "fst0Market01")}
+ZAM_ZONE_NAMES = {1: "La Noscea", 2: "Limsa Lominsa", 5: "Thanalan", 6: "The Black Shroud", 7: "Ul'dah",
+                  8: "Gridania", 9: "Coerthas", 10: "Mor Dhona", 11: "Copperbell Mines", 12: "Nanawa Mines",
+                  13: "Gridania Market Wards", 14: "The Tam-Tara Deepcroft", 15: "Limsa Lominsa Market Wards",
+                  16: "Cassiopeia Hollow", 17: "Ul'dah Market Wards", 18: "Gridania Market Wards"}
+MONSTER_ROLES = ("Monster", "Notorious Monster", "Leve Monster")
+
+
+def zam_zone_ids(db):
+    names = list(db.execute("SELECT id, zoneName FROM server_zones WHERE zoneName != ''"))
+    out = {}
+    for zid, rule in ZAM_ZONES.items():
+        if rule[0] == "prefix":
+            out[zid] = [i for i, n in names if n.startswith(rule[1])]
+        else:
+            out[zid] = [i for i, n in names if n in rule[1:]]
+    return out
+
+
+def merge_zam_monsters(zam, mobs, zone_map, game_names):
+    """ZAM's monster pages: drops and zones for the monsters we spawn, and
+    the monsters our server doesn't spawn yet (keyed by class id)."""
+    by_cls = {}
+    for m in mobs:
+        by_cls.setdefault(m["cls"], []).append(m)
+    added = 0
+    for cls, page in zam.get("mob", {}).items():
+        info = page.get("info", {})
+        role = (info.get("Role") or [""])[0]
+        cls = int(cls)
+        if role not in MONSTER_ROLES and not (role == "" and cls >= 2000000):
+            continue
+        zones = (info.get("Related Zones") or ["", None, []])[2]
+        zids = sorted({i for _, z in zones for i in zone_map.get(z, [])})
+        znames = [ZAM_ZONE_NAMES.get(z, n) for n, z in zones]
+        drops = [r[0][1] for r in page.get("tabs", {}).get("Drops", {}).get("rows", []) if r and r[0][1]]
+        rank = (info.get("Rank") or ["-"])[0]
+        lv = [int(x) for x in re.findall(r"\d+", rank)][:2]
+        facts = {"zz": zids, "zn": znames, "dr": drops,
+                 "race": re.sub(r"\s*\[ wiki \]", "", (info.get("Race") or [""])[0]) or None,
+                 "el": (info.get("Element") or [None])[0]}
+        if cls in by_cls:
+            for m in by_cls[cls]:
+                m.update({k: v for k, v in facts.items() if v})
+        else:
+            name = game_names.get(cls) or page.get("name") or f"Monster {cls}"
+            mobs.append({"id": cls, "cls": cls, "n": name[0].upper() + name[1:], "z": zids[0] if zids else None,
+                         "lv": [lv[0], lv[-1]] if lv else [0, 0], "g": facts["race"],
+                         "ag": 1 if (info.get("Aggressive") or [""])[0] == "Yes" else 0,
+                         "sp": 0, "zam": 1} | {k: v for k, v in facts.items() if v})
+            added += 1
+            by_cls[cls] = [mobs[-1]]
+    # zone pages: every monster ZAM listed there, even without its own page
+    for zid, page in zam.get("zone", {}).items():
+        zid = int(zid)
+        for r in page.get("tabs", {}).get("Related_NPCs___Mobs", {}).get("rows", []):
+            if len(r) < 5 or not r[0][1]:
+                continue
+            cls, role = r[0][1], r[4][0]
+            if role not in MONSTER_ROLES and not (role == "" and cls >= 2000000):
+                continue
+            ours = zone_map.get(zid, [])
+            if cls in by_cls:
+                for m in by_cls[cls]:
+                    m["zz"] = sorted(set(m.get("zz", [])) | set(ours))
+                    if ZAM_ZONE_NAMES.get(zid) and ZAM_ZONE_NAMES[zid] not in m.get("zn", []):
+                        m["zn"] = m.get("zn", []) + [ZAM_ZONE_NAMES[zid]]
+            else:
+                lv = [int(x) for x in re.findall(r"\d+", r[2][0])][:2]
+                name = game_names.get(cls) or r[0][0]
+                mobs.append({"id": cls, "cls": cls, "n": name[0].upper() + name[1:], "z": ours[0] if ours else None,
+                             "zz": ours, "zn": [ZAM_ZONE_NAMES.get(zid, r[1][0])], "lv": [lv[0], lv[-1]] if lv else [0, 0],
+                             "g": re.sub(r"\s*\[ wiki \]", "", r[5][0]) if len(r) > 5 else None,
+                             "ag": 1 if r[3][0] == "Yes" else 0, "sp": 0, "zam": 1})
+                by_cls[cls] = [mobs[-1]]
+                added += 1
+    print(f"zam: monsters enriched, {added} added that the server doesn't spawn")
 
 
 def merge_zam(zam_dir, items, mobs, quests, leves):

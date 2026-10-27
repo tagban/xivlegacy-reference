@@ -62,10 +62,10 @@ const SECTIONS = {
       ["Monster", (r) => link("monsters", r.id, r.n), (r) => r.n],
       ["Family", (r) => esc(r.g || ""), (r) => r.g || ""],
       ["Lv", (r) => lv(r.lv), (r) => r.lv[0], "num"],
-      ["Zone", (r) => zoneLink(r.z), (r) => zone(r.z)],
-      ["Aggressive", (r) => (r.ag ? "Yes" : "No"), (r) => r.ag, "hide-sm"],
+      ["Zone", (r) => (r.z ? zoneLink(r.z) : esc((r.zn || []).join(", "))), (r) => (r.z ? zone(r.z) : (r.zn || [""])[0])],
+      ["On XIVLegacy", (r) => (r.sp ? '<span class="tag good">spawns</span>' : '<span class="tag">not yet</span>'), (r) => r.sp, "hide-sm"],
     ],
-    filters: [["Zone", (r) => zone(r.z)], ["Family", (r) => r.g]],
+    filters: [["Zone", (r) => (r.z ? zone(r.z) : (r.zn || [])[0])], ["Family", (r) => r.g], ["On XIVLegacy", (r) => (r.sp ? "spawns" : "not yet")]],
     text: (r) => `${r.n} ${r.g || ""}`,
   },
   npcs: {
@@ -120,7 +120,7 @@ const SECTIONS = {
     cols: [
       ["Zone", (r) => link("zones", r.id, r.n), (r) => r.n],
       ["NPCs", (r) => num(D.npcs.filter((n) => n.z === r.id && !n.pa).length), () => 0, "num"],
-      ["Monsters", (r) => num(D.monsters.filter((m) => m.z === r.id).length), () => 0, "num"],
+      ["Monsters", (r) => num(D.monsters.filter((m) => m.z === r.id || (m.zz || []).includes(r.id)).length), () => 0, "num"],
     ],
     filters: [],
     text: (r) => r.n,
@@ -258,7 +258,9 @@ const DETAIL = {
   monsters(r) {
     const same = D.monsters.filter((m) => m.n === r.n && m.id !== r.id);
     return `<div class="card"><h1>${esc(r.n)}</h1><span class="tag">${esc(r.g || "Monster")}</span>${r.ag ? '<span class="tag warn">aggressive</span>' : ""}
-      ${facts([["Level", lv(r.lv)], ["Zone", zoneLink(r.z)], ["Spawn points", r.sp], ["Respawn", r.re ? r.re + " s" : null], ["Family", esc(r.g)]])}</div>
+      ${r.sp ? '<span class="tag good">spawns on XIVLegacy</span>' : '<span class="tag warn">not spawned on XIVLegacy yet</span>'}
+      ${facts([["Level", lv(r.lv)], ["Zone", r.zz?.length ? r.zz.map(zoneLink).join(", ") : r.z ? zoneLink(r.z) : esc((r.zn || []).join(", "))], ["Spawn points", r.sp], ["Respawn", r.re ? r.re + " s" : null], ["Family", esc(r.g)], ["Element", esc(r.el)]])}</div>
+      ${r.dr?.length ? `<h2>Drops</h2><ul class="plain">${r.dr.map((id) => `<li><span class="name-cell">${icon(IX.items[id]?.ic)}${itemLink(id)}</span></li>`).join("")}</ul><p class="src">Drops from ZAM.</p>` : ""}
       ${same.length ? `<h2>Also found</h2><ul class="plain">${same.map((m) => `<li>${link("monsters", m.id, m.n)} · ${zoneLink(m.z)} · level ${lv(m.lv)}</li>`).join("")}</ul>` : ""}`;
   },
   npcs(r) {
@@ -289,9 +291,9 @@ const DETAIL = {
   },
   zones(r) {
     const npcs = D.npcs.filter((n) => n.z === r.id && !n.pa);
-    const mobs = D.monsters.filter((m) => m.z === r.id);
-    return `<div class="card"><h1>${esc(r.n)}</h1>${facts([["NPCs", num(npcs.length)], ["Monster groups", num(mobs.length)], ["Zone id", r.id]])}</div>
-      ${mobs.length ? `<h2>Monsters</h2><ul class="plain">${mobs.sort((a, b) => a.lv[0] - b.lv[0]).map((m) => `<li>${link("monsters", m.id, m.n)} <span class="tag">level ${lv(m.lv)}</span></li>`).join("")}</ul>` : ""}
+    const mobs = D.monsters.filter((m) => m.z === r.id || (m.zz || []).includes(r.id));
+    return `<div class="card"><h1>${esc(r.n)}</h1>${facts([["NPCs", num(npcs.length)], ["Monsters", num(mobs.length)], ["Zone id", r.id]])}</div>
+      ${mobs.length ? `<h2>Monsters</h2>${mobs.some((m) => m.zam && m.z !== r.id) ? '<p class="src">ZAM recorded outdoor monsters by region (La Noscea, Thanalan, the Black Shroud…), so they appear on every field zone of their region.</p>' : ""}<ul class="plain">${mobs.sort((a, b) => a.lv[0] - b.lv[0]).map((m) => `<li>${link("monsters", m.id, m.n)} <span class="tag">level ${lv(m.lv)}</span>${m.sp ? ' <span class="tag good">spawns on XIVLegacy</span>' : ' <span class="tag">not spawned yet</span>'}</li>`).join("")}</ul>` : ""}
       ${npcs.length ? `<h2>NPCs</h2><ul class="plain">${npcs.map((n) => `<li>${link("npcs", n.id, n.n)}</li>`).join("")}</ul>` : ""}`;
   },
 };

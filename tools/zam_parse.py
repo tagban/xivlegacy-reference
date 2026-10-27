@@ -25,6 +25,11 @@ def cell(fragment):
     return [text(fragment), int(m.group(2)) if m else None]
 
 
+def links(fragment):
+    """[(text, id)] for every database link in a cell."""
+    return [[text(t), int(i)] for i, t in re.findall(r'href="/(?:en|db)/\w+\.html\?ffxiv\w+=(\d+)[^"]*"[^>]*>(.*?)</a>', fragment, re.S)]
+
+
 def table(fragment):
     head, rows = [], []
     for r in ROW.findall(fragment):
@@ -102,7 +107,7 @@ def parse(page):
             th = re.search(r"<th[^>]*>(.*?)</th>", r, re.S)
             td = re.search(r"<td[^>]*>(.*?)</td>", r, re.S)
             if th and td:
-                info[text(th.group(1))] = cell(td.group(1))
+                info[text(th.group(1))] = cell(td.group(1)) + [links(td.group(1))]
     tabs = {}
     starts = list(TAB_START.finditer(page))
     for n, m in enumerate(starts):
@@ -116,7 +121,7 @@ def parse(page):
 def main():
     cache = sys.argv[1]
     out = {}
-    for kind in ("item", "mob", "quest", "guildleve"):
+    for kind in ("item", "mob", "quest", "guildleve", "zone"):
         folder = os.path.join(cache, kind)
         out[kind] = {}
         if not os.path.isdir(folder):
