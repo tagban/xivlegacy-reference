@@ -43,13 +43,43 @@ def language(strings):
         if s in LANG_TAGS:
             return LANG_TAGS[s]
     text = " ".join(strings[:400])
-    if re.search(r"[぀-ヿ一-鿿]", text):
+    # "翻訳不要" ("no translation needed") placeholders sit in every copy:
+    # only a sheet that is mostly kana/kanji is Japanese
+    cjk = len(re.findall("[\u3040-\u30ff\u4e00-\u9fff]", text))
+    if cjk > len(re.findall("[A-Za-z]", text)):
         return "ja"
     words = re.findall(r"[a-zäöüßéèàç]+", text.lower())
     score = {"en": sum(w in ("the", "of", "and", "to", "you") for w in words),
              "de": sum(w in ("der", "die", "und", "das", "zu", "nicht") for w in words) + text.count("ä") + text.count("ü"),
              "fr": sum(w in ("le", "la", "et", "les", "des", "vous") for w in words) + text.count("é")}
     return max(score, key=score.get) if max(score.values()) else None
+
+
+def leve_sheets(pairs):
+    """Leve text: the battle/field leve sheet (two columns: name,
+    description; its ids start at 0 and include 1001..) and the local
+    leve sheet (ids 120001..; rows of name, description, client, objective,
+    then placeholders, one "ginoTest" per row). English copies only."""
+    leves = {}
+    for ranges, strings in pairs:
+        if language(strings) != "en":
+            continue
+        ids = [first + k for first, count in ranges for k in range(count)]
+        if ranges[0][0] == 0 and any(first == 1001 for first, _ in ranges) and len(strings) == 2 * len(ids):
+            for n, i in enumerate(ids):
+                name, desc = strings[2 * n], strings[2 * n + 1]
+                if i >= 1001 and name and name not in ("x", "dummy") and not name.startswith("翻訳"):
+                    leves[i] = {"n": name, "d": desc}
+        elif ranges[0][0] == 120001 and strings.count("ginoTest") == len(ids):
+            start = 0
+            for i in ids:
+                end = strings.index("ginoTest", start) + 5
+                row = strings[start:end]
+                start = end
+                if row and row[0]:
+                    leves[i] = {"n": row[0], "d": row[1] if len(row) > 1 else "",
+                                "client": row[2] if len(row) > 2 else "", "obj": row[3] if len(row) > 3 else ""}
+    return leves
 
 
 def norm(s):
@@ -69,6 +99,7 @@ def main():
             files += [os.path.join(folder, f) for f in sorted(os.listdir(folder))]
 
     sheets = []   # (first id, language, score, rows)
+    pairs = []    # (ranges, strings) of every sheet, for the leve sheets
     for prev, path in zip(files, files[1:]):
         if os.path.dirname(prev) != os.path.dirname(path):
             continue
@@ -76,6 +107,7 @@ def main():
         if not ranges:
             continue
         strings = [s for _, s in game_text.fields(open(prev, "rb").read()) if s is not None]
+        pairs.append((ranges, strings))
         total = sum(c for _, c in ranges)
         cols, rem = divmod(len(strings), total)
         if not cols or rem:
@@ -115,6 +147,10 @@ def main():
         json.dump(out_sheets, fh, ensure_ascii=False)
     with open(os.path.join(sys.argv[3], "npc_names.json"), "w") as fh:
         json.dump(names, fh, ensure_ascii=False)
+    leves = leve_sheets(pairs)
+    with open(os.path.join(sys.argv[3], "leves.json"), "w") as fh:
+        json.dump(leves, fh, ensure_ascii=False)
+    print(f"{len(leves)} leves")
     ok = sum(1 for i, uid in known.items() if i in names and norm(names[i]) and norm(names[i]) in norm(uid))
     print(f"{len(sheets)} sheets ({len(chosen)} English id ranges), {len(merged)} rows; "
           f"{len(names)} NPC names, {ok}/{len(known)} agree with spawn names")

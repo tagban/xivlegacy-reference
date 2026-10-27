@@ -305,8 +305,15 @@ def main():
             for it in items:
                 if it["n"] in desc:
                     it["d"] = desc[it["n"]]
-    # a leve is shown once something names it (the client data doesn't)
-    leves = [lv for lv in leves if lv["n"]]
+    # a leve is shown once something names it; targets by the game's names
+    leves = [lv for lv in leves if lv.get("n")]
+    sheet_names = {}
+    if names_path and os.path.exists(names_path):
+        sheet_names = json.load(open(names_path))
+    for lv in leves:
+        targets = [sheet_names.get(str(m)) for m in dict.fromkeys(lv.get("mobs", []))]
+        if any(targets):
+            lv["tg"] = [[m, t] for m, t in zip(dict.fromkeys(lv["mobs"]), targets) if t]
 
     write("items", items)
     write("recipes", recipes)
@@ -391,17 +398,32 @@ def merge_zam(zam_dir, items, mobs, quests, leves):
             z["rewards"] = rewards
         if z:
             q["zam"] = z
+    # Leves: the client's leve sheets give names and descriptions by the
+    # game's own ids (ZAM's battle-leve ids run one high: its 1003 "Kobold as
+    # Ice" is the game's 1002, which targets kobolds). ZAM adds rank and
+    # discipline, matched by name.
     by_leve = {lv["id"]: lv for lv in leves}
+    game_leves_path = os.path.join(zam_dir, "leves.json")
+    if os.path.exists(game_leves_path):
+        for lid, text in json.load(open(game_leves_path)).items():
+            lv = by_leve.get(int(lid))
+            if lv is None:
+                lv = {"id": int(lid), "items": [], "mobs": []}
+                leves.append(lv)
+                by_leve[lv["id"]] = lv
+            lv["n"] = text["n"]
+            for key in ("d", "client", "obj"):
+                if text.get(key) and text[key] not in ("****", " "):
+                    lv[key] = text[key]
+    by_name = {}
     for lid, (name, rank, cls) in zam.get("levelist", {}).items():
-        lv = by_leve.get(int(lid))
-        if lv is None:
-            lv = {"id": int(lid), "items": [], "mobs": []}
-            leves.append(lv)
-            by_leve[lv["id"]] = lv
-        lv["n"] = name
-        lv["cat"] = cls
-        if rank.isdigit():
-            lv["lv"] = int(rank)
+        by_name.setdefault(name, (rank, cls))
+    for lv in leves:
+        if lv.get("n") in by_name:
+            rank, cls = by_name[lv["n"]]
+            lv["cat"] = cls
+            if rank.isdigit():
+                lv["lv"] = int(rank)
     print(f"zam: {merged} items with ZAM details, {len(zam.get('quest', {}))} quest pages")
 
 

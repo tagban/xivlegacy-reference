@@ -81,7 +81,7 @@ const SECTIONS = {
     key: (r) => r.id,
   },
   leves: {
-    title: "Leves", lede: "Guildleves by rank and discipline. Names from ZAM's archived leve lists; targets from the game data.",
+    title: "Leves", lede: "Guildleves: battle, field and local leves, with the game's own names and descriptions. Rank and discipline from ZAM.",
     cols: [
       ["Leve", (r) => link("leves", r.id, r.n), (r) => r.n],
       ["Rank", (r) => r.lv || "", (r) => r.lv || 0, "num"],
@@ -89,7 +89,7 @@ const SECTIONS = {
       ["Time limit", (r) => (r.lim ? `${r.lim} min` : ""), (r) => r.lim || 0, "num hide-sm"],
     ],
     filters: [["Class", (r) => r.cat]],
-    text: (r) => r.n,
+    text: (r) => `${r.n} ${r.client || ""}`,
   },
   harvest: {
     title: "Harvesting", lede: "Gathering nodes and what they yield. “On XIVLegacy” marks nodes the server has placed in the world; most still need placing.",
@@ -271,15 +271,16 @@ const DETAIL = {
   },
   leves(r) {
     const mob = (id) => { const m = D.monsters.find((x) => x.cls === id); return m ? link("monsters", m.id, m.n) : null; };
-    const mobs = [...new Set(r.mobs || [])].map(mob).filter(Boolean);
+    const mobs = (r.tg || []).map(([id, name]) => mob(id) || esc(name));
     return `<div class="crumb-path"><a href="#leves">Leves</a> › ${esc(r.cat || "")} › ${esc(r.n)}</div>
       <div class="card"><h1>${esc(r.n)}</h1><table class="infobox">
         ${[["Rank", r.lv], ["Class", esc(r.cat)], ["Zone", r.z ? zoneLink(r.z) : null], ["Time limit", r.lim ? `${r.lim} minutes` : null],
           ["Experience", r.exp ? num(r.exp) : null], ["Gil", r.gil ? num(r.gil) : null], ["Leve id", r.id]].filter((x) => x[1]).map(([k, v]) => `<tr><th>${k}</th><td>${v}</td></tr>`).join("")}
       </table></div>
+      ${r.d ? `<div class="card leve-text">${r.client ? `<div class="tt-type">${esc(r.client)}</div>` : ""}<p>${esc(r.d)}</p>${r.obj ? `<p class="tt-req">${esc(r.obj)}</p>` : ""}</div>` : ""}
       ${r.items?.length ? `<h2>Items</h2><ul class="plain">${r.items.map((id) => `<li>${itemLink(id)}</li>`).join("")}</ul>` : ""}
       ${mobs.length ? `<h2>Targets</h2><ul class="plain">${mobs.map((l) => `<li>${l}</li>`).join("")}</ul>` : ""}
-      <p class="src">Name, rank and class from ZAM. <a href="${ZAM}guildleve.html?ffxivguildleve=${r.id}">ZAM's archived page</a></p>`;
+      <p class="src">Name and text from the 1.23b client; rank and class from ZAM.</p>`;
   },
   harvest(r) {
     return `<div class="card"><h1>${esc(r.n)}</h1>${r.placed.length ? `<span class="tag good">placed on XIVLegacy</span>` : '<span class="tag warn">not placed on XIVLegacy yet</span>'}
