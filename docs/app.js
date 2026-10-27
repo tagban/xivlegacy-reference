@@ -169,6 +169,7 @@ function home() {
   const scripted = D.quests.filter((q) => q.s).length;
   return `<section class="hero"><h1>Eorzea, as it was</h1>
     <p class="lede">A reference for FINAL FANTASY XIV version 1.0 at its last patch, 1.23b: built from the game's own data and the community records ZAM kept from 2010 to 2012. It doubles as the checklist for the <a href="https://github.com/tagban/xivlegacy-server">XIVLegacy server</a>: ${num(scripted)} of ${num(D.quests.length)} quests have a server script so far.</p></section>
+    <p class="lede passion"><b>A passion project.</b> XIVLegacy preserves FINAL FANTASY XIV as it was in 1.0 so people can walk through it again — and seeing the original up close may help explain why Square Enix rebuilt it as <i>A Realm Reborn</i>. If you enjoy old Eorzea, please play the game today: FINAL FANTASY XIV has a <a href="https://freetrial.finalfantasyxiv.com/">free trial</a> with no time limit.</p>
     <div class="tiles">${tiles}</div>`;
 }
 
