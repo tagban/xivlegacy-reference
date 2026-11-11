@@ -425,5 +425,1504 @@
    }
   ],
   "added": "2026-11-11"
+ },
+ {
+  "id": "quest-slots",
+  "topic": "Quests",
+  "about": [],
+  "title": "Quest log: 16 story/class/side quests at once, leves counted apart",
+  "claim": "Main scenario, class and side quests share one log of up to 16 active quests; finished ones leave the log. Leves don't count against it: regional leves (battle and gathering) have 8 slots and local (crafting) leves another 8. Patch 1.16a (March 2011) added abandoning a quest; before that a stuck quest held its slot for good.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: クエスト (quests)",
+    "u": "https://web.archive.org/web/20130103203021/http://ff14wiki.info/?%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88",
+    "k": "wiki",
+    "seen": "captured 2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "quest-rank-gate",
+  "topic": "Quests",
+  "about": [],
+  "title": "Quests are gated by class rank, not physical level",
+  "claim": "Whether a quest is offered depends on the rank of a class (the weapon/tool skill rank), not physical level. Main scenario quests check your highest class rank; class quests check that class's rank, so you talk to the giver while on that class. If a quest doesn't appear right after ranking up, players changed zones, relogged or touched an aetheryte.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: クエスト (quests)",
+    "u": "https://web.archive.org/web/20130103203021/http://ff14wiki.info/?%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88",
+    "k": "wiki",
+    "seen": "captured 2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "class-quest-ranks",
+  "topic": "Quests",
+  "about": [],
+  "title": "Class quests at ranks 20, 30 and 36",
+  "claim": "Each class guild offers class quests at ranks 20, 30 and 36: talk to the guild's receptionist while on that class at that rank. The rank 20 one also needs the rank 15 main scenario quest done. The rank 30 quest unlocks buying the guild's rank 40 skill with guild marks, the rank 36 quest the rank 50 skill.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: クエスト (quests)",
+    "u": "https://web.archive.org/web/20130103203021/http://ff14wiki.info/?%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88",
+    "k": "wiki",
+    "seen": "captured 2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "sidequest-drops",
+  "topic": "Quests",
+  "about": [],
+  "title": "Side quest targets always drop the quest item for players on the quest",
+  "claim": "While on a side quest, the target monsters drop the quest item 100% of the time, on any class. Party members who aren't on the quest can help; only the members on the quest get the item. Givers show on the minimap with a '!' when you meet the requirement on any of your classes, even while on a crafter.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: サブクエスト (side quests)",
+    "u": "https://web.archive.org/web/20130103204845/http://ff14wiki.info/?%E3%82%B5%E3%83%96%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88",
+    "k": "wiki",
+    "seen": "captured 2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "sidequest-history",
+  "topic": "Quests",
+  "about": [],
+  "title": "Side quests: added in 1.16, instanced targets from 1.17",
+  "claim": "Side quests arrived in patch 1.16 (March 4, 2011). At first their target monsters gave no experience or skill points, and players not on the quest got no drops from them; patch 1.16a made the targets give experience, skill points and loot. Quests added in 1.17 (April 15, 2011) spawn their targets in an instance only the quest holder sees, and hamlet NPCs started giving quests.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: サブクエスト (side quests)",
+    "u": "https://web.archive.org/web/20130103204845/http://ff14wiki.info/?%E3%82%B5%E3%83%96%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88",
+    "k": "wiki",
+    "seen": "captured 2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "sq-patch-116",
+  "topic": "Quests",
+  "about": [
+   [
+    "quests",
+    110634
+   ],
+   [
+    "quests",
+    110638
+   ],
+   [
+    "quests",
+    110639
+   ],
+   [
+    "quests",
+    110633
+   ],
+   [
+    "quests",
+    110640
+   ],
+   [
+    "quests",
+    110636
+   ],
+   [
+    "quests",
+    110676
+   ],
+   [
+    "quests",
+    110681
+   ],
+   [
+    "quests",
+    110680
+   ],
+   [
+    "quests",
+    110679
+   ],
+   [
+    "quests",
+    110675
+   ],
+   [
+    "quests",
+    110677
+   ],
+   [
+    "quests",
+    110654
+   ],
+   [
+    "quests",
+    110659
+   ],
+   [
+    "quests",
+    110655
+   ],
+   [
+    "quests",
+    110656
+   ],
+   [
+    "quests",
+    110662
+   ],
+   [
+    "quests",
+    110658
+   ],
+   [
+    "quests",
+    110660
+   ]
+  ],
+  "title": "First side quests (patch 1.16, March 2011)",
+  "claim": "These 19 side quests (six or seven per city) were the first batch, from patch 1.16. The wiki lists them before its patch 1.17 rows.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: サブクエスト (side quests)",
+    "u": "https://web.archive.org/web/20130103204845/http://ff14wiki.info/?%E3%82%B5%E3%83%96%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88",
+    "k": "wiki",
+    "seen": "captured 2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "sq-patch-117",
+  "topic": "Quests",
+  "about": [
+   [
+    "quests",
+    110653
+   ],
+   [
+    "quests",
+    110744
+   ],
+   [
+    "quests",
+    110771
+   ],
+   [
+    "quests",
+    110644
+   ],
+   [
+    "quests",
+    110695
+   ],
+   [
+    "quests",
+    110753
+   ],
+   [
+    "quests",
+    110726
+   ],
+   [
+    "quests",
+    110685
+   ],
+   [
+    "quests",
+    110682
+   ],
+   [
+    "quests",
+    110674
+   ],
+   [
+    "quests",
+    110666
+   ],
+   [
+    "quests",
+    110763
+   ],
+   [
+    "quests",
+    110735
+   ],
+   [
+    "quests",
+    110762
+   ]
+  ],
+  "title": "Side quests added in patch 1.17 (April 15, 2011)",
+  "claim": "These side quests came with patch 1.17. Several are city tours: talk to five NPCs around town.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: サブクエスト (side quests)",
+    "u": "https://web.archive.org/web/20130103204845/http://ff14wiki.info/?%E3%82%B5%E3%83%96%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88",
+    "k": "wiki",
+    "seen": "captured 2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "sq-patch-117a",
+  "topic": "Quests",
+  "about": [
+   [
+    "quests",
+    110641
+   ],
+   [
+    "quests",
+    110642
+   ],
+   [
+    "quests",
+    110643
+   ],
+   [
+    "quests",
+    110684
+   ],
+   [
+    "quests",
+    110754
+   ],
+   [
+    "quests",
+    110683
+   ],
+   [
+    "quests",
+    110663
+   ],
+   [
+    "quests",
+    110664
+   ],
+   [
+    "quests",
+    110665
+   ],
+   [
+    "quests",
+    110667
+   ]
+  ],
+  "title": "Side quests added in patch 1.17a (April 26, 2011)",
+  "claim": "These side quests came with patch 1.17a.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: サブクエスト (side quests)",
+    "u": "https://web.archive.org/web/20130103204845/http://ff14wiki.info/?%E3%82%B5%E3%83%96%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88",
+    "k": "wiki",
+    "seen": "captured 2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "sq-patch-118",
+  "topic": "Quests",
+  "about": [
+   [
+    "quests",
+    110774
+   ],
+   [
+    "quests",
+    110773
+   ],
+   [
+    "quests",
+    110745
+   ],
+   [
+    "quests",
+    110755
+   ],
+   [
+    "quests",
+    110686
+   ],
+   [
+    "quests",
+    110765
+   ],
+   [
+    "quests",
+    110764
+   ]
+  ],
+  "title": "Side quests added in patch 1.18 (July 2011), with skill point rewards",
+  "claim": "These side quests came with patch 1.18. The wiki lists a skill point reward for each, given as 'up to' a number: Sniffing Out a Profit 3,100; Sour Grapes 841; Shot Through the Heart 1,401; Secrets Unearthed 960; Freedom Isn't Free 2,820; Spores on the Brain 500; A Bitter Oil to Swallow 960. Two more 1.18 quests (Ul'dah's アルマジャの刃, 13,000 gil, skill points up to 1,980; Gridania's 商機を握る豆, 14,000 gil, up to 2,700) aren't matched to our quest list yet.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: サブクエスト (side quests)",
+    "u": "https://web.archive.org/web/20130103204845/http://ff14wiki.info/?%E3%82%B5%E3%83%96%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88",
+    "k": "wiki",
+    "seen": "captured 2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "sq-patch-119",
+  "topic": "Quests",
+  "about": [
+   [
+    "quests",
+    110746
+   ],
+   [
+    "quests",
+    110810
+   ],
+   [
+    "quests",
+    110727
+   ],
+   [
+    "quests",
+    110728
+   ],
+   [
+    "quests",
+    110736
+   ],
+   [
+    "quests",
+    110737
+   ]
+  ],
+  "title": "Side quests added in patch 1.19",
+  "claim": "These side quests came with patch 1.19 (the wiki dates it October 5, 2011). What a Pirate Wants, Cutthroat Prices and A Slippery Stone are offered only by your starting city's adventurers' guild (Baderon, Momodi, Miounne). Call of Booty ties in with Shposhae.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: サブクエスト (side quests)",
+    "u": "https://web.archive.org/web/20130103204845/http://ff14wiki.info/?%E3%82%B5%E3%83%96%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88",
+    "k": "wiki",
+    "seen": "captured 2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "sq-req-war-magic",
+  "topic": "Quests",
+  "about": [
+   [
+    "quests",
+    110634
+   ],
+   [
+    "quests",
+    110638
+   ],
+   [
+    "quests",
+    110639
+   ],
+   [
+    "quests",
+    110633
+   ],
+   [
+    "quests",
+    110640
+   ],
+   [
+    "quests",
+    110636
+   ],
+   [
+    "quests",
+    110744
+   ],
+   [
+    "quests",
+    110644
+   ],
+   [
+    "quests",
+    110643
+   ],
+   [
+    "quests",
+    110745
+   ],
+   [
+    "quests",
+    110676
+   ],
+   [
+    "quests",
+    110681
+   ],
+   [
+    "quests",
+    110680
+   ],
+   [
+    "quests",
+    110679
+   ],
+   [
+    "quests",
+    110675
+   ],
+   [
+    "quests",
+    110677
+   ],
+   [
+    "quests",
+    110726
+   ],
+   [
+    "quests",
+    110685
+   ],
+   [
+    "quests",
+    110682
+   ],
+   [
+    "quests",
+    110684
+   ],
+   [
+    "quests",
+    110754
+   ],
+   [
+    "quests",
+    110683
+   ],
+   [
+    "quests",
+    110659
+   ],
+   [
+    "quests",
+    110656
+   ],
+   [
+    "quests",
+    110662
+   ],
+   [
+    "quests",
+    110658
+   ],
+   [
+    "quests",
+    110660
+   ],
+   [
+    "quests",
+    110666
+   ],
+   [
+    "quests",
+    110762
+   ],
+   [
+    "quests",
+    110663
+   ],
+   [
+    "quests",
+    110664
+   ],
+   [
+    "quests",
+    110665
+   ],
+   [
+    "quests",
+    110667
+   ],
+   [
+    "quests",
+    110765
+   ],
+   [
+    "quests",
+    110764
+   ],
+   [
+    "quests",
+    110707
+   ],
+   [
+    "quests",
+    110706
+   ]
+  ],
+  "title": "Side quests that need a Disciple of War or Magic at the listed rank",
+  "claim": "For these side quests the requirement is a fighter or sorcerer class at the quest's rank (any one of them; the shield skill counts too).",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: サブクエスト (side quests)",
+    "u": "https://web.archive.org/web/20130103204845/http://ff14wiki.info/?%E3%82%B5%E3%83%96%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88",
+    "k": "wiki",
+    "seen": "captured 2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "sq-req-any",
+  "topic": "Quests",
+  "about": [
+   [
+    "quests",
+    110653
+   ],
+   [
+    "quests",
+    110771
+   ],
+   [
+    "quests",
+    110641
+   ],
+   [
+    "quests",
+    110642
+   ],
+   [
+    "quests",
+    110774
+   ],
+   [
+    "quests",
+    110773
+   ],
+   [
+    "quests",
+    110695
+   ],
+   [
+    "quests",
+    110753
+   ],
+   [
+    "quests",
+    110755
+   ],
+   [
+    "quests",
+    110654
+   ],
+   [
+    "quests",
+    110655
+   ],
+   [
+    "quests",
+    110674
+   ],
+   [
+    "quests",
+    110763
+   ]
+  ],
+  "title": "Side quests any class can take",
+  "claim": "These side quests need any class (crafters and gatherers included) at the listed rank. Proceed with Caution and Playing with Fire were fighter/sorcerer-only until patch 1.17 opened them to all classes.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: サブクエスト (side quests)",
+    "u": "https://web.archive.org/web/20130103204845/http://ff14wiki.info/?%E3%82%B5%E3%83%96%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88",
+    "k": "wiki",
+    "seen": "captured 2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "sq-chain-pirate",
+  "topic": "Quests",
+  "about": [
+   [
+    "quests",
+    110638
+   ],
+   [
+    "quests",
+    110639
+   ]
+  ],
+  "title": "Beryl Overboard needs Till Death Do Us Part first",
+  "claim": "Beryl Overboard (Nanapiri) only appears after Till Death Do Us Part (H'lahono) is done: Nanapiri is smitten with H'lahono. Both send you to Bloodshore, so players went twice.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: サブクエスト (side quests)",
+    "u": "https://web.archive.org/web/20130103204845/http://ff14wiki.info/?%E3%82%B5%E3%83%96%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88",
+    "k": "wiki",
+    "seen": "captured 2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "sq-chain-son",
+  "topic": "Quests",
+  "about": [
+   [
+    "quests",
+    110640
+   ],
+   [
+    "quests",
+    110662
+   ]
+  ],
+  "title": "Have You Seen My Son runs through all three cities into Say it with Wolf Tails",
+  "claim": "Have You Seen My Son starts with Imania in Limsa Lominsa, then goes to Yuyubesu at the Amajina mining company in Ul'dah, the Bomb Embers in Nanawa Mines, back to Yuyubesu, and ends with Ildy in Ul'dah's adventurers' guild. It leads into Gridania's Say it with Wolf Tails (Francis at the Wood Wailers' post; needs Have You Seen My Son done): kill Knowing Gnats in the Mun-Tuy Cellars, and Francis gives a wolf tail to take back to Imania in Limsa.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: サブクエスト (side quests)",
+    "u": "https://web.archive.org/web/20130103204845/http://ff14wiki.info/?%E3%82%B5%E3%83%96%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88",
+    "k": "wiki",
+    "seen": "captured 2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "sq-chain-prank",
+  "topic": "Quests",
+  "about": [
+   [
+    "quests",
+    110658
+   ],
+   [
+    "quests",
+    110660
+   ]
+  ],
+  "title": "The Ultimate Prank needs The Penultimate Prank first",
+  "claim": "Nicoliaux gives both. The Penultimate Prank: eight blinking eyes from Aurora Anglers at the Fairy Hearth (27-31). The Ultimate Prank (rank 35, needs the first): Nicoliaux, Sylbyrt at the Carline Canopy, a Wandering Wight in the Mun-Tuy Cellars (5-3), Sylbyrt again, Nicoliaux.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: サブクエスト (side quests)",
+    "u": "https://web.archive.org/web/20130103204845/http://ff14wiki.info/?%E3%82%B5%E3%83%96%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88",
+    "k": "wiki",
+    "seen": "captured 2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "sq-steps-winds",
+  "topic": "Quests",
+  "about": [
+   [
+    "quests",
+    110744
+   ]
+  ],
+  "title": "Winds of Change: city tour, then a bandit fight",
+  "claim": "From Zanthael on the first floor of the Mizzenmast (near the chocobos): talk in turn to NPCs at the Limsa entrance bridge, between the Bismarck and the Coral Tower, inside the Coral Tower, at the aetheryte plaza and at the port, report back, then fight a group of sharp-eyed bandits (two plus two) in the cave northwest of Camp Bearded Rock (23-27), followed by an instanced scene with Copeli Yopeli. Reward 7,500 gil.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: サブクエスト (side quests)",
+    "u": "https://web.archive.org/web/20130103204845/http://ff14wiki.info/?%E3%82%B5%E3%83%96%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88",
+    "k": "wiki",
+    "seen": "captured 2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "sq-steps-quid",
+  "topic": "Quests",
+  "about": [
+   [
+    "quests",
+    110726
+   ]
+  ],
+  "title": "Quid Pro Quo: city tour, then bandits at a crash site",
+  "claim": "From Peneli Zuneli at the Milvaneth Sacrarium: a chain of NPCs (Gladiators' Guild, Sapphire Avenue, Frondale's) and then bandits at a crash site northwest of Ul'dah (Thanalan map 23-28). Reward 7,500 gil.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: サブクエスト (side quests)",
+    "u": "https://web.archive.org/web/20130103204845/http://ff14wiki.info/?%E3%82%B5%E3%83%96%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88",
+    "k": "wiki",
+    "seen": "captured 2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "sq-steps-caution",
+  "topic": "Quests",
+  "about": [
+   [
+    "quests",
+    110654
+   ]
+  ],
+  "title": "Proceed with Caution: refill three lanterns outside Gridania",
+  "claim": "From Sandre at the Greatloam Growery: inspect the '???' spots near Gridania at 29-28, 31-30 and 34-32 and pour the oil Sandre gave you into each guardian lantern. Reward Dated Dodoskin Shoes.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: サブクエスト (side quests)",
+    "u": "https://web.archive.org/web/20130103204845/http://ff14wiki.info/?%E3%82%B5%E3%83%96%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88",
+    "k": "wiki",
+    "seen": "captured 2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "sq-steps-fire",
+  "topic": "Quests",
+  "about": [
+   [
+    "quests",
+    110655
+   ]
+  ],
+  "title": "Playing with Fire: light three bonfires",
+  "claim": "From Maroile at Stillglade Fane: inspect the '???' spots near Gridania at 15-20, 26-33 and 29-31 and use the warm pot Maroile gave you to light a fire at each.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: サブクエスト (side quests)",
+    "u": "https://web.archive.org/web/20130103204845/http://ff14wiki.info/?%E3%82%B5%E3%83%96%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88",
+    "k": "wiki",
+    "seen": "captured 2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "sq-steps-scrubbing",
+  "topic": "Quests",
+  "about": [
+   [
+    "quests",
+    110735
+   ]
+  ],
+  "title": "Scrubbing the Soul: talk around town, then fight bandits",
+  "claim": "From Mestonnaux at the Greatloam Growery: hear out NPCs around the city, then fight a group of sharp-eyed bandits (rank 15, two plus two) south of Camp Bentbranch (33-38) and talk in an instanced scene; report to Mestonnaux. Reward 7,500 gil.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: サブクエスト (side quests)",
+    "u": "https://web.archive.org/web/20130103204845/http://ff14wiki.info/?%E3%82%B5%E3%83%96%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88",
+    "k": "wiki",
+    "seen": "captured 2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "sq-steps-misc",
+  "topic": "Quests",
+  "about": [
+   [
+    "quests",
+    110682
+   ],
+   [
+    "quests",
+    110683
+   ],
+   [
+    "quests",
+    110684
+   ],
+   [
+    "quests",
+    110685
+   ],
+   [
+    "quests",
+    110667
+   ],
+   [
+    "quests",
+    110641
+   ],
+   [
+    "quests",
+    110666
+   ],
+   [
+    "quests",
+    110663
+   ],
+   [
+    "quests",
+    110707
+   ],
+   [
+    "quests",
+    110706
+   ]
+  ],
+  "title": "Where the targets of several side quests are",
+  "claim": "Clasping to Hope: two rank 35 Amalj'aa Lancers south of Halatali (42-29). Traumaturgy: Amalj'aa northeast of Halatali (44-25), bring back a ring. Best Flower Ever: six rank 10 dodos southeast of the Gold Bazaar. The Unheard Horizon: east of Camp Horizon (16-29). Hunting the Hunters: Ixal at Quarrymill. Food for Thought: use the cheer emote on five NPCs around Limsa, then talk to them. Stone Deaf: a Galago at Camp Tranquil (37-48). Embarrassing Excerpts: an Opo-opo in the Mun-Tuy Cellars (7-5). A Hypocritical Oath: five antelopes; Counting Sheep: four dread wolves (both from Owl's Nest in Coerthas).",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: サブクエスト (side quests)",
+    "u": "https://web.archive.org/web/20130103204845/http://ff14wiki.info/?%E3%82%B5%E3%83%96%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88",
+    "k": "wiki",
+    "seen": "captured 2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "sq-rewards",
+  "topic": "Quests",
+  "about": [
+   [
+    "quests",
+    110744
+   ],
+   [
+    "quests",
+    110771
+   ],
+   [
+    "quests",
+    110641
+   ],
+   [
+    "quests",
+    110726
+   ],
+   [
+    "quests",
+    110684
+   ],
+   [
+    "quests",
+    110666
+   ],
+   [
+    "quests",
+    110735
+   ],
+   [
+    "quests",
+    110762
+   ],
+   [
+    "quests",
+    110765
+   ],
+   [
+    "quests",
+    110745
+   ],
+   [
+    "quests",
+    110707
+   ],
+   [
+    "quests",
+    110644
+   ],
+   [
+    "quests",
+    110642
+   ],
+   [
+    "quests",
+    110643
+   ],
+   [
+    "quests",
+    110753
+   ],
+   [
+    "quests",
+    110685
+   ],
+   [
+    "quests",
+    110754
+   ],
+   [
+    "quests",
+    110682
+   ],
+   [
+    "quests",
+    110683
+   ],
+   [
+    "quests",
+    110763
+   ],
+   [
+    "quests",
+    110663
+   ],
+   [
+    "quests",
+    110664
+   ],
+   [
+    "quests",
+    110665
+   ],
+   [
+    "quests",
+    110667
+   ],
+   [
+    "quests",
+    110706
+   ],
+   [
+    "quests",
+    110773
+   ],
+   [
+    "quests",
+    110774
+   ],
+   [
+    "quests",
+    110755
+   ],
+   [
+    "quests",
+    110686
+   ],
+   [
+    "quests",
+    110764
+   ]
+  ],
+  "title": "Side quest rewards our records lack or give without amounts",
+  "claim": "Gil and stack sizes from the wiki: Winds of Change 7,500 gil; Trading Tongueflaps 2,500 gil; Food for Thought 10,000 gil; Quid Pro Quo 7,500 gil; Best Flower Ever 5,000 gil; Stone Deaf 10,000 gil; Scrubbing the Soul 7,500 gil; In the Name of Science 5,000 gil; Spores on the Brain 5,000 gil; Shot Through the Heart 10,000 gil; A Hypocritical Oath 12,500 gil. Moonstruck 12 pineapple juice; Seashells by the Seashore 12 boiled crayfish; Fishing for Answers 50 crab balls; Of Archons and Muses 10 orange juice; The Unheard Horizon 100 wind shards; Sanguine Studies 12 blood currant tarts; Clasping to Hope 6 Ironhide Unguent; Traumaturgy 6 Ironwill Unguent; Hearing Confession 12 flatbread; Embarrassing Excerpts 20 lightning crystals; A Forbidden Love 12 bronze azagai; Last Respects 20 earth crystals; Hunting the Hunters 100 iron arrows; Counting Sheep 12 grilled dodo; Sour Grapes 100 water shards; Sniffing Out a Profit 2 grade 4 dark matter; Secrets Unearthed 5 steel ingots (鉄鋼); Freedom Isn't Free spiked knuckles (スパイクナックル); A Bitter Oil to Swallow a chocobo hatchet (チョコボハチェットDX).",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: サブクエスト (side quests)",
+    "u": "https://web.archive.org/web/20130103204845/http://ff14wiki.info/?%E3%82%B5%E3%83%96%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88",
+    "k": "wiki",
+    "seen": "captured 2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "jq-structure",
+  "topic": "Job quests",
+  "about": [
+   [
+    "quests",
+    111281
+   ],
+   [
+    "quests",
+    111282
+   ],
+   [
+    "quests",
+    111283
+   ],
+   [
+    "quests",
+    111284
+   ],
+   [
+    "quests",
+    111285
+   ],
+   [
+    "quests",
+    111286
+   ],
+   [
+    "quests",
+    111201
+   ],
+   [
+    "quests",
+    111202
+   ],
+   [
+    "quests",
+    111203
+   ],
+   [
+    "quests",
+    111204
+   ],
+   [
+    "quests",
+    111205
+   ],
+   [
+    "quests",
+    111206
+   ],
+   [
+    "quests",
+    111221
+   ],
+   [
+    "quests",
+    111222
+   ],
+   [
+    "quests",
+    111223
+   ],
+   [
+    "quests",
+    111224
+   ],
+   [
+    "quests",
+    111225
+   ],
+   [
+    "quests",
+    111226
+   ],
+   [
+    "quests",
+    111321
+   ],
+   [
+    "quests",
+    111322
+   ],
+   [
+    "quests",
+    111323
+   ],
+   [
+    "quests",
+    111324
+   ],
+   [
+    "quests",
+    111325
+   ],
+   [
+    "quests",
+    111326
+   ],
+   [
+    "quests",
+    111301
+   ],
+   [
+    "quests",
+    111302
+   ],
+   [
+    "quests",
+    111303
+   ],
+   [
+    "quests",
+    111304
+   ],
+   [
+    "quests",
+    111305
+   ],
+   [
+    "quests",
+    111306
+   ],
+   [
+    "quests",
+    111241
+   ],
+   [
+    "quests",
+    111242
+   ],
+   [
+    "quests",
+    111243
+   ],
+   [
+    "quests",
+    111244
+   ],
+   [
+    "quests",
+    111245
+   ],
+   [
+    "quests",
+    111246
+   ],
+   [
+    "quests",
+    111261
+   ],
+   [
+    "quests",
+    111262
+   ],
+   [
+    "quests",
+    111263
+   ],
+   [
+    "quests",
+    111264
+   ],
+   [
+    "quests",
+    111265
+   ],
+   [
+    "quests",
+    111266
+   ]
+  ],
+  "title": "Job quests (patch 1.21): unlock at main class 30 and a second class 15",
+  "claim": "Jobs came with patch 1.21. Each job has six quests. The first (the job quest proper) needs the main class at level 30 and a set second class at 15; it gives the job's soul crystal, the first job action and a Chronos amulet (時神の護符, meant for a future stat reset; it stacks, one per job). The rest unlock at levels 35, 40, 45 (two quests: one action, one collecting four artifact pieces) and 50 (artifact body plus the fifth action), checked against the main class level. After unlocking, accept, fight and report as the job: fights done as a class or another job don't count. The level 45 collection quest has four chests in the field or in instanced raids; with the quest active they show a '!' and any class or job can open them. The level 50 quest is a full-party fight.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: ジョブクエスト (job quests)",
+    "u": "https://web.archive.org/web/20130103205111/http://ff14wiki.info/?%E3%82%B8%E3%83%A7%E3%83%96%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88",
+    "k": "wiki",
+    "seen": "captured 2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "jq-paladin",
+  "topic": "Job quests",
+  "about": [
+   [
+    "quests",
+    111281
+   ],
+   [
+    "quests",
+    111282
+   ],
+   [
+    "quests",
+    111283
+   ],
+   [
+    "quests",
+    111284
+   ],
+   [
+    "quests",
+    111285
+   ],
+   [
+    "quests",
+    111286
+   ]
+  ],
+  "title": "Paladin quests: Lulutsu, then Jenlyns",
+  "claim": "1 Paladin's Pledge: Lulutsu at the Gladiators' Guild, Ul'dah (5,5); Gladiator 30 and Conjurer 15; kill a few monsters south of Camp Horizon; gives Cover. 2 Honor Lost (35): Jenlyns on Ul'dah's upper level (6,5), around the central atrium; NM アルシュ in the Mun-Tuy Cellars, 2-3 players; gives Divine Veil. 3 Power Struggles (40): NM Old Sixarms south of Cedarwood, 2-3 players; Holy Succor. 4 Poisoned Hearts (45): artifact chests at Aurum Vale (Camp Everlakes), Natalan (Camp Dragonhead), the cave north of Camp Brittlebark and the cave northeast of Camp Crimson Bark; gives Gallant legs, hands, feet and head. 5 Parley on High Ground (45): a fight north of Ul'dah (southeast of Nanawa Mines), 4+ players; Spirits Within. 6 Keeping the Oath (50): fight an ogre and ahrimans southeast of Camp Bluefog; Gallant body and Invincible.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: ジョブクエスト (job quests)",
+    "u": "https://web.archive.org/web/20130103205111/http://ff14wiki.info/?%E3%82%B8%E3%83%A7%E3%83%96%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88",
+    "k": "wiki",
+    "seen": "captured 2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "jq-warrior",
+  "topic": "Job quests",
+  "about": [
+   [
+    "quests",
+    111201
+   ],
+   [
+    "quests",
+    111202
+   ],
+   [
+    "quests",
+    111203
+   ],
+   [
+    "quests",
+    111204
+   ],
+   [
+    "quests",
+    111205
+   ],
+   [
+    "quests",
+    111206
+   ]
+  ],
+  "title": "Warrior quests: Neale, then Curious Gorge",
+  "claim": "1 Pride and Duty: Neale at the Marauders' Guild, Limsa Lominsa lower decks (4,7); Marauder 30 and Gladiator 15; talk to Curious Gorge, then kill antlings just north of him; gives Vengeance. Curious Gorge stands in a cave east of the Scorpion Crossing gate south of Camp Horizon, under Nophica's Wells (Western Thanalan 15,33). 2 Embracing the Beast (35): NM Sirocco, soloable; Antagonize. 3 Curious Gorge Goes to the Bazaar (40): Canyon Condor north of the Silver Bazaar, soloable; Collusion. 4 Looking the Part (45): chests in Cutter's Cry (east of Camp Bluefog), Natalan (east of Camp Dragonhead), near the Crimson Bark south of its camp and in the tower before Widow Cliffs southeast of Camp Bearded Rock; Fighter's legs, hands, feet, head. 5 Proof is in the Pudding (45): kill アウドムラ (a buffalo) in the cave southeast of Camp Iron Lake, about 4 players; Steel Cyclone. 6 How to Quit You (50): a full-party fight at the Silver Bazaar; Fighter's body and Mighty Strikes.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: ジョブクエスト (job quests)",
+    "u": "https://web.archive.org/web/20130103205111/http://ff14wiki.info/?%E3%82%B8%E3%83%A7%E3%83%96%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88",
+    "k": "wiki",
+    "seen": "captured 2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "jq-monk",
+  "topic": "Job quests",
+  "about": [
+   [
+    "quests",
+    111221
+   ],
+   [
+    "quests",
+    111222
+   ],
+   [
+    "quests",
+    111223
+   ],
+   [
+    "quests",
+    111224
+   ],
+   [
+    "quests",
+    111225
+   ],
+   [
+    "quests",
+    111226
+   ]
+  ],
+  "title": "Monk quests: Gagaruna, Erik, Widargelt",
+  "claim": "1 Brother from Another Mother: Gagaruna at the Pugilists' Guild, Ul'dah (5,4); Pugilist 30 and Lancer 15; kill imps southwest of Camp Drybone (west of Halatali); gives Shoulder Tackle (羅刹衝). 2 Insulted Intelligence (35): Erik, opposite Ul'dah's chocobo stable (7,3); NM グルタナスガーディ south of Cedarwood, solo or 2; Spinning Heel (蹴撃). 3 The Pursuit of Power (40): NM Prince of Pestilence (プリンスオブペスト) in the Mun-Tuy Cellars, solo or 2; Fists of Wind. 4 Good Vibrations (45): アペブ at the north edge of Camp Horizon's area, 3-4 players, tougher than it looks; Dragon Kick. 5 Five Easy Pieces (45): from Widargelt in Little Ala Mhigo south of Camp Drybone (Eastern Thanalan 38,31); chests in Dzemael Darkhold's drake room, U'Ghamaro Mines, near the Crimson Bark and south of Ul'dah's east gate; Temple hands, legs, head, feet. 6 Return of the King...of Ruin (50): Erik; a full-party fight in Mor Dhona; Temple body and Hundred Fists.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: ジョブクエスト (job quests)",
+    "u": "https://web.archive.org/web/20130103205111/http://ff14wiki.info/?%E3%82%B8%E3%83%A7%E3%83%96%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88",
+    "k": "wiki",
+    "seen": "captured 2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "jq-dragoon",
+  "topic": "Job quests",
+  "about": [
+   [
+    "quests",
+    111321
+   ],
+   [
+    "quests",
+    111322
+   ],
+   [
+    "quests",
+    111323
+   ],
+   [
+    "quests",
+    111324
+   ],
+   [
+    "quests",
+    111325
+   ],
+   [
+    "quests",
+    111326
+   ]
+  ],
+  "title": "Dragoon quests: Haurtefert, then Alberic",
+  "claim": "1 Eye of the Dragon: Haurtefert at the Lancers' Guild, Gridania (8,2); Lancer 30 and Pugilist 15; kill crabs west of Nine Ivies; gives Jump. 2 Lance of Fury (35): Alberic before the gate of Ishgard west of Camp Dragonhead (Coerthas Central Highlands 35,18); NM Bomb Baron in Cassiopeia Hollow, solo or 2; Disembowel. 3 Unfading Scars (40): NM Spitfire southwest of Camp Glory, 2 players; Elusive Jump. 4 Double Dragoon (45): chests at Aurum Vale, the cave north of Camp Brittlebark (by the Singing Shards), U'Ghamaro Mines and the cave north of Camp Bluefog; Drachen legs, feet, hands, head. 5 Fatal Seduction (45): ストレンヴルム south of Camp Riversmeet, 3+ players; Ring of Talons. 6 Into the Dragon's Maw (50): a fight before the bridge from Camp Dragonhead toward Camp Glory; Drachen body and Dragonfire Dive.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: ジョブクエスト (job quests)",
+    "u": "https://web.archive.org/web/20130103205111/http://ff14wiki.info/?%E3%82%B8%E3%83%A7%E3%83%96%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88",
+    "k": "wiki",
+    "seen": "captured 2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "jq-bard",
+  "topic": "Job quests",
+  "about": [
+   [
+    "quests",
+    111301
+   ],
+   [
+    "quests",
+    111302
+   ],
+   [
+    "quests",
+    111303
+   ],
+   [
+    "quests",
+    111304
+   ],
+   [
+    "quests",
+    111305
+   ],
+   [
+    "quests",
+    111306
+   ]
+  ],
+  "title": "Bard quests: Georjeaux, then Jehantel",
+  "claim": "1 A Song of Bards and Bowmen: Georjeaux at the Archers' Guild, Gridania (8,5); Archer 30 and Conjurer 15; fight Qiqirn at the east map edge from Camp Tranquil (46-48, north of the Root marsh); gives Ballad of Magi. 2 The Archer's Anthem (35): Jehantel in the South Shroud (38,48), up the slope east of Camp Tranquil; NM バルディ west of Nanawa Mines, 2-3 players; Minuet of Rigor. 3 Bard's-Eye View (40): NM パイア at the Fairy Hearth (妖精の火床), 2-3 players; Paeon of War. 4 Doing It the Bard Way (45): Ixal and wolves north of Hyrstmill, 4+; Rain of Death. 5 Pieces of the Past (45): chests in Cutter's Cry, Zahar'ak (Camp Broken Water), near the Crimson Bark and in the cave south of Camp Iron Lake; Choral legs, hands, feet, head. 6 Requiem for the Fallen (50): a fight before the bridge from Camp Dragonhead toward Camp Glory; Choral body and Battle Voice.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: ジョブクエスト (job quests)",
+    "u": "https://web.archive.org/web/20130103205111/http://ff14wiki.info/?%E3%82%B8%E3%83%A7%E3%83%96%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88",
+    "k": "wiki",
+    "seen": "captured 2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "jq-whm",
+  "topic": "Job quests",
+  "about": [
+   [
+    "quests",
+    111241
+   ],
+   [
+    "quests",
+    111242
+   ],
+   [
+    "quests",
+    111243
+   ],
+   [
+    "quests",
+    111244
+   ],
+   [
+    "quests",
+    111245
+   ],
+   [
+    "quests",
+    111246
+   ]
+  ],
+  "title": "White Mage quests: Soileine, then Raya-O-Senna",
+  "claim": "1 Seeds of Initiative: Soileine at the Conjurers' Guild, Gridania (2,1); Conjurer 30 and Gladiator 15; kill mitelings at the west end of the Mun-Tuy Cellars (4-5); gives Presence of Mind (神速魔). 2 When Sheep Attack (35): Raya-O-Senna in a cave in the North Shroud (15,22), west of Emerald Moss; NM Downy Dunstan, solo or 2; Regen. 3 Lost in Rage (40): NM カクタージャック southwest of Camp Horizon, 2-3; Esuna. 4 The Wheel of Disaster (45): Roland (刀狩のローランド) and bandits on the bridge south of Camp Bearded Rock, 3-4; Holy. 5 In Search of Succor (45): chests in Dzemael Darkhold's drake room, Zahar'ak (right of the second gate), near the Crimson Bark and the southeast end of Bloodshore; Healer's legs, hands, feet, head. 6 The Chorus of Cataclysm (50): a fight with elementals at Sorrel Haven (スカンポの安息所); the way there is dangerous; Healer's body and Benediction.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: ジョブクエスト (job quests)",
+    "u": "https://web.archive.org/web/20130103205111/http://ff14wiki.info/?%E3%82%B8%E3%83%A7%E3%83%96%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88",
+    "k": "wiki",
+    "seen": "captured 2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "jq-blm",
+  "topic": "Job quests",
+  "about": [
+   [
+    "quests",
+    111261
+   ],
+   [
+    "quests",
+    111262
+   ],
+   [
+    "quests",
+    111263
+   ],
+   [
+    "quests",
+    111264
+   ],
+   [
+    "quests",
+    111265
+   ],
+   [
+    "quests",
+    111266
+   ]
+  ],
+  "title": "Black Mage quests: Yayake, Lalai, then the Western Thanalan cave",
+  "claim": "1 Hearing Voices: Yayake at the Thaumaturges' Guild, Ul'dah (4,5); Thaumaturge 30 and Pugilist 15; kill gnats by the entrance of Copperbell Mines; gives Convert. 2 A Time to Kill (35): Lalai in Ul'dah (7,6); NM Daddy Longlegs west of Nophica's Wells, 3-4; Freeze. 3 International Relations (40): ホワイトタロン south of Camp Bald Knoll, about 4; Flare. 4 The Voidgate Breathes Gloomy (45): Dozol Meloc in a cave in Western Thanalan (11,28): take the path down toward the Ferry Docks and go east through the cave; search a chest in the Crimson Bark area, with wolves nearby; Sleepga. 5 Gearing Up (45): Da Za (メンディカント269) in the same cave; chests at Aurum Vale, a tower north of Camp Riversmeet, the cave west of Camp Brittlebark and the cave south of Camp Broken Water; Wizard's legs, hands, feet, head. 6 Always Bet on Black (50): a fight at the shrine of Nald northeast of Camp Broken Water against a Batraal-like enemy; Wizard's body and Burst.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: ジョブクエスト (job quests)",
+    "u": "https://web.archive.org/web/20130103205111/http://ff14wiki.info/?%E3%82%B8%E3%83%A7%E3%83%96%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88",
+    "k": "wiki",
+    "seen": "captured 2013-01"
+   }
+  ],
+  "added": "2026-11-11"
  }
 ]
