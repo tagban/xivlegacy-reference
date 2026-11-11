@@ -357,6 +357,10 @@ def main():
     write("leves", leves)
     write("achievements", achievements)
     write("harvest", harvest)
+    # sourced research findings (data/findings.json): claims with citations, shown on pages
+    find_path = os.path.join(ROOT, "data", "findings.json")
+    with open(os.path.join(OUT, "findings.json"), "w") as f:
+        json.dump(json.load(open(find_path)) if os.path.exists(find_path) else [], f, ensure_ascii=False)
     notes_path = os.path.join(ROOT, "data", "zone_notes.json")
     with open(os.path.join(OUT, "zone_notes.json"), "w") as f:
         json.dump(json.load(open(notes_path)) if os.path.exists(notes_path) else {}, f, ensure_ascii=False)
