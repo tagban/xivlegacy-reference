@@ -238,5 +238,192 @@
    }
   ],
   "added": "2026-11-11"
+ },
+ {
+  "id": "se-weakness",
+  "topic": "Status effects",
+  "about": [],
+  "title": "Weakness and Severe Weakness after being raised",
+  "claim": "Getting up from KO by any means except Rebirth gives Weakness: max HP and max MP down 25%. Getting KO'd and raised again while Weakened gives Severe Weakness: max HP and MP down 50%, and physical and magic attack and defense each down 50%. The page also says Weakness slows the action gauge and lengthens recasts.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: 衰弱 (Weakness)",
+    "u": "https://web.archive.org/web/20130703200545/http://ff14wiki.info/?%E8%A1%B0%E5%BC%B1",
+    "k": "wiki",
+    "seen": "captured 2013-07"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "se-weakness-duration",
+  "topic": "Status effects",
+  "about": [],
+  "title": "How long Weakness lasted (patch 1.18 table)",
+  "claim": "In the patch 1.18 raise table, Raise (Conjurer) and Resurrect (Thaumaturge) and Return each left 3 minutes of Weakness; Raise II shortened Weakness or Severe Weakness to 1 minute; Rebirth left none. Patch 1.20 cut the raise spells down to Conjurer's Raise alone; cast as a Conjurer it doesn't weaken the target (a rank 48 trait), cast from another class it does and has a longer recast.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: 蘇生魔法 (raise spells)",
+    "u": "https://web.archive.org/web/20130703132401/http://ff14wiki.info/?%E8%98%87%E7%94%9F%E9%AD%94%E6%B3%95",
+    "k": "wiki",
+    "seen": "captured 2013-07"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "se-buff-tiers",
+  "topic": "Status effects",
+  "about": [],
+  "title": "Tier I and II of a buff replace each other; the two Spikes replace each other",
+  "claim": "All buff spells' tier I and tier II versions are mutually exclusive: the later cast overwrites the earlier one, even if it is weaker (Shell over Shell II). Shock Spikes and Mind Spikes (either tier) also overwrite each other, so players cast Mind Spikes to get rid of Shock Spikes.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: バフ (buffs)",
+    "u": "https://web.archive.org/web/20130503093842/http://ff14wiki.info/?%E3%83%90%E3%83%95",
+    "k": "wiki",
+    "seen": "captured 2013-05"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "se-dot-ticks",
+  "topic": "Status effects",
+  "about": [],
+  "title": "DoT spells tick about ten times; longer duration means more ticks",
+  "claim": "Players counted roughly ten damage ticks from a landed DoT spell, and found that lengthening the spell's duration (Roaming Soul) raised its total damage, so duration sets the number of ticks. Early Conjurer DoTs (Shock, Choke, Drown, Burn, Frost, Rasp, I and II) each also lowered the target's magic defense against that element; Dia lowered physical defense and Bio physical attack.",
+  "status": "reported",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: DoT (damage over time)",
+    "u": "https://web.archive.org/web/20130104021451/http://ff14wiki.info/?DoT",
+    "k": "wiki",
+    "seen": "captured 2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "se-gladiator",
+  "topic": "Status effects",
+  "about": [],
+  "title": "Gladiator effect durations (patch 1.20 and later)",
+  "claim": "Rampart: defense up, 60 s (recast 120 s). Aegis Boon: next hit is blocked and heals you, 30 s (60 s). Shield Bash: Stun 5 s. Sentinel: damage taken down, 15 s (90 s). Riot Blade from behind: Defense Down 30 s. Outmaneuver: block rate up and TP on block, 30 s (90 s). Iron Will removes Bind and Heavy from yourself (180 s). Goring Blade from behind: a DoT for 30 s. A rank 28 trait adds Blind to Flash. Durations as listed in the wiki's patch 1.20+ action table, which matches the in-game tooltips.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: クラス/剣術士 (Gladiator)",
+    "u": "https://web.archive.org/web/20130104005005/http://ff14wiki.info/?%E3%82%AF%E3%83%A9%E3%82%B9/%E5%89%A3%E8%A1%93%E5%A3%AB",
+    "k": "wiki",
+    "seen": "captured 2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "se-marauder",
+  "topic": "Status effects",
+  "about": [],
+  "title": "Marauder effect durations (patch 1.20 and later)",
+  "claim": "Foresight: parry rate up, 30 s or until one parry (60 s). Bloodbath: next hit drains HP, 30 s (60 s). Fracture after a parry: target can't use weapon skills for 8 s. Berserk and Rampage are toggles that can't be combined; taking damage resets Berserk, moving ends Rampage. Stormwind from behind adds Heavy. Unbowed March (不屈の行軍): slower movement but immune to most debuffs, 20 s (180 s). A rank 28 trait adds Attack Down to Provoke. Durations as listed in the wiki's patch 1.20+ action table, which matches the in-game tooltips.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: クラス/斧術士 (Marauder)",
+    "u": "https://web.archive.org/web/20130110185047/http://ff14wiki.info/?%E3%82%AF%E3%83%A9%E3%82%B9/%E6%96%A7%E8%A1%93%E5%A3%AB",
+    "k": "wiki",
+    "seen": "captured 2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "se-lancer",
+  "topic": "Status effects",
+  "about": [],
+  "title": "Lancer effect durations (patch 1.20 and later)",
+  "claim": "Heavy Thrust: Stun 4 s if the target is targeting you. Invigorate (気合): TP gain and no TP decay out of combat, 30 s, +15 s with a rank 28 trait (90 s). Leg Sweep combo: AoE Stun 8 s. Dragon's Blade and Dragon's Lance stack up to 3 times and can't be combined; Dread Spike ends them for a bigger drain. Durations as listed in the wiki's patch 1.20+ action table, which matches the in-game tooltips.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: クラス/槍術士 (Lancer)",
+    "u": "https://web.archive.org/web/20130104021057/http://ff14wiki.info/?%E3%82%AF%E3%83%A9%E3%82%B9/%E6%A7%8D%E8%A1%93%E5%A3%AB",
+    "k": "wiki",
+    "seen": "captured 2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "se-pugilist",
+  "topic": "Status effects",
+  "about": [],
+  "title": "Pugilist effect durations (patch 1.20 and later)",
+  "claim": "Featherstep: evasion up, 30 s or until one evade (60 s). Atemi (当身) from behind: Stun 10 s. Concussive Blow from the flank: Blind 30 s. Blindside: next attack from behind crits, 60 s. Haymaker after an evade: Stun. Earth and Fire stances are toggles that drain MP and can't be combined. Demolish combo: Dispel. Aura Pulse combo: Slow 30 s. Whistle (口笛): the enemy is fixed on you for 5 s (60 s). Durations as listed in the wiki's patch 1.20+ action table, which matches the in-game tooltips.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: クラス/格闘士 (Pugilist)",
+    "u": "https://web.archive.org/web/20130104024453/http://ff14wiki.info/?%E3%82%AF%E3%83%A9%E3%82%B9/%E6%A0%BC%E9%97%98%E5%A3%AB",
+    "k": "wiki",
+    "seen": "captured 2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "se-archer",
+  "topic": "Status effects",
+  "about": [],
+  "title": "Archer effect durations (patch 1.20 and later)",
+  "claim": "Decoy: dodge one ranged or magic attack, 60 s (90 s); a rank 16 trait adds physical. Hawk's Eye: accuracy up 15 s (90 s). Leaden Arrow (レッデンアロー): Heavy 30 s. Shadowbind: Bind 30 s. Swiftsong: party move speed up 180 s, ends when you attack or are attacked. Gloom Arrow combo: Blind 30 s. Bloodletter: DoT 30 s with a big hit at the end. Durations as listed in the wiki's patch 1.20+ action table, which matches the in-game tooltips.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: クラス/弓術士 (Archer)",
+    "u": "https://web.archive.org/web/20130104005017/http://ff14wiki.info/?%E3%82%AF%E3%83%A9%E3%82%B9/%E5%BC%93%E8%A1%93%E5%A3%AB",
+    "k": "wiki",
+    "seen": "captured 2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "se-thaumaturge",
+  "topic": "Status effects",
+  "about": [],
+  "title": "Thaumaturge effect durations (patch 1.20 and later)",
+  "claim": "Parsimony, Necrogenesis, Dark Seal, Resonance and Excruciate all last 30 s (90 s recast). Blizzard: Heavy 30 s. Thundara: Stun 4 s. Blizzara: point-blank Bind 30 s. Blood Rite: MP from damage taken and no spell interruption, 20 s (60 s). Sleep: 60 s. Durations as listed in the wiki's patch 1.20+ action table, which matches the in-game tooltips.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: クラス/呪術士 (Thaumaturge)",
+    "u": "https://web.archive.org/web/20130104021052/http://ff14wiki.info/?%E3%82%AF%E3%83%A9%E3%82%B9/%E5%91%AA%E8%A1%93%E5%A3%AB",
+    "k": "wiki",
+    "seen": "captured 2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "se-conjurer",
+  "topic": "Status effects",
+  "about": [],
+  "title": "Conjurer effect durations (patch 1.20 and later)",
+  "claim": "Protect and Stoneskin: 300 s each (30 s recast). Stone adds magic evasion down; Aero adds a DoT; Stonera adds Heavy; Aerora's combo adds Dispel. Cleric Stance is a toggle: attack spells +20%, healing -20%. Divine Benison-type 女神の慈悲: next heal or buff becomes area-of-effect, 60 s. 女神の加護: enmity halved and MP regen, 20 s (180 s). Repose: Sleep. Durations as listed in the wiki's patch 1.20+ action table, which matches the in-game tooltips.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: クラス/幻術士 (Conjurer)",
+    "u": "https://web.archive.org/web/20130104005327/http://ff14wiki.info/?%E3%82%AF%E3%83%A9%E3%82%B9/%E5%B9%BB%E8%A1%93%E5%A3%AB",
+    "k": "wiki",
+    "seen": "captured 2013-01"
+   }
+  ],
+  "added": "2026-11-11"
  }
 ]
