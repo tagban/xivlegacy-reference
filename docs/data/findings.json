@@ -10,7 +10,8 @@
    {
     "t": "Gamer Escape: Devotion guildleves (1.0)",
     "u": "https://ffxiv.gamerescape.com/wiki/Devotion_(Guildleve)",
-    "k": "wiki"
+    "k": "wiki",
+    "seen": "page created 2009-08"
    }
   ],
   "added": "2026-11-11"
@@ -31,7 +32,8 @@
    {
     "t": "Gamer Escape: Sweet Revenge (1.0 leve)",
     "u": "https://ffxiv.gamerescape.com/wiki/Sweet_Revenge",
-    "k": "wiki"
+    "k": "wiki",
+    "seen": "page created 2010-09"
    }
   ],
   "added": "2026-11-11"
@@ -58,7 +60,8 @@
    {
     "t": "Gamer Escape: All Nine Ivies is a Stage",
     "u": "https://ffxiv.gamerescape.com/wiki/All_Nine_Ivies_is_a_Stage",
-    "k": "wiki"
+    "k": "wiki",
+    "seen": "page created 2010-11"
    }
   ],
   "added": "2026-11-11"
@@ -118,7 +121,8 @@
    {
     "t": "Gamer Escape: Devotion guildleves (1.0)",
     "u": "https://ffxiv.gamerescape.com/wiki/Devotion_(Guildleve)",
-    "k": "wiki"
+    "k": "wiki",
+    "seen": "page created 2009-08"
    }
   ],
   "added": "2026-11-11"
@@ -132,9 +136,10 @@
   "status": "confirmed",
   "sources": [
    {
-    "t": "FF14 Online Wiki (Japanese): ファクション, 2011-2012 archive",
-    "u": "https://web.archive.org/web/2012/http://ff14wiki.info/?%E3%83%95%E3%82%A1%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3",
-    "k": "archive"
+    "t": "FF14 Online Wiki (Japanese): ファクション, archive",
+    "u": "https://web.archive.org/web/20130621110512/http://ff14wiki.info/?%E3%83%95%E3%82%A1%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3",
+    "k": "archive",
+    "seen": "captured 2013-06"
    }
   ],
   "added": "2026-11-11"
@@ -148,9 +153,10 @@
   "status": "confirmed",
   "sources": [
    {
-    "t": "FF14 Online Wiki (Japanese): ファクションリーヴ, 2011-2012 archive",
-    "u": "https://web.archive.org/web/2012/http://ff14wiki.info/?%E3%83%95%E3%82%A1%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E3%83%AA%E3%83%BC%E3%83%B4",
-    "k": "archive"
+    "t": "FF14 Online Wiki (Japanese): ファクションリーヴ, archive",
+    "u": "https://web.archive.org/web/20130609233051/http://ff14wiki.info/?%E3%83%95%E3%82%A1%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E3%83%AA%E3%83%BC%E3%83%B4",
+    "k": "archive",
+    "seen": "captured 2013-06"
    }
   ],
   "added": "2026-11-11"
@@ -164,9 +170,10 @@
   "status": "confirmed",
   "sources": [
    {
-    "t": "FF14 Online Wiki (Japanese): ファクションリーヴ, 2011-2012 archive",
-    "u": "https://web.archive.org/web/2012/http://ff14wiki.info/?%E3%83%95%E3%82%A1%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E3%83%AA%E3%83%BC%E3%83%B4",
-    "k": "archive"
+    "t": "FF14 Online Wiki (Japanese): ファクションリーヴ, archive",
+    "u": "https://web.archive.org/web/20130609233051/http://ff14wiki.info/?%E3%83%95%E3%82%A1%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E3%83%AA%E3%83%BC%E3%83%B4",
+    "k": "archive",
+    "seen": "captured 2013-06"
    }
   ],
   "added": "2026-11-11"
@@ -180,9 +187,10 @@
   "status": "confirmed",
   "sources": [
    {
-    "t": "FF14 Online Wiki (Japanese): カンパニーリーヴ, 2011-2012 archive",
-    "u": "https://web.archive.org/web/2012/http://ff14wiki.info/?%E3%82%AB%E3%83%B3%E3%83%91%E3%83%8B%E3%83%BC%E3%83%AA%E3%83%BC%E3%83%B4",
-    "k": "archive"
+    "t": "FF14 Online Wiki (Japanese): カンパニーリーヴ, archive",
+    "u": "https://web.archive.org/web/20130605043945/http://ff14wiki.info/?%E3%82%AB%E3%83%B3%E3%83%91%E3%83%8B%E3%83%BC%E3%83%AA%E3%83%BC%E3%83%B4",
+    "k": "archive",
+    "seen": "captured 2013-06"
    }
   ],
   "added": "2026-11-11"
@@ -196,9 +204,10 @@
   "status": "confirmed",
   "sources": [
    {
-    "t": "FF14 Online Wiki (Japanese): カンパニーリーヴ, 2011-2012 archive",
-    "u": "https://web.archive.org/web/2012/http://ff14wiki.info/?%E3%82%AB%E3%83%B3%E3%83%91%E3%83%8B%E3%83%BC%E3%83%AA%E3%83%BC%E3%83%B4",
-    "k": "archive"
+    "t": "FF14 Online Wiki (Japanese): カンパニーリーヴ, archive",
+    "u": "https://web.archive.org/web/20130605043945/http://ff14wiki.info/?%E3%82%AB%E3%83%B3%E3%83%91%E3%83%8B%E3%83%BC%E3%83%AA%E3%83%BC%E3%83%B4",
+    "k": "archive",
+    "seen": "captured 2013-06"
    }
   ],
   "added": "2026-11-11"
@@ -278,7 +287,7 @@
   "topic": "Status effects",
   "about": [],
   "title": "Tier I and II of a buff replace each other; the two Spikes replace each other",
-  "claim": "All buff spells' tier I and tier II versions are mutually exclusive: the later cast overwrites the earlier one, even if it is weaker (Shell over Shell II). Shock Spikes and Mind Spikes (either tier) also overwrite each other, so players cast Mind Spikes to get rid of Shock Spikes.",
+  "claim": "All buff spells' tier I and tier II versions are mutually exclusive: the later cast overwrites the earlier one, even if it is weaker (Shell over Shell II). Shock Spikes and Stygian Spikes (either tier) also overwrite each other, so players cast Stygian Spikes to get rid of Shock Spikes.",
   "status": "confirmed",
   "sources": [
    {
@@ -312,7 +321,7 @@
   "topic": "Status effects",
   "about": [],
   "title": "Gladiator effect durations (patch 1.20 and later)",
-  "claim": "Rampart: defense up, 60 s (recast 120 s). Aegis Boon: next hit is blocked and heals you, 30 s (60 s). Shield Bash: Stun 5 s. Sentinel: damage taken down, 15 s (90 s). Riot Blade from behind: Defense Down 30 s. Outmaneuver: block rate up and TP on block, 30 s (90 s). Iron Will removes Bind and Heavy from yourself (180 s). Goring Blade from behind: a DoT for 30 s. A rank 28 trait adds Blind to Flash. Durations as listed in the wiki's patch 1.20+ action table, which matches the in-game tooltips.",
+  "claim": "Rampart: defense up, 60 s (recast 120 s). Aegis Boon: next hit is blocked and heals you, 30 s (60 s). Shield Bash: Stun 5 s. Sentinel: damage taken down, 15 s (90 s). Riot Blade from behind: Defense Down 30 s. Outmaneuver: block rate up and TP on block, 30 s (90 s). Tempered Will removes Bind and Heavy from yourself (180 s). Goring Blade from behind: a DoT for 30 s. A rank 28 trait adds Blind to Flash. Durations as listed in the wiki's patch 1.20+ action table, which matches the in-game tooltips.",
   "status": "confirmed",
   "sources": [
    {
@@ -329,7 +338,7 @@
   "topic": "Status effects",
   "about": [],
   "title": "Marauder effect durations (patch 1.20 and later)",
-  "claim": "Foresight: parry rate up, 30 s or until one parry (60 s). Bloodbath: next hit drains HP, 30 s (60 s). Fracture after a parry: target can't use weapon skills for 8 s. Berserk and Rampage are toggles that can't be combined; taking damage resets Berserk, moving ends Rampage. Stormwind from behind adds Heavy. Unbowed March (不屈の行軍): slower movement but immune to most debuffs, 20 s (180 s). A rank 28 trait adds Attack Down to Provoke. Durations as listed in the wiki's patch 1.20+ action table, which matches the in-game tooltips.",
+  "claim": "Foresight: parry rate up, 30 s or until one parry (60 s). Bloodbath: next hit drains HP, 30 s (60 s). Fracture after a parry: target can't use weapon skills for 8 s. Berserk and Rampage are toggles that can't be combined; taking damage resets Berserk, moving ends Rampage. Path of the Storm from behind adds Heavy. Enduring March: slower movement but immune to most debuffs, 20 s (180 s). A rank 28 trait adds Attack Down to Provoke. Durations as listed in the wiki's patch 1.20+ action table, which matches the in-game tooltips.",
   "status": "confirmed",
   "sources": [
    {
@@ -346,7 +355,7 @@
   "topic": "Status effects",
   "about": [],
   "title": "Lancer effect durations (patch 1.20 and later)",
-  "claim": "Heavy Thrust: Stun 4 s if the target is targeting you. Invigorate (気合): TP gain and no TP decay out of combat, 30 s, +15 s with a rank 28 trait (90 s). Leg Sweep combo: AoE Stun 8 s. Dragon's Blade and Dragon's Lance stack up to 3 times and can't be combined; Dread Spike ends them for a bigger drain. Durations as listed in the wiki's patch 1.20+ action table, which matches the in-game tooltips.",
+  "claim": "Heavy Thrust: Stun 4 s if the target is targeting you. Invigorate: TP gain and no TP decay out of combat, 30 s, +15 s with a rank 28 trait (90 s). Leg Sweep combo: AoE Stun 8 s. Life Surge and Power Surge stack up to 3 times and can't be combined; Dread Spike ends them for a bigger drain. Durations as listed in the wiki's patch 1.20+ action table, which matches the in-game tooltips.",
   "status": "confirmed",
   "sources": [
    {
@@ -363,7 +372,7 @@
   "topic": "Status effects",
   "about": [],
   "title": "Pugilist effect durations (patch 1.20 and later)",
-  "claim": "Featherstep: evasion up, 30 s or until one evade (60 s). Atemi (当身) from behind: Stun 10 s. Concussive Blow from the flank: Blind 30 s. Blindside: next attack from behind crits, 60 s. Haymaker after an evade: Stun. Earth and Fire stances are toggles that drain MP and can't be combined. Demolish combo: Dispel. Aura Pulse combo: Slow 30 s. Whistle (口笛): the enemy is fixed on you for 5 s (60 s). Durations as listed in the wiki's patch 1.20+ action table, which matches the in-game tooltips.",
+  "claim": "Featherfoot: evasion up, 30 s or until one evade (60 s). Pounce from behind: Stun 10 s. Concussive Blow from the flank: Blind 30 s. Blindside: next attack from behind crits, 60 s. Haymaker after an evade: Stun. Fists of Earth and Fists of Fire are toggles that drain MP and can't be combined. Demolish combo: Dispel. Aura Pulse combo: Slow 30 s. Taunt: the enemy is fixed on you for 5 s (60 s). Durations as listed in the wiki's patch 1.20+ action table, which matches the in-game tooltips.",
   "status": "confirmed",
   "sources": [
    {
@@ -380,7 +389,7 @@
   "topic": "Status effects",
   "about": [],
   "title": "Archer effect durations (patch 1.20 and later)",
-  "claim": "Decoy: dodge one ranged or magic attack, 60 s (90 s); a rank 16 trait adds physical. Hawk's Eye: accuracy up 15 s (90 s). Leaden Arrow (レッデンアロー): Heavy 30 s. Shadowbind: Bind 30 s. Swiftsong: party move speed up 180 s, ends when you attack or are attacked. Gloom Arrow combo: Blind 30 s. Bloodletter: DoT 30 s with a big hit at the end. Durations as listed in the wiki's patch 1.20+ action table, which matches the in-game tooltips.",
+  "claim": "Decoy: dodge one ranged or magic attack, 60 s (90 s); a rank 16 trait adds physical. Hawk's Eye: accuracy up 15 s (90 s). Leaden Arrow: Heavy 30 s. Shadowbind: Bind 30 s. Swiftsong: party move speed up 180 s, ends when you attack or are attacked. Gloom Arrow combo: Blind 30 s. Bloodletter: DoT 30 s with a big hit at the end. Durations as listed in the wiki's patch 1.20+ action table, which matches the in-game tooltips.",
   "status": "confirmed",
   "sources": [
    {
@@ -397,7 +406,7 @@
   "topic": "Status effects",
   "about": [],
   "title": "Thaumaturge effect durations (patch 1.20 and later)",
-  "claim": "Parsimony, Necrogenesis, Dark Seal, Resonance and Excruciate all last 30 s (90 s recast). Blizzard: Heavy 30 s. Thundara: Stun 4 s. Blizzara: point-blank Bind 30 s. Blood Rite: MP from damage taken and no spell interruption, 20 s (60 s). Sleep: 60 s. Durations as listed in the wiki's patch 1.20+ action table, which matches the in-game tooltips.",
+  "claim": "Parsimony, Necrogenesis, Dark Seal, Resonance and Excruciate all last 30 s (90 s recast). Blizzard: Heavy 30 s. Thundara: Stun 4 s. Blizzara: point-blank Bind 30 s. Sanguine Rite: MP from damage taken and no spell interruption, 20 s (60 s). Sleep: 60 s. Durations as listed in the wiki's patch 1.20+ action table, which matches the in-game tooltips.",
   "status": "confirmed",
   "sources": [
    {
@@ -414,7 +423,7 @@
   "topic": "Status effects",
   "about": [],
   "title": "Conjurer effect durations (patch 1.20 and later)",
-  "claim": "Protect and Stoneskin: 300 s each (30 s recast). Stone adds magic evasion down; Aero adds a DoT; Stonera adds Heavy; Aerora's combo adds Dispel. Cleric Stance is a toggle: attack spells +20%, healing -20%. Divine Benison-type 女神の慈悲: next heal or buff becomes area-of-effect, 60 s. 女神の加護: enmity halved and MP regen, 20 s (180 s). Repose: Sleep. Durations as listed in the wiki's patch 1.20+ action table, which matches the in-game tooltips.",
+  "claim": "Protect and Stoneskin: 300 s each (30 s recast). Stone adds magic evasion down; Aero adds a DoT; Stonera adds Heavy; Aerora's combo adds Dispel. Cleric Stance is a toggle: attack spells +20%, healing -20%. Sacred Prism: next heal or buff becomes area-of-effect, 60 s. Shroud of Saints: enmity halved and MP regen, 20 s (180 s). Repose: Sleep. Durations as listed in the wiki's patch 1.20+ action table, which matches the in-game tooltips.",
   "status": "confirmed",
   "sources": [
    {
@@ -722,10 +731,14 @@
    [
     "quests",
     110667
+   ],
+   [
+    "quests",
+    110772
    ]
   ],
   "title": "Side quests added in patch 1.17a (April 26, 2011)",
-  "claim": "These side quests came with patch 1.17a.",
+  "claim": "These side quests came with patch 1.17a. Letting Out Orion's Belt (any class, rank 10, 5,000 gil) has you hand sardine bread to four gourmets around Limsa Lominsa.",
   "status": "confirmed",
   "sources": [
    {
@@ -768,10 +781,14 @@
    [
     "quests",
     110764
+   ],
+   [
+    "quests",
+    110756
    ]
   ],
   "title": "Side quests added in patch 1.18 (July 2011), with skill point rewards",
-  "claim": "These side quests came with patch 1.18. The wiki lists a skill point reward for each, given as 'up to' a number: Sniffing Out a Profit 3,100; Sour Grapes 841; Shot Through the Heart 1,401; Secrets Unearthed 960; Freedom Isn't Free 2,820; Spores on the Brain 500; A Bitter Oil to Swallow 960. Two more 1.18 quests (Ul'dah's アルマジャの刃, 13,000 gil, skill points up to 1,980; Gridania's 商機を握る豆, 14,000 gil, up to 2,700) aren't matched to our quest list yet.",
+  "claim": "These side quests came with patch 1.18. The wiki lists a skill point reward for each, given as 'up to' a number: Sniffing Out a Profit 3,100; Sour Grapes 841; Shot Through the Heart 1,401; Secrets Unearthed 960; Freedom Isn't Free 2,820; Spores on the Brain 500; A Bitter Oil to Swallow 960. Rustproof (Ul'dah) also came in 1.18: 13,000 gil and skill points up to 1,980. One more, Gridania's To Deskunk a Beer (14,000 gil, up to 2,700), isn't in our quest list.",
   "status": "confirmed",
   "sources": [
    {
@@ -1101,7 +1118,7 @@
    ]
   ],
   "title": "Have You Seen My Son runs through all three cities into Say it with Wolf Tails",
-  "claim": "Have You Seen My Son starts with Imania in Limsa Lominsa, then goes to Yuyubesu at the Amajina mining company in Ul'dah, the Bomb Embers in Nanawa Mines, back to Yuyubesu, and ends with Ildy in Ul'dah's adventurers' guild. It leads into Gridania's Say it with Wolf Tails (Francis at the Wood Wailers' post; needs Have You Seen My Son done): kill Knowing Gnats in the Mun-Tuy Cellars, and Francis gives a wolf tail to take back to Imania in Limsa.",
+  "claim": "Have You Seen My Son starts with Imania in Limsa Lominsa, then goes to Yuyubesu at the Amajina mining company in Ul'dah, the Bomb Embers in Nanawa Mines, back to Yuyubesu, and ends with Ildy in Ul'dah's adventurers' guild. It leads into Gridania's Say it with Wolf Tails (Francis at the Wailing Barracks; needs Have You Seen My Son done): kill Knowing Gnats in the MunTuy Cellars, and Francis gives a wolf tail to take back to Imania in Limsa.",
   "status": "confirmed",
   "sources": [
    {
@@ -1127,7 +1144,7 @@
    ]
   ],
   "title": "The Ultimate Prank needs The Penultimate Prank first",
-  "claim": "Nicoliaux gives both. The Penultimate Prank: eight blinking eyes from Aurora Anglers at the Fairy Hearth (27-31). The Ultimate Prank (rank 35, needs the first): Nicoliaux, Sylbyrt at the Carline Canopy, a Wandering Wight in the Mun-Tuy Cellars (5-3), Sylbyrt again, Nicoliaux.",
+  "claim": "Nicoliaux gives both. The Penultimate Prank: eight blinking eyes from Aurora Anglers at the Humblehearth (27-31). The Ultimate Prank (rank 35, needs the first): Nicoliaux, Sylbyrt at the Carline Canopy, a Wandering Wight in the MunTuy Cellars (5-3), Sylbyrt again, Nicoliaux.",
   "status": "confirmed",
   "sources": [
    {
@@ -1295,7 +1312,7 @@
    ]
   ],
   "title": "Where the targets of several side quests are",
-  "claim": "Clasping to Hope: two rank 35 Amalj'aa Lancers south of Halatali (42-29). Traumaturgy: Amalj'aa northeast of Halatali (44-25), bring back a ring. Best Flower Ever: six rank 10 dodos southeast of the Gold Bazaar. The Unheard Horizon: east of Camp Horizon (16-29). Hunting the Hunters: Ixal at Quarrymill. Food for Thought: use the cheer emote on five NPCs around Limsa, then talk to them. Stone Deaf: a Galago at Camp Tranquil (37-48). Embarrassing Excerpts: an Opo-opo in the Mun-Tuy Cellars (7-5). A Hypocritical Oath: five antelopes; Counting Sheep: four dread wolves (both from Owl's Nest in Coerthas).",
+  "claim": "Clasping to Hope: two rank 35 Amalj'aa Lancers south of Halatali (42-29). Traumaturgy: Amalj'aa northeast of Halatali (44-25), bring back a ring. Best Flower Ever: six rank 10 dodos southeast of the Golden Bazaar. The Unheard Horizon: east of Camp Horizon (16-29). Hunting the Hunters: Ixal at Quarrymill. Food for Thought: use the cheer emote on five NPCs around Limsa, then talk to them. Stone Deaf: a Galago at Camp Tranquil (37-48). Embarrassing Excerpts: an Opo-opo in the MunTuy Cellars (7-5). A Hypocritical Oath: five antelopes; Counting Sheep: four dread wolves (both from Owl's Nest in Coerthas).",
   "status": "confirmed",
   "sources": [
    {
@@ -1430,10 +1447,26 @@
    [
     "quests",
     110764
+   ],
+   [
+    "items",
+    4020208
+   ],
+   [
+    "items",
+    7020007
+   ],
+   [
+    "items",
+    10013004
+   ],
+   [
+    "items",
+    10002013
    ]
   ],
   "title": "Side quest rewards our records lack or give without amounts",
-  "claim": "Gil and stack sizes from the wiki: Winds of Change 7,500 gil; Trading Tongueflaps 2,500 gil; Food for Thought 10,000 gil; Quid Pro Quo 7,500 gil; Best Flower Ever 5,000 gil; Stone Deaf 10,000 gil; Scrubbing the Soul 7,500 gil; In the Name of Science 5,000 gil; Spores on the Brain 5,000 gil; Shot Through the Heart 10,000 gil; A Hypocritical Oath 12,500 gil. Moonstruck 12 pineapple juice; Seashells by the Seashore 12 boiled crayfish; Fishing for Answers 50 crab balls; Of Archons and Muses 10 orange juice; The Unheard Horizon 100 wind shards; Sanguine Studies 12 blood currant tarts; Clasping to Hope 6 Ironhide Unguent; Traumaturgy 6 Ironwill Unguent; Hearing Confession 12 flatbread; Embarrassing Excerpts 20 lightning crystals; A Forbidden Love 12 bronze azagai; Last Respects 20 earth crystals; Hunting the Hunters 100 iron arrows; Counting Sheep 12 grilled dodo; Sour Grapes 100 water shards; Sniffing Out a Profit 2 grade 4 dark matter; Secrets Unearthed 5 steel ingots (鉄鋼); Freedom Isn't Free spiked knuckles (スパイクナックル); A Bitter Oil to Swallow a chocobo hatchet (チョコボハチェットDX).",
+  "claim": "Gil and stack sizes from the wiki: Winds of Change 7,500 gil; Trading Tongueflaps 2,500 gil; Food for Thought 10,000 gil; Quid Pro Quo 7,500 gil; Best Flower Ever 5,000 gil; Stone Deaf 10,000 gil; Scrubbing the Soul 7,500 gil; In the Name of Science 5,000 gil; Spores on the Brain 5,000 gil; Shot Through the Heart 10,000 gil; A Hypocritical Oath 12,500 gil. Moonstruck 12 pineapple juice; Seashells by the Seashore 12 boiled crayfish; Fishing for Answers 50 crab balls; Of Archons and Muses 10 orange juice; The Unheard Horizon 100 wind shards; Sanguine Studies 12 blood currant tarts; Clasping to Hope 6 Ironhide Unguent; Traumaturgy 6 Ironwill Unguent; Hearing Confession 12 flatbread; Embarrassing Excerpts 20 lightning crystals; A Forbidden Love 12 bronze azagai; Last Respects 20 earth crystals; Hunting the Hunters 100 iron arrows; Counting Sheep 12 grilled dodo; Sour Grapes 100 water shards; Sniffing Out a Profit 2 Grade 4 Dark Matter; Secrets Unearthed 5 of tekkō (鉄鋼, 'steel'; the client has no item by that name, so likely Steel Ingots); Freedom Isn't Free Spiked Knuckles; A Bitter Oil to Swallow a Dated Oiled Bronze Hatchet.",
   "status": "confirmed",
   "sources": [
    {
@@ -1616,10 +1649,14 @@
    [
     "quests",
     111266
+   ],
+   [
+    "items",
+    3020410
    ]
   ],
   "title": "Job quests (patch 1.21): unlock at main class 30 and a second class 15",
-  "claim": "Jobs came with patch 1.21. Each job has six quests. The first (the job quest proper) needs the main class at level 30 and a set second class at 15; it gives the job's soul crystal, the first job action and a Chronos amulet (時神の護符, meant for a future stat reset; it stacks, one per job). The rest unlock at levels 35, 40, 45 (two quests: one action, one collecting four artifact pieces) and 50 (artifact body plus the fifth action), checked against the main class level. After unlocking, accept, fight and report as the job: fights done as a class or another job don't count. The level 45 collection quest has four chests in the field or in instanced raids; with the quest active they show a '!' and any class or job can open them. The level 50 quest is a full-party fight.",
+  "claim": "Jobs came with patch 1.21. Each job has six quests. The first (the job quest proper) needs the main class at level 30 and a set second class at 15; it gives the job's soul crystal, the first job action and a copy of The Keeper's Hymn (meant for a future stat reset; it stacks, one per job). The rest unlock at levels 35, 40, 45 (two quests: one action, one collecting four artifact pieces) and 50 (artifact body plus the fifth action), checked against the main class level. After unlocking, accept, fight and report as the job: fights done as a class or another job don't count. The level 45 collection quest has four chests in the field or in instanced raids; with the quest active they show a '!' and any class or job can open them. The level 50 quest is a full-party fight.",
   "status": "confirmed",
   "sources": [
    {
@@ -1658,10 +1695,18 @@
    [
     "quests",
     111286
+   ],
+   [
+    "monsters",
+    2102609
+   ],
+   [
+    "monsters",
+    10333
    ]
   ],
   "title": "Paladin quests: Lulutsu, then Jenlyns",
-  "claim": "1 Paladin's Pledge: Lulutsu at the Gladiators' Guild, Ul'dah (5,5); Gladiator 30 and Conjurer 15; kill a few monsters south of Camp Horizon; gives Cover. 2 Honor Lost (35): Jenlyns on Ul'dah's upper level (6,5), around the central atrium; NM アルシュ in the Mun-Tuy Cellars, 2-3 players; gives Divine Veil. 3 Power Struggles (40): NM Old Sixarms south of Cedarwood, 2-3 players; Holy Succor. 4 Poisoned Hearts (45): artifact chests at Aurum Vale (Camp Everlakes), Natalan (Camp Dragonhead), the cave north of Camp Brittlebark and the cave northeast of Camp Crimson Bark; gives Gallant legs, hands, feet and head. 5 Parley on High Ground (45): a fight north of Ul'dah (southeast of Nanawa Mines), 4+ players; Spirits Within. 6 Keeping the Oath (50): fight an ogre and ahrimans southeast of Camp Bluefog; Gallant body and Invincible.",
+  "claim": "1 Paladin's Pledge: Lulutsu at the Gladiators' Guild, Ul'dah (5,5); Gladiator 30 and Conjurer 15; kill a few monsters south of Camp Horizon; gives Cover. 2 Honor Lost (35): Jenlyns on Ul'dah's upper level (6,5), around the central atrium; an Alux in the MunTuy Cellars, 2-3 players; gives Divine Veil. 3 Power Struggles (40): NM Old Six-arms south of Cedarwood, 2-3 players; Holy Succor. 4 Poisoned Hearts (45): artifact chests at Aurum Vale (Camp Ever Lakes), Natalan (Camp Dragonhead), the cave north of Camp Brittlebark and the cave northeast of Camp Crimson Bark; gives Gallant legs, hands, feet and head. 5 Parley on High Ground (45): a fight north of Ul'dah (southeast of Nanawa Mines), 4+ players; Spirits Within. 6 Keeping the Oath (50): fight an ogre and ahrimans southeast of Camp Bluefog; Gallant body and Hallowed Ground.",
   "status": "confirmed",
   "sources": [
    {
@@ -1700,10 +1745,22 @@
    [
     "quests",
     111206
+   ],
+   [
+    "monsters",
+    2100804
+   ],
+   [
+    "monsters",
+    2201208
+   ],
+   [
+    "monsters",
+    10398
    ]
   ],
   "title": "Warrior quests: Neale, then Curious Gorge",
-  "claim": "1 Pride and Duty: Neale at the Marauders' Guild, Limsa Lominsa lower decks (4,7); Marauder 30 and Gladiator 15; talk to Curious Gorge, then kill antlings just north of him; gives Vengeance. Curious Gorge stands in a cave east of the Scorpion Crossing gate south of Camp Horizon, under Nophica's Wells (Western Thanalan 15,33). 2 Embracing the Beast (35): NM Sirocco, soloable; Antagonize. 3 Curious Gorge Goes to the Bazaar (40): Canyon Condor north of the Silver Bazaar, soloable; Collusion. 4 Looking the Part (45): chests in Cutter's Cry (east of Camp Bluefog), Natalan (east of Camp Dragonhead), near the Crimson Bark south of its camp and in the tower before Widow Cliffs southeast of Camp Bearded Rock; Fighter's legs, hands, feet, head. 5 Proof is in the Pudding (45): kill アウドムラ (a buffalo) in the cave southeast of Camp Iron Lake, about 4 players; Steel Cyclone. 6 How to Quit You (50): a full-party fight at the Silver Bazaar; Fighter's body and Mighty Strikes.",
+  "claim": "1 Pride and Duty: Neale at the Marauders' Guild, Limsa Lominsa lower decks (4,7); Marauder 30 and Gladiator 15; talk to Curious Gorge, then kill antlings just north of him; gives Vengeance. Curious Gorge stands in a cave east of the Scorpion Keep gate south of Camp Horizon, under Nophica's Wells (Western Thanalan 15,33). 2 Embracing the Beast (35): NM Sirocco, soloable; Antagonize. 3 Curious Gorge Goes to the Bazaar (40): canyon condors north of the Silver Bazaar, soloable; Collusion. 4 Looking the Part (45): chests in Cutter's Cry (east of Camp Bluefog), Natalan (east of Camp Dragonhead), in Turning Leaf and in the tower before Widow Cliffs southeast of Camp Bearded Rock; Fighter's legs, hands, feet, head. 5 Proof is in the Pudding (45): kill Audhumbla (a buffalo) in the cave southeast of Camp Iron Lake, about 4 players; Steel Cyclone. 6 How to Quit You (50): a full-party fight at the Silver Bazaar; Fighter's body and Mighty Strikes.",
   "status": "confirmed",
   "sources": [
    {
@@ -1742,10 +1799,22 @@
    [
     "quests",
     111226
+   ],
+   [
+    "monsters",
+    10280
+   ],
+   [
+    "monsters",
+    2100610
+   ],
+   [
+    "monsters",
+    10218
    ]
   ],
   "title": "Monk quests: Gagaruna, Erik, Widargelt",
-  "claim": "1 Brother from Another Mother: Gagaruna at the Pugilists' Guild, Ul'dah (5,4); Pugilist 30 and Lancer 15; kill imps southwest of Camp Drybone (west of Halatali); gives Shoulder Tackle (羅刹衝). 2 Insulted Intelligence (35): Erik, opposite Ul'dah's chocobo stable (7,3); NM グルタナスガーディ south of Cedarwood, solo or 2; Spinning Heel (蹴撃). 3 The Pursuit of Power (40): NM Prince of Pestilence (プリンスオブペスト) in the Mun-Tuy Cellars, solo or 2; Fists of Wind. 4 Good Vibrations (45): アペブ at the north edge of Camp Horizon's area, 3-4 players, tougher than it looks; Dragon Kick. 5 Five Easy Pieces (45): from Widargelt in Little Ala Mhigo south of Camp Drybone (Eastern Thanalan 38,31); chests in Dzemael Darkhold's drake room, U'Ghamaro Mines, near the Crimson Bark and south of Ul'dah's east gate; Temple hands, legs, head, feet. 6 Return of the King...of Ruin (50): Erik; a full-party fight in Mor Dhona; Temple body and Hundred Fists.",
+  "claim": "1 Brother from Another Mother: Gagaruna at the Pugilists' Guild, Ul'dah (5,4); Pugilist 30 and Lancer 15; kill imps southwest of Camp Drybone (west of Halatali); gives Shoulder Tackle. 2 Insulted Intelligence (35): Erik, opposite Ul'dah's chocobo stable (7,3); NM Gluttonous Gertrude south of Cedarwood, solo or 2; Spinning Heel. 3 The Pursuit of Power (40): NM Prince of Pestilence in the MunTuy Cellars, solo or 2; Fists of Wind. 4 Good Vibrations (45): Apep at the north edge of Camp Horizon's area, 3-4 players, tougher than it looks; Dragon Kick. 5 Five Easy Pieces (45): from Widargelt in Little Ala Mhigo south of Camp Drybone (Eastern Thanalan 38,31); chests in Dzemael Darkhold's drake room, U'Ghamaro Mines, in Turning Leaf and south of Ul'dah's east gate; Temple hands, legs, head, feet. 6 Return of the King...of Ruin (50): Erik; a full-party fight in Mor Dhona; Temple body and Hundred Fists.",
   "status": "confirmed",
   "sources": [
    {
@@ -1784,10 +1853,22 @@
    [
     "quests",
     111326
+   ],
+   [
+    "monsters",
+    2102219
+   ],
+   [
+    "monsters",
+    2101610
+   ],
+   [
+    "monsters",
+    2106207
    ]
   ],
   "title": "Dragoon quests: Haurtefert, then Alberic",
-  "claim": "1 Eye of the Dragon: Haurtefert at the Lancers' Guild, Gridania (8,2); Lancer 30 and Pugilist 15; kill crabs west of Nine Ivies; gives Jump. 2 Lance of Fury (35): Alberic before the gate of Ishgard west of Camp Dragonhead (Coerthas Central Highlands 35,18); NM Bomb Baron in Cassiopeia Hollow, solo or 2; Disembowel. 3 Unfading Scars (40): NM Spitfire southwest of Camp Glory, 2 players; Elusive Jump. 4 Double Dragoon (45): chests at Aurum Vale, the cave north of Camp Brittlebark (by the Singing Shards), U'Ghamaro Mines and the cave north of Camp Bluefog; Drachen legs, feet, hands, head. 5 Fatal Seduction (45): ストレンヴルム south of Camp Riversmeet, 3+ players; Ring of Talons. 6 Into the Dragon's Maw (50): a fight before the bridge from Camp Dragonhead toward Camp Glory; Drachen body and Dragonfire Dive.",
+  "claim": "1 Eye of the Dragon: Haurtefert at the Lancers' Guild, Gridania (8,2); Lancer 30 and Pugilist 15; kill crabs west of Nine Ivies; gives Jump. 2 Lance of Fury (35): Alberic before the gate of Ishgard west of Camp Dragonhead (Coerthas Central Highlands 35,18); NM Bomb Baron in Cassiopeia Hollow, solo or 2; Disembowel. 3 Unfading Scars (40): NM Spitfire southwest of Camp Glory, 2 players; Elusive Jump. 4 Double Dragoon (45): chests at Aurum Vale, the cave north of Camp Brittlebark (by the Singing Shards), U'Ghamaro Mines and the cave north of Camp Bluefog; Drachen legs, feet, hands, head. 5 Fatal Seduction (45): Stollenwurm south of Camp Riversmeet, 3+ players; Ring of Talons. 6 Into the Dragon's Maw (50): a fight before the bridge from Camp Dragonhead toward Camp Glory; Drachen body and Dragonfire Dive.",
   "status": "confirmed",
   "sources": [
    {
@@ -1826,10 +1907,18 @@
    [
     "quests",
     111306
+   ],
+   [
+    "monsters",
+    2101413
+   ],
+   [
+    "monsters",
+    10336
    ]
   ],
   "title": "Bard quests: Georjeaux, then Jehantel",
-  "claim": "1 A Song of Bards and Bowmen: Georjeaux at the Archers' Guild, Gridania (8,5); Archer 30 and Conjurer 15; fight Qiqirn at the east map edge from Camp Tranquil (46-48, north of the Root marsh); gives Ballad of Magi. 2 The Archer's Anthem (35): Jehantel in the South Shroud (38,48), up the slope east of Camp Tranquil; NM バルディ west of Nanawa Mines, 2-3 players; Minuet of Rigor. 3 Bard's-Eye View (40): NM パイア at the Fairy Hearth (妖精の火床), 2-3 players; Paeon of War. 4 Doing It the Bard Way (45): Ixal and wolves north of Hyrstmill, 4+; Rain of Death. 5 Pieces of the Past (45): chests in Cutter's Cry, Zahar'ak (Camp Broken Water), near the Crimson Bark and in the cave south of Camp Iron Lake; Choral legs, hands, feet, head. 6 Requiem for the Fallen (50): a fight before the bridge from Camp Dragonhead toward Camp Glory; Choral body and Battle Voice.",
+  "claim": "1 A Song of Bards and Bowmen: Georjeaux at the Archers' Guild, Gridania (8,5); Archer 30 and Conjurer 15; fight Qiqirn at the east map edge from Camp Tranquil (46-48, north of the Rootslake); gives Ballad of Magi. 2 The Archer's Anthem (35): Jehantel in the South Shroud (38,48), up the slope east of Camp Tranquil; NM Bardi west of Nanawa Mines, 2-3 players; Minuet of Rigor. 3 Bard's-Eye View (40): NM Phaia at Humblehearth, 2-3 players; Paeon of War. 4 Doing It the Bard Way (45): Ixal and wolves north of Hyrstmill, 4+; Rain of Death. 5 Pieces of the Past (45): chests in Cutter's Cry, Zahar'ak (Camp Broken Water), in Turning Leaf and in the cave south of Camp Iron Lake; Choral legs, hands, feet, head. 6 Requiem for the Fallen (50): a fight before the bridge from Camp Dragonhead toward Camp Glory; Choral body and Battle Voice.",
   "status": "confirmed",
   "sources": [
    {
@@ -1868,10 +1957,18 @@
    [
     "quests",
     111246
+   ],
+   [
+    "monsters",
+    2106017
+   ],
+   [
+    "monsters",
+    10239
    ]
   ],
   "title": "White Mage quests: Soileine, then Raya-O-Senna",
-  "claim": "1 Seeds of Initiative: Soileine at the Conjurers' Guild, Gridania (2,1); Conjurer 30 and Gladiator 15; kill mitelings at the west end of the Mun-Tuy Cellars (4-5); gives Presence of Mind (神速魔). 2 When Sheep Attack (35): Raya-O-Senna in a cave in the North Shroud (15,22), west of Emerald Moss; NM Downy Dunstan, solo or 2; Regen. 3 Lost in Rage (40): NM カクタージャック southwest of Camp Horizon, 2-3; Esuna. 4 The Wheel of Disaster (45): Roland (刀狩のローランド) and bandits on the bridge south of Camp Bearded Rock, 3-4; Holy. 5 In Search of Succor (45): chests in Dzemael Darkhold's drake room, Zahar'ak (right of the second gate), near the Crimson Bark and the southeast end of Bloodshore; Healer's legs, hands, feet, head. 6 The Chorus of Cataclysm (50): a fight with elementals at Sorrel Haven (スカンポの安息所); the way there is dangerous; Healer's body and Benediction.",
+  "claim": "1 Seeds of Initiative: Soileine at the Conjurers' Guild, Gridania (2,1); Conjurer 30 and Gladiator 15; kill mitelings at the west end of the MunTuy Cellars (4-5); gives Presence of Mind. 2 When Sheep Attack (35): Raya-O-Senna in a cave in the North Shroud (15,22), west of Emerald Moss; NM Downy Dunstan, solo or 2; Regen. 3 Lost in Rage (40): NM Cactuar Jack southwest of Camp Horizon, 2-3; Esuna. 4 The Wheel of Disaster (45): Rowland of the 99 Blades and bandits on the bridge south of Camp Bearded Rock, 3-4; Holy. 5 In Search of Succor (45): chests in Dzemael Darkhold's drake room, Zahar'ak (right of the second gate), in Turning Leaf and the southeast end of Bloodshore; Healer's legs, hands, feet, head. 6 The Chorus of Cataclysm (50): a fight with elementals at Sorrel Haven; the way there is dangerous; Healer's body and Benediction.",
   "status": "confirmed",
   "sources": [
    {
@@ -1910,10 +2007,18 @@
    [
     "quests",
     111266
+   ],
+   [
+    "monsters",
+    2105513
+   ],
+   [
+    "monsters",
+    2200407
    ]
   ],
   "title": "Black Mage quests: Yayake, Lalai, then the Western Thanalan cave",
-  "claim": "1 Hearing Voices: Yayake at the Thaumaturges' Guild, Ul'dah (4,5); Thaumaturge 30 and Pugilist 15; kill gnats by the entrance of Copperbell Mines; gives Convert. 2 A Time to Kill (35): Lalai in Ul'dah (7,6); NM Daddy Longlegs west of Nophica's Wells, 3-4; Freeze. 3 International Relations (40): ホワイトタロン south of Camp Bald Knoll, about 4; Flare. 4 The Voidgate Breathes Gloomy (45): Dozol Meloc in a cave in Western Thanalan (11,28): take the path down toward the Ferry Docks and go east through the cave; search a chest in the Crimson Bark area, with wolves nearby; Sleepga. 5 Gearing Up (45): Da Za (メンディカント269) in the same cave; chests at Aurum Vale, a tower north of Camp Riversmeet, the cave west of Camp Brittlebark and the cave south of Camp Broken Water; Wizard's legs, hands, feet, head. 6 Always Bet on Black (50): a fight at the shrine of Nald northeast of Camp Broken Water against a Batraal-like enemy; Wizard's body and Burst.",
+  "claim": "1 Hearing Voices: Yayake at the Thaumaturges' Guild, Ul'dah (4,5); Thaumaturge 30 and Pugilist 15; kill gnats by the entrance of Copperbell Mines; gives Convert. 2 A Time to Kill (35): Lalai in Ul'dah (7,6); NM Daddy Longlegs west of Nophica's Wells, 3-4; Freeze. 3 International Relations (40): Whitetalon south of Camp Bald Knoll, about 4; Flare. 4 The Voidgate Breathes Gloomy (45): Dozol Meloc in a cave in Western Thanalan (11,28): take the path down toward the Ferry Docks and go east through the cave; search a chest in Turning Leaf, with wolves nearby; Sleepga. 5 Gearing Up (45): 269th Order Mendicant Da Za in the same cave; chests at Aurum Vale, a tower north of Camp Riversmeet, the cave west of Camp Brittlebark and the cave south of Camp Broken Water; Wizard's legs, hands, feet, head. 6 Always Bet on Black (50): a fight at Nald's Reflection northeast of Camp Broken Water against a Batraal-like enemy; Wizard's body and Burst.",
   "status": "confirmed",
   "sources": [
    {
@@ -1947,7 +2052,7 @@
   "topic": "Battle",
   "about": [],
   "title": "Return: 15-minute recast, durability loss when used while KO'd",
-  "claim": "Return (デジョン) is in the main menu for every class. Used normally it has a 15-minute recast and no cost. Used while KO'd it has no recast, but every equipped item loses durability: 10% at skill rank 20 and up, 5% at ranks 10-19, none below 10 (patch 1.18; 1.18b eased the low-rank loss). Before 1.18 it cost anima and nothing when KO'd. During a regional leve or behest the start aetheryte is the temporary home point, and in an instanced raid the dungeon's start. Patch 1.22 added the inn as a home point.",
+  "claim": "Return is in the main menu for every class. Used normally it has a 15-minute recast and no cost. Used while KO'd it has no recast, but every equipped item loses durability: 10% at skill rank 20 and up, 5% at ranks 10-19, none below 10 (patch 1.18; 1.18b eased the low-rank loss). Before 1.18 it cost anima and nothing when KO'd. During a regional leve or behest the start aetheryte is the temporary home point, and in an instanced raid the dungeon's start. Patch 1.22 added the inn as a home point.",
   "status": "confirmed",
   "sources": [
    {
@@ -2015,7 +2120,7 @@
   "topic": "Leves",
   "about": [],
   "title": "Leve difficulty: five levels picked at the aetheryte",
-  "claim": "After choosing a leve at the aetheryte you pick a difficulty for your party size, from one star (孤軍奮闘, solo) to five (人海戦術). Higher difficulty can raise the reward and the treasure chest's contents. In a party, a member holding the same leve can join with Leve Link (better chest odds, difficulty and completion rewards); a member without it joins through Leve Share. The completion reward goes to the leve's owner.",
+  "claim": "After choosing a leve at the aetheryte you pick a difficulty for your party size, from one star (kogun funtō, 孤軍奮闘: solo) to five (jinkai senjutsu, 人海戦術). Higher difficulty can raise the reward and the treasure chest's contents. In a party, a member holding the same leve can join with Leve Link (better chest odds, difficulty and completion rewards); a member without it joins through Leve Share. The completion reward goes to the leve's owner.",
   "status": "confirmed",
   "sources": [
    {
@@ -2152,10 +2257,18 @@
    [
     "monsters",
     3106628
+   ],
+   [
+    "monsters",
+    10333
+   ],
+   [
+    "monsters",
+    10336
    ]
   ],
   "title": "Which field NMs came when",
-  "claim": "December 2010: Uraeus (Coerthas, Camp Dragonhead), Great Buffalo (La Noscea, Camp Bald Knoll), Dodore (Mor Dhona, Camp Brittlebark), Elder Mosshorn (Nophica's Wells), and a Whispering Copse NM. April 2011 (aimed at parties around rank 30): Bomb Baron and Unknown Soldier (Cassiopeia Hollow), Barometz and Slippery Sykes (near Camp Bloodshore), Gluttonous Gertrude and Old Sixarms (Cedarwood), Pyrausta and Nest Commander (Camp Horizon), Daddy Longlegs (Copperbell Mines), Cactuar Jack (Nophica's Wells), Bardi (Nanawa Mines), Prince of Pestilence (Mun-Tuy Cellars), Sirocco and Pyre (Fairy Hearth area), Jackanapes and Queen Bolete (Camp Tranquil), Downy Dunstan and Spitfire (Camp Glory), and others. October 2011 (1.19): NMs in Western Thanalan, Shposhae (Giant Remora among them), Zahar'ak and U'Ghamaro (Third Order Patriarch Zu Ga).",
+  "claim": "December 2010: Uraeus (Coerthas, Camp Dragonhead), Great Buffalo (La Noscea, Camp Bald Knoll), Dodore (Mor Dhona, Camp Brittlebark), Elder Mosshorn (Nophica's Wells), and an NM at Treespeak. April 2011 (aimed at parties around rank 30): Bomb Baron and Unknown Soldier (Cassiopeia Hollow), Barometz and Slippery Sykes (near Camp Bloodshore), Gluttonous Gertrude and Old Six-arms (Cedarwood), Pyrausta and Nest Commander (Camp Horizon), Daddy Longlegs (Copperbell Mines), Cactuar Jack (Nophica's Wells), Bardi (Nanawa Mines), Prince of Pestilence (MunTuy Cellars), Sirocco and Phaia (Humblehearth area), Jackanapes and Queen Bolete (Camp Tranquil), Downy Dunstan and Spitfire (Camp Glory), and others. October 2011 (1.19): NMs in Western Thanalan, Shposhae (Giant Remora among them), Zahar'ak and U'Ghamaro (Third Order Patriarch Zu Ga).",
   "status": "confirmed",
   "sources": [
    {
@@ -2228,7 +2341,7 @@
   "topic": "Crafting and gathering",
   "about": [],
   "title": "Gathering point grades by camp",
-  "claim": "Grade 1 to 5 gathering areas: La Noscea Bearded Rock, Skull Valley, Bloodshore, Cedarwood, Iron Lake; Thanalan Black Brush, Drybone, Horizon, Nophica's Wells, Halatali; Black Shroud Bentbranch, Emerald Moss, Tranquil, Fairy Hearth, Whispering Copse; Coerthas grade 4 Camp Glory and grade 5 Camp Dragonhead. Fishing once had grade 6+ spots; patch 1.18 removed them.",
+  "claim": "Grade 1 to 5 gathering areas: La Noscea Bearded Rock, Skull Valley, Bloodshore, Cedarwood, Iron Lake; Thanalan Black Brush, Drybone, Horizon, Nophica's Wells, Halatali; Black Shroud Bentbranch, Emerald Moss, Tranquil, Humblehearth, Treespeak; Coerthas grade 4 Camp Glory and grade 5 Camp Dragonhead. Fishing once had grade 6+ spots; patch 1.18 removed them.",
   "status": "confirmed",
   "sources": [
    {
@@ -2451,7 +2564,8 @@
    {
     "t": "Gamer Escape: Never the Twain Shall Meet",
     "u": "https://ffxiv.gamerescape.com/w/index.php?title=Never_the_Twain_Shall_Meet&action=raw",
-    "k": "wiki"
+    "k": "wiki",
+    "seen": "page created 2010-09"
    }
   ],
   "added": "2026-11-11"
@@ -2472,7 +2586,8 @@
    {
     "t": "Gamer Escape: Never the Twain Shall Meet",
     "u": "https://ffxiv.gamerescape.com/w/index.php?title=Never_the_Twain_Shall_Meet&action=raw",
-    "k": "wiki"
+    "k": "wiki",
+    "seen": "page created 2010-09"
    }
   ],
   "added": "2026-11-11"
@@ -2493,12 +2608,14 @@
    {
     "t": "Gamer Escape: Beckon of the Elementals",
     "u": "https://ffxiv.gamerescape.com/w/index.php?title=Beckon_of_the_Elementals&action=raw",
-    "k": "wiki"
+    "k": "wiki",
+    "seen": "page created 2010-09"
    },
    {
     "t": "Gamer Escape: Spirit of the Wood",
     "u": "https://ffxiv.gamerescape.com/w/index.php?title=Spirit_of_the_Wood&action=raw",
-    "k": "wiki"
+    "k": "wiki",
+    "seen": "page created 2010-11"
    }
   ],
   "added": "2026-11-11"
@@ -2519,7 +2636,8 @@
    {
     "t": "Gamer Escape: Calamity Cometh",
     "u": "https://ffxiv.gamerescape.com/w/index.php?title=Calamity_Cometh&action=raw",
-    "k": "wiki"
+    "k": "wiki",
+    "seen": "page created 2010-09"
    }
   ],
   "added": "2026-11-11"
@@ -2540,7 +2658,8 @@
    {
     "t": "Gamer Escape: Calamity Cometh",
     "u": "https://ffxiv.gamerescape.com/w/index.php?title=Calamity_Cometh&action=raw",
-    "k": "wiki"
+    "k": "wiki",
+    "seen": "page created 2010-09"
    }
   ],
   "added": "2026-11-11"
@@ -2601,7 +2720,8 @@
    {
     "t": "Gamer Escape: Forging the Spirit",
     "u": "https://ffxiv.gamerescape.com/w/index.php?title=Forging_the_Spirit&action=raw",
-    "k": "wiki"
+    "k": "wiki",
+    "seen": "page created 2011-10"
    }
   ],
   "added": "2026-11-11"
@@ -2622,7 +2742,8 @@
    {
     "t": "Gamer Escape: Joining the Spirit",
     "u": "https://ffxiv.gamerescape.com/w/index.php?title=Joining_the_Spirit&action=raw",
-    "k": "wiki"
+    "k": "wiki",
+    "seen": "page created 2011-10"
    }
   ],
   "added": "2026-11-11"
@@ -2643,7 +2764,8 @@
    {
     "t": "Gamer Escape: Waking the Spirit",
     "u": "https://ffxiv.gamerescape.com/w/index.php?title=Waking_the_Spirit&action=raw",
-    "k": "wiki"
+    "k": "wiki",
+    "seen": "page created 2011-10"
    }
   ],
   "added": "2026-11-11"
@@ -2664,12 +2786,14 @@
    {
     "t": "Gamer Escape: Quid Pro Quo",
     "u": "https://ffxiv.gamerescape.com/w/index.php?title=Quid_Pro_Quo&action=raw",
-    "k": "wiki"
+    "k": "wiki",
+    "seen": "page created 2011-04"
    },
    {
     "t": "Gamer Escape: Peneli Zuneli",
     "u": "https://ffxiv.gamerescape.com/w/index.php?title=Peneli_Zuneli&action=raw",
-    "k": "wiki"
+    "k": "wiki",
+    "seen": "page created 2010-09"
    }
   ],
   "added": "2026-11-11"
@@ -2690,12 +2814,14 @@
    {
     "t": "Gamer Escape: Blood Price (Quest)",
     "u": "https://ffxiv.gamerescape.com/w/index.php?title=Blood_Price_(Quest)&action=raw",
-    "k": "wiki"
+    "k": "wiki",
+    "seen": "page created 2012-07"
    },
    {
     "t": "Gamer Escape: Foxe",
     "u": "https://ffxiv.gamerescape.com/w/index.php?title=Foxe&action=raw",
-    "k": "wiki"
+    "k": "wiki",
+    "seen": "page created 2012-07"
    }
   ],
   "added": "2026-11-11"
@@ -2716,12 +2842,14 @@
    {
     "t": "Gamer Escape: What Glitters Always Isn't Gold",
     "u": "https://ffxiv.gamerescape.com/w/index.php?title=What_Glitters_Always_Isn%27t_Gold&action=raw",
-    "k": "wiki"
+    "k": "wiki",
+    "seen": "page created 2012-07"
    },
    {
     "t": "Gamer Escape: Leleyo",
     "u": "https://ffxiv.gamerescape.com/w/index.php?title=Leleyo&action=raw",
-    "k": "wiki"
+    "k": "wiki",
+    "seen": "page created 2012-06"
    }
   ],
   "added": "2026-11-11"
@@ -2742,12 +2870,14 @@
    {
     "t": "Gamer Escape: A Misty Past",
     "u": "https://ffxiv.gamerescape.com/w/index.php?title=A_Misty_Past&action=raw",
-    "k": "wiki"
+    "k": "wiki",
+    "seen": "page created 2012-07"
    },
    {
     "t": "Gamer Escape: Shposhae",
     "u": "https://ffxiv.gamerescape.com/w/index.php?title=Shposhae&action=raw",
-    "k": "wiki"
+    "k": "wiki",
+    "seen": "page created 2012-05"
    }
   ],
   "added": "2026-11-11"
@@ -2768,12 +2898,14 @@
    {
     "t": "Gamer Escape: Gegeissa",
     "u": "https://ffxiv.gamerescape.com/w/index.php?title=Gegeissa&action=raw",
-    "k": "wiki"
+    "k": "wiki",
+    "seen": "page created 2010-09"
    },
    {
     "t": "Gamer Escape: The Unheard Horizon",
     "u": "https://ffxiv.gamerescape.com/w/index.php?title=The_Unheard_Horizon&action=raw",
-    "k": "wiki"
+    "k": "wiki",
+    "seen": "page created 2011-04"
    }
   ],
   "added": "2026-11-11"
@@ -2789,12 +2921,14 @@
    {
     "t": "Gamer Escape: Fire Fighting",
     "u": "https://ffxiv.gamerescape.com/w/index.php?title=Fire_Fighting&action=raw",
-    "k": "wiki"
+    "k": "wiki",
+    "seen": "page created 2010-09"
    },
    {
     "t": "Gamer Escape: Dropping Like Flies",
     "u": "https://ffxiv.gamerescape.com/w/index.php?title=Dropping_Like_Flies&action=raw",
-    "k": "wiki"
+    "k": "wiki",
+    "seen": "page created 2010-11"
    }
   ],
   "added": "2026-11-11"
