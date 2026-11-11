@@ -2256,5 +2256,547 @@
    }
   ],
   "added": "2026-11-11"
+ },
+ {
+  "id": "raging-strike-rules",
+  "topic": "Battle",
+  "about": [],
+  "title": "Raging Strike: stacks on Light Shot hits, ends on any miss",
+  "claim": "Archer's Raging Strike (level 14, 60 s recast) raises attack power each time Light Shot hits while it is active, to a maximum of three stacks. The effect ends when an attack misses, not only when a Light Shot misses. The level 36 trait Enhanced Raging Strike makes the effect 50% stronger.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "Square Enix forum: Patch 1.20 Notes",
+    "u": "https://forum.square-enix.com/ffxiv/threads/32606-patch1.20-Patch-1.20-Notes",
+    "k": "patchnotes",
+    "seen": "2011-12"
+   },
+   {
+    "t": "FF14 Online Wiki (Japanese): クラス/弓術士 (patch 1.20+ list), archive",
+    "u": "https://web.archive.org/web/20130104005017/http://ff14wiki.info/?%E3%82%AF%E3%83%A9%E3%82%B9%2F%E5%BC%93%E8%A1%93%E5%A3%AB",
+    "k": "archive",
+    "seen": "2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "raging-strike-size",
+  "topic": "Battle",
+  "about": [],
+  "title": "Raging Strike: size of each stack not published",
+  "claim": "No 1.x source gives how much attack each Raging Strike stack adds. The server uses +10% of Attack per stack as its own default.",
+  "status": "open",
+  "sources": [
+   {
+    "t": "Square Enix forum: Patch 1.20 Notes",
+    "u": "https://forum.square-enix.com/ffxiv/threads/32606-patch1.20-Patch-1.20-Notes",
+    "k": "patchnotes",
+    "seen": "2011-12"
+   },
+   {
+    "t": "FF14 Online Wiki (Japanese): クラス/弓術士 (patch 1.20+ list), archive",
+    "u": "https://web.archive.org/web/20130104005017/http://ff14wiki.info/?%E3%82%AF%E3%83%A9%E3%82%B9%2F%E5%BC%93%E8%A1%93%E5%A3%AB",
+    "k": "archive",
+    "seen": "2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "archer-8-yalm-combo",
+  "topic": "Battle",
+  "about": [],
+  "title": "Heavy Shot and Piercing Arrow open combos only from 8 yalms",
+  "claim": "Both Heavy Shot and Piercing Arrow have to be used from at least 8 yalms away from the target to count as the start of a combo. Heavy Shot opens Leaden Arrow and Quick Nock; Piercing Arrow opens Shadowbind and Gloom Arrow.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "Square Enix forum: Patch 1.20 Notes",
+    "u": "https://forum.square-enix.com/ffxiv/threads/32606-patch1.20-Patch-1.20-Notes",
+    "k": "patchnotes",
+    "seen": "2011-12"
+   },
+   {
+    "t": "FF14 Online Wiki (Japanese): クラス/弓術士 (patch 1.20+ list), archive",
+    "u": "https://web.archive.org/web/20130104005017/http://ff14wiki.info/?%E3%82%AF%E3%83%A9%E3%82%B9%2F%E5%BC%93%E8%A1%93%E5%A3%AB",
+    "k": "archive",
+    "seen": "2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "action-class-gates",
+  "topic": "Battle",
+  "about": [],
+  "title": "Actions are gated by class, not by weapon type",
+  "claim": "From patch 1.20 each action is either exclusive to the class that learns it or can be set by any Disciple of War class (other kinds cover all combat classes or all Disciples of Magic). The class in use is set by the equipped weapon, and up to 10 actions from other classes can be set.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "Square Enix forum: Patch 1.20 Notes",
+    "u": "https://forum.square-enix.com/ffxiv/threads/32606-patch1.20-Patch-1.20-Notes",
+    "k": "patchnotes",
+    "seen": "2011-12"
+   },
+   {
+    "t": "Square Enix forum: [dev1206] Class Reforms",
+    "u": "https://forum.square-enix.com/ffxiv/threads/30501-dev1206-Class-Reforms",
+    "k": "forum",
+    "seen": "2011-11"
+   },
+   {
+    "t": "FF14 Online Wiki (Japanese): アクション, archive",
+    "u": "https://web.archive.org/web/20130104024429/http://ff14wiki.info/?%E3%82%A2%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3",
+    "k": "archive",
+    "seen": "2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "combo-own-class-tp-waived",
+  "topic": "Battle",
+  "about": [],
+  "title": "Combos count only for the owning class and waive the follow-up's TP",
+  "claim": "A weaponskill combo only counts when the weaponskill is used by the class or job it belongs to. A successful combo gives the listed bonus and the follow-up weaponskill costs no TP.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "Square Enix forum: [dev1206] Class Reforms",
+    "u": "https://forum.square-enix.com/ffxiv/threads/30501-dev1206-Class-Reforms",
+    "k": "forum",
+    "seen": "2011-11"
+   },
+   {
+    "t": "Square Enix forum: Patch 1.20 Notes",
+    "u": "https://forum.square-enix.com/ffxiv/threads/32606-patch1.20-Patch-1.20-Notes",
+    "k": "patchnotes",
+    "seen": "2011-12"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "shield-bash-shield",
+  "topic": "Battle",
+  "about": [],
+  "title": "Shield Bash without a shield: not documented",
+  "claim": "Shield Bash is described as a strike with your shield, but the 1.20 list gives it no equip requirement and nothing says it fails without a shield. The server refuses it without a shield as its own choice.",
+  "status": "default",
+  "sources": [
+   {
+    "t": "Square Enix forum: Patch 1.20 Notes",
+    "u": "https://forum.square-enix.com/ffxiv/threads/32606-patch1.20-Patch-1.20-Notes",
+    "k": "patchnotes",
+    "seen": "2011-12"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "ws-tp-surplus",
+  "topic": "Battle",
+  "about": [],
+  "title": "Extra TP above a weaponskill's cost: no bonus on record",
+  "claim": "TP caps at 3000 and each weaponskill lists one fixed TP cost. No 1.x source mentions extra damage for having more TP than the cost. The server's small surplus bonus is its own default; zero matches the sources best.",
+  "status": "open",
+  "sources": [
+   {
+    "t": "Square Enix forum: Patch 1.20 Notes",
+    "u": "https://forum.square-enix.com/ffxiv/threads/32606-patch1.20-Patch-1.20-Notes",
+    "k": "patchnotes",
+    "seen": "2011-12"
+   },
+   {
+    "t": "Square Enix forum: [dev1206] Class Reforms",
+    "u": "https://forum.square-enix.com/ffxiv/threads/30501-dev1206-Class-Reforms",
+    "k": "forum",
+    "seen": "2011-11"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "knockback-distance",
+  "topic": "Battle",
+  "about": [],
+  "title": "Knockback distance: unknown",
+  "claim": "No 1.x source gives how far knockback moves. The server uses 2 yalms per knockback level as its own default.",
+  "status": "open",
+  "sources": [
+   {
+    "t": "Square Enix forum: Patch 1.20 Notes",
+    "u": "https://forum.square-enix.com/ffxiv/threads/32606-patch1.20-Patch-1.20-Notes",
+    "k": "patchnotes",
+    "seen": "2011-12"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "man2l0-deck-fight",
+  "topic": "Quests",
+  "about": [
+   [
+    "quests",
+    110004
+   ]
+  ],
+  "title": "Never the Twain Shall Meet: deck fight, pick Emerick or Merodaulyn",
+  "claim": "On the Barracuda galleon's deck Emerick and Merodaulyn are fighting each other and the player joins one side. Neither attacks the player unless the player attacks them first, and the choice only changes the following cutscene slightly.",
+  "status": "reported",
+  "sources": [
+   {
+    "t": "Gamer Escape: Never the Twain Shall Meet",
+    "u": "https://ffxiv.gamerescape.com/w/index.php?title=Never_the_Twain_Shall_Meet&action=raw",
+    "k": "wiki"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "man2l0-fight-stats",
+  "topic": "Quests",
+  "about": [
+   [
+    "quests",
+    110004
+   ]
+  ],
+  "title": "Never the Twain Shall Meet: fighter levels unknown",
+  "claim": "The levels and HP of Emerick and Merodaulyn in the deck fight are not recorded.",
+  "status": "open",
+  "sources": [
+   {
+    "t": "Gamer Escape: Never the Twain Shall Meet",
+    "u": "https://ffxiv.gamerescape.com/w/index.php?title=Never_the_Twain_Shall_Meet&action=raw",
+    "k": "wiki"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "man2g0-spirit-of-the-wood",
+  "topic": "Quests",
+  "about": [
+   [
+    "quests",
+    110008
+   ]
+  ],
+  "title": "Beckon of the Elementals: Spirit of the Wood fight",
+  "claim": "The duty is a fight against the Spirit of the Wood (level 28, about 2930 HP and 2680 MP) whose element changes during the fight. Grinnaux, Handeloup and T'kebbe fight alongside the player and a fallen ally is replaced after a while. O-App-Pesi offers wards against the current element. A knocked-out player is moved outside Quiver's Hold and Nonolato sends them back in.",
+  "status": "reported",
+  "sources": [
+   {
+    "t": "Gamer Escape: Beckon of the Elementals",
+    "u": "https://ffxiv.gamerescape.com/w/index.php?title=Beckon_of_the_Elementals&action=raw",
+    "k": "wiki"
+   },
+   {
+    "t": "Gamer Escape: Spirit of the Wood",
+    "u": "https://ffxiv.gamerescape.com/w/index.php?title=Spirit_of_the_Wood&action=raw",
+    "k": "wiki"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "man2u0-minemites",
+  "topic": "Quests",
+  "about": [
+   [
+    "quests",
+    110012
+   ]
+  ],
+  "title": "Calamity Cometh: minemite waves with NPC allies",
+  "claim": "Corguevais summons minemites that attack one or two at a time. Niellefresne's group fights beside the player; they can't be targeted but area heals reach them, and the duty fails if they are defeated.",
+  "status": "reported",
+  "sources": [
+   {
+    "t": "Gamer Escape: Calamity Cometh",
+    "u": "https://ffxiv.gamerescape.com/w/index.php?title=Calamity_Cometh&action=raw",
+    "k": "wiki"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "man2u0-minemite-count",
+  "topic": "Quests",
+  "about": [
+   [
+    "quests",
+    110012
+   ]
+  ],
+  "title": "Calamity Cometh: number and level of minemites unknown",
+  "claim": "How many minemites appear and at what level is not recorded.",
+  "status": "open",
+  "sources": [
+   {
+    "t": "Gamer Escape: Calamity Cometh",
+    "u": "https://ffxiv.gamerescape.com/w/index.php?title=Calamity_Cometh&action=raw",
+    "k": "wiki"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "boss-gate-delay",
+  "topic": "Dungeons",
+  "about": [],
+  "title": "Delay before a boss room seals: unknown",
+  "claim": "No 1.x source gives how long after a fight starts a boss room's door or barrier closes. The server uses 15 seconds as its own default.",
+  "status": "open",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki (Japanese): インスタンスレイド, archive",
+    "u": "https://web.archive.org/web/20130213063318/http://ff14wiki.info/?%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%B3%E3%82%B9%E3%83%AC%E3%82%A4%E3%83%89",
+    "k": "archive",
+    "seen": "2013-02"
+   },
+   {
+    "t": "FF14 Online Wiki (Japanese): カッターズクライ, archive",
+    "u": "https://web.archive.org/web/20130103204833/http://ff14wiki.info/?%E3%82%AB%E3%83%83%E3%82%BF%E3%83%BC%E3%82%BA%E3%82%AF%E3%83%A9%E3%82%A4",
+    "k": "archive",
+    "seen": "2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "instance-raid-wipe-return",
+  "topic": "Dungeons",
+  "about": [],
+  "title": "Instance raids: a wipe returns you to the entrance",
+  "claim": "Entering an instance raid sets your return point to the dungeon's entrance inside, so a wiped party can retry from there as often as the time limit allows. The re-entry wait was 5 minutes.",
+  "status": "reported",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki (Japanese): インスタンスレイド, archive",
+    "u": "https://web.archive.org/web/20130213063318/http://ff14wiki.info/?%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%B3%E3%82%B9%E3%83%AC%E3%82%A4%E3%83%89",
+    "k": "archive",
+    "seen": "2013-02"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "etc102-giver",
+  "topic": "Quests",
+  "about": [
+   [
+    "quests",
+    110812
+   ]
+  ],
+  "title": "Forging the Spirit: given by Swynbroes",
+  "claim": "Forging the Spirit, the first materia lesson, is given by Swynbroes. Its steps are not recorded.",
+  "status": "reported",
+  "sources": [
+   {
+    "t": "Gamer Escape: Forging the Spirit",
+    "u": "https://ffxiv.gamerescape.com/w/index.php?title=Forging_the_Spirit&action=raw",
+    "k": "wiki"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "etc103-joining-the-spirit",
+  "topic": "Quests",
+  "about": [
+   [
+    "quests",
+    110813
+   ]
+  ],
+  "title": "Joining the Spirit: gather a catalyst with Fingerprints of the Gods",
+  "claim": "Joining the Spirit (patch 1.19) is given by the miner Kokosamu to Disciples of the Land at level 18. It teaches Fingerprints of the Gods and asks for one catalyst (carbonized, germinated or calcified matter, from mining, harvesting or fishing). The reward includes 780 EXP.",
+  "status": "reported",
+  "sources": [
+   {
+    "t": "Gamer Escape: Joining the Spirit",
+    "u": "https://ffxiv.gamerescape.com/w/index.php?title=Joining_the_Spirit&action=raw",
+    "k": "wiki"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "etc104-giver",
+  "topic": "Quests",
+  "about": [
+   [
+    "quests",
+    110814
+   ]
+  ],
+  "title": "Waking the Spirit: given by F'hobhas",
+  "claim": "Waking the Spirit, the materia melding lesson, is given by F'hobhas. Its steps are not recorded.",
+  "status": "reported",
+  "sources": [
+   {
+    "t": "Gamer Escape: Waking the Spirit",
+    "u": "https://ffxiv.gamerescape.com/w/index.php?title=Waking_the_Spirit&action=raw",
+    "k": "wiki"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "etc3u1-recipients",
+  "topic": "Quests",
+  "about": [
+   [
+    "quests",
+    110726
+   ]
+  ],
+  "title": "Quid Pro Quo: the five talisman recipients",
+  "claim": "Peneli Zuneli's five talismans go to Singleton and Abylgo Hamylgo in the Coliseum, Naida Zamaida and Rorojaru by the Sapphire Avenue Exchange, and Kukusi one floor up in the Alchemists' Guild. Then four brigands are fought two at a time at the airship wreck northwest of Ul'dah, and Nymiene takes the player out. Level 15; reward Ash Mask, 7500 gil, 500 EXP.",
+  "status": "reported",
+  "sources": [
+   {
+    "t": "Gamer Escape: Quid Pro Quo",
+    "u": "https://ffxiv.gamerescape.com/w/index.php?title=Quid_Pro_Quo&action=raw",
+    "k": "wiki"
+   },
+   {
+    "t": "Gamer Escape: Peneli Zuneli",
+    "u": "https://ffxiv.gamerescape.com/w/index.php?title=Peneli_Zuneli&action=raw",
+    "k": "wiki"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "etc2i2-blood-price",
+  "topic": "Quests",
+  "about": [
+   [
+    "quests",
+    110708
+   ]
+  ],
+  "title": "Blood Price: Foxe at Owl's Nest, a night fight at Gwyr-Aen",
+  "claim": "Blood Price (patch 1.23, level 45, 5340 EXP) is given by Foxe at Owl's Nest in the Coerthas eastern lowlands. The ??? at the Gwyr-Aen stone circle works only at night and starts a fight with four Lunatic Lambs and the Lunatic Shepherd.",
+  "status": "reported",
+  "sources": [
+   {
+    "t": "Gamer Escape: Blood Price (Quest)",
+    "u": "https://ffxiv.gamerescape.com/w/index.php?title=Blood_Price_(Quest)&action=raw",
+    "k": "wiki"
+   },
+   {
+    "t": "Gamer Escape: Foxe",
+    "u": "https://ffxiv.gamerescape.com/w/index.php?title=Foxe&action=raw",
+    "k": "wiki"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "etc201-leleyo",
+  "topic": "Quests",
+  "about": [
+   [
+    "quests",
+    110819
+   ]
+  ],
+  "title": "What Glitters Always Isn't Gold: Leleyo at Camp Dragonhead",
+  "claim": "Leleyo gives the quest at Camp Dragonhead. Coultenet waits at the Aurum Vale entrance southwest of Camp Ever Lakes; entry needs a party of 4 to 8 Disciples of War or Magic at level 45 or higher, and the target is an imperial primus ordinarius at a supply cache.",
+  "status": "reported",
+  "sources": [
+   {
+    "t": "Gamer Escape: What Glitters Always Isn't Gold",
+    "u": "https://ffxiv.gamerescape.com/w/index.php?title=What_Glitters_Always_Isn%27t_Gold&action=raw",
+    "k": "wiki"
+   },
+   {
+    "t": "Gamer Escape: Leleyo",
+    "u": "https://ffxiv.gamerescape.com/w/index.php?title=Leleyo&action=raw",
+    "k": "wiki"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "etc2l3-shposhae-spot",
+  "topic": "Quests",
+  "about": [
+   [
+    "quests",
+    110646
+   ]
+  ],
+  "title": "A Misty Past: where the ??? is in Shposhae",
+  "claim": "The ??? holding the Mistbeard insignia ring is one floor below the northwest corner of Shposhae's top floor. After returning it, F'ongho asks about a nearby monster and the answer is Shearing Sheridan. Shposhae's entrance is in Lower La Noscea.",
+  "status": "reported",
+  "sources": [
+   {
+    "t": "Gamer Escape: A Misty Past",
+    "u": "https://ffxiv.gamerescape.com/w/index.php?title=A_Misty_Past&action=raw",
+    "k": "wiki"
+   },
+   {
+    "t": "Gamer Escape: Shposhae",
+    "u": "https://ffxiv.gamerescape.com/w/index.php?title=Shposhae&action=raw",
+    "k": "wiki"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "etc2u0-gegeissa",
+  "topic": "Quests",
+  "about": [
+   [
+    "quests",
+    110685
+   ]
+  ],
+  "title": "The Unheard Horizon: Gegeissa outside the Gate of Nald",
+  "claim": "Gegeissa stands on Ul'dah's Merchant Strip just outside the Gate of Nald. The quest (level 20) sends the player east of Camp Horizon to beat two groups of level 20 monsters (Moonblind Dodos, Corrosive Coblyns, a Spriggan) within 30 minutes; reward Cotton Dalmatica and 1440 EXP.",
+  "status": "reported",
+  "sources": [
+   {
+    "t": "Gamer Escape: Gegeissa",
+    "u": "https://ffxiv.gamerescape.com/w/index.php?title=Gegeissa&action=raw",
+    "k": "wiki"
+   },
+   {
+    "t": "Gamer Escape: The Unheard Horizon",
+    "u": "https://ffxiv.gamerescape.com/w/index.php?title=The_Unheard_Horizon&action=raw",
+    "k": "wiki"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "survive-leve-durations",
+  "topic": "Leves",
+  "about": [],
+  "title": "Survive leves: hold times mostly unknown",
+  "claim": "Apart from one leve with a five-minute hold (Sweet Revenge, per research/survive-leves.md), no source records how long the defend phase of a survive leve lasted. The Gamer Escape pages for Fire Fighting and Dropping Like Flies, among others, have no walkthrough.",
+  "status": "open",
+  "sources": [
+   {
+    "t": "Gamer Escape: Fire Fighting",
+    "u": "https://ffxiv.gamerescape.com/w/index.php?title=Fire_Fighting&action=raw",
+    "k": "wiki"
+   },
+   {
+    "t": "Gamer Escape: Dropping Like Flies",
+    "u": "https://ffxiv.gamerescape.com/w/index.php?title=Dropping_Like_Flies&action=raw",
+    "k": "wiki"
+   }
+  ],
+  "added": "2026-11-11"
  }
 ]
