@@ -1924,5 +1924,337 @@
    }
   ],
   "added": "2026-11-11"
+ },
+ {
+  "id": "bt-enmity-118",
+  "topic": "Battle",
+  "about": [],
+  "title": "Enmity since patch 1.18: cumulative, with a meter",
+  "claim": "Patch 1.18 replaced the old enmity system with a simple cumulative one: damage and debuffs add enmity directly, heals and buffs on engaged players add it indirectly, both in proportion to the amount. A player who can't act for a while (KO) has their enmity reset. An icon left of the monster's HP bar shows your share: none (not engaged with you), green, orange, red, and flashing red when it targets you. Player tests in 1.20b put the enmity potion and the calming potion at about 190 each way and Chameleon at about -760.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: ヘイト (enmity)",
+    "u": "https://web.archive.org/web/20130104005510/http://ff14wiki.info/?%E3%83%98%E3%82%A4%E3%83%88",
+    "k": "wiki",
+    "seen": "captured 2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "bt-return",
+  "topic": "Battle",
+  "about": [],
+  "title": "Return: 15-minute recast, durability loss when used while KO'd",
+  "claim": "Return (デジョン) is in the main menu for every class. Used normally it has a 15-minute recast and no cost. Used while KO'd it has no recast, but every equipped item loses durability: 10% at skill rank 20 and up, 5% at ranks 10-19, none below 10 (patch 1.18; 1.18b eased the low-rank loss). Before 1.18 it cost anima and nothing when KO'd. During a regional leve or behest the start aetheryte is the temporary home point, and in an instanced raid the dungeon's start. Patch 1.22 added the inn as a home point.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: デジョン (Return)",
+    "u": "https://web.archive.org/web/20130621131655/http://ff14wiki.info/?%E3%83%87%E3%82%B8%E3%83%A7%E3%83%B3",
+    "k": "wiki",
+    "seen": "captured 2013-06"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "bt-regimen",
+  "topic": "Battle",
+  "about": [],
+  "title": "Battle regimens were suspended in patch 1.19",
+  "claim": "Battle regimens (party members queue actions on one target, then trigger them as a chain for an extra effect: physical or magic resistance down, slower casting, TP penalties, damage up) were frozen in patch 1.19 with no date to return, so they don't exist in 1.23b. The wiki notes A Realm Reborn replaced them with Limit Break.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: バトルレジメン (battle regimen)",
+    "u": "https://web.archive.org/web/20130619220641/http://ff14wiki.info/?%E3%83%90%E3%83%88%E3%83%AB%E3%83%AC%E3%82%B8%E3%83%A1%E3%83%B3",
+    "k": "wiki",
+    "seen": "captured 2013-06"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "bt-repair",
+  "topic": "Battle",
+  "about": [],
+  "title": "Repair rules from patch 1.19 on",
+  "claim": "Since 1.19 a repair NPC is posted at every camp as well as in the cities and restores worn gear to 99% for a flat fee by item level: 100 gil (levels 1-10), 500 (11-20), 1,000 (21-30), 2,100 (31-40), 5,000 (41-50). Items lose no performance from 100% down to 1%; at 0% they are broken and give no stats (materia included). A yellow icon warns at 10% or less, a red one when broken. Dark matter is the only repair material: grade 1-5 sold for 50, 300, 700, 1,500 and 3,500 gil (1.19), grade 6 added in 1.20 for level 50+ gear. 1.20 let NPCs repair accessories; 1.20a added repair requests for equipped gear at 100-500 gil plus the matching dark matter grade, paid by the requester.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: 修理 (repair)",
+    "u": "https://web.archive.org/web/20130117152023/http://ff14wiki.info/?%E4%BF%AE%E7%90%86",
+    "k": "wiki",
+    "seen": "captured 2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "lv-allowances",
+  "topic": "Leves",
+  "about": [],
+  "title": "Leve allowances since patch 1.19: 4 every 12 hours, up to 99",
+  "claim": "Patch 1.19 replaced the 36-hour refresh with allowances: 4 every 12 real hours, stockpiled up to 99, shared by regional, local and faction leves (and Grand Company leves). The leve counter list also refreshes whenever you complete or fail a leve. A failed leve can be retried for one allowance, from the journal, an aetheryte or the counter. 1.19a replaced leve exchange with a history evaluation that issues one leve based on your last eight completed. Before 1.19: a server-wide refresh every 36 hours, 8 regional and 8 local leves at a time.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: ギルドリーヴ (guildleves)",
+    "u": "https://web.archive.org/web/20121231032127/http://ff14wiki.info/?%E3%82%AE%E3%83%AB%E3%83%89%E3%83%AA%E3%83%BC%E3%83%B4",
+    "k": "wiki",
+    "seen": "captured 2012-12"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "lv-difficulty",
+  "topic": "Leves",
+  "about": [],
+  "title": "Leve difficulty: five levels picked at the aetheryte",
+  "claim": "After choosing a leve at the aetheryte you pick a difficulty for your party size, from one star (孤軍奮闘, solo) to five (人海戦術). Higher difficulty can raise the reward and the treasure chest's contents. In a party, a member holding the same leve can join with Leve Link (better chest odds, difficulty and completion rewards); a member without it joins through Leve Share. The completion reward goes to the leve's owner.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: ギルドリーヴ (guildleves)",
+    "u": "https://web.archive.org/web/20121231032127/http://ff14wiki.info/?%E3%82%AE%E3%83%AB%E3%83%89%E3%83%AA%E3%83%BC%E3%83%B4",
+    "k": "wiki",
+    "seen": "captured 2012-12"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "lv-behest",
+  "topic": "Leves",
+  "about": [],
+  "title": "Behests: every 30 minutes at regional leve camps",
+  "claim": "A behest officer appears at camps in La Noscea, Thanalan and the Black Shroud (not Coerthas or Mor Dhona) at :00 and :30 real time and calls for players every minute. Patch 1.17 timings: 8 players max (was 15), every 30 minutes (was hourly), sign-up 3 minutes (was 5), 20-minute limit (was 30), 5 minutes to collect the reward (was 10). Kill every target before time runs out, then talk to the officer for the reward. Monsters are still claimed per party. 1.18 scaled the monsters by participant count and rank again, added skill points on completion with a speed bonus, cut the gil, added a bonus for regions whose behests had gone unrun or failed, and added a cooldown; 1.19 changed it so only players who ran the previous behest wait two extra minutes. Leaving the area drops you from the behest.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: ビヘスト (behests)",
+    "u": "https://web.archive.org/web/20130712214509/http://ff14wiki.info/?%E3%83%93%E3%83%98%E3%82%B9%E3%83%88",
+    "k": "wiki",
+    "seen": "captured 2013-07"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "nm-field-rules",
+  "topic": "Notorious monsters",
+  "about": [],
+  "title": "Field NMs: time and weather windows, short random repops",
+  "claim": "Field NMs spawn when their time-of-day and weather conditions are met, with no lottery: during the window they pop at random intervals and despawn when it ends. Repop after a kill is random, from right away to about 5 minutes (a few over 10). An NM claimed during its window stays until the claim is dropped, even past the window. Players outside the party can't heal those fighting it. Drops go to a random party member, as with normal monsters.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: NM (notorious monsters)",
+    "u": "https://web.archive.org/web/20130104021918/http://ff14wiki.info/?NM",
+    "k": "wiki",
+    "seen": "captured 2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "nm-field-list",
+  "topic": "Notorious monsters",
+  "about": [
+   [
+    "monsters",
+    10443
+   ],
+   [
+    "monsters",
+    2100801
+   ],
+   [
+    "monsters",
+    2101710
+   ],
+   [
+    "monsters",
+    10264
+   ],
+   [
+    "monsters",
+    2101610
+   ],
+   [
+    "monsters",
+    2104321
+   ],
+   [
+    "monsters",
+    10223
+   ],
+   [
+    "monsters",
+    10399
+   ],
+   [
+    "monsters",
+    10280
+   ],
+   [
+    "monsters",
+    2100114
+   ],
+   [
+    "monsters",
+    2103005
+   ],
+   [
+    "monsters",
+    2105513
+   ],
+   [
+    "monsters",
+    10239
+   ],
+   [
+    "monsters",
+    2101413
+   ],
+   [
+    "monsters",
+    2100610
+   ],
+   [
+    "monsters",
+    10398
+   ],
+   [
+    "monsters",
+    10300
+   ],
+   [
+    "monsters",
+    10354
+   ],
+   [
+    "monsters",
+    2106017
+   ],
+   [
+    "monsters",
+    2106207
+   ],
+   [
+    "monsters",
+    2104514
+   ],
+   [
+    "monsters",
+    3106628
+   ]
+  ],
+  "title": "Which field NMs came when",
+  "claim": "December 2010: Uraeus (Coerthas, Camp Dragonhead), Great Buffalo (La Noscea, Camp Bald Knoll), Dodore (Mor Dhona, Camp Brittlebark), Elder Mosshorn (Nophica's Wells), and a Whispering Copse NM. April 2011 (aimed at parties around rank 30): Bomb Baron and Unknown Soldier (Cassiopeia Hollow), Barometz and Slippery Sykes (near Camp Bloodshore), Gluttonous Gertrude and Old Sixarms (Cedarwood), Pyrausta and Nest Commander (Camp Horizon), Daddy Longlegs (Copperbell Mines), Cactuar Jack (Nophica's Wells), Bardi (Nanawa Mines), Prince of Pestilence (Mun-Tuy Cellars), Sirocco and Pyre (Fairy Hearth area), Jackanapes and Queen Bolete (Camp Tranquil), Downy Dunstan and Spitfire (Camp Glory), and others. October 2011 (1.19): NMs in Western Thanalan, Shposhae (Giant Remora among them), Zahar'ak and U'Ghamaro (Third Order Patriarch Zu Ga).",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: NM (notorious monsters)",
+    "u": "https://web.archive.org/web/20130104021918/http://ff14wiki.info/?NM",
+    "k": "wiki",
+    "seen": "captured 2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "nm-faction-stages",
+  "topic": "Notorious monsters",
+  "about": [
+   [
+    "monsters",
+    2201404
+   ]
+  ],
+  "title": "Faction NM leves come in three stages",
+  "claim": "Each faction NM leve (Operation Market, the Tarpe Uishka chase, Operation Wolfsbane) is three leves in a row costing 100, 100 and 400 faction credits; after clearing all three, the third alone can be repeated for 400. The final chest can hold an Allagan stone (otherwise a few crystals), but only for the player who started the leve and members who Leve Linked with the same leve; helpers through Leve Share get crystals and a few thousand gil. Each player opens their own chest.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: NM (notorious monsters)",
+    "u": "https://web.archive.org/web/20130104021918/http://ff14wiki.info/?NM",
+    "k": "wiki",
+    "seen": "captured 2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "cr-unstable",
+  "topic": "Crafting and gathering",
+  "about": [],
+  "title": "Crafting: what each unstable element does",
+  "claim": "When an element turns unstable during synthesis: ice lowers progress a little and makes sparks worse; lightning lowers progress; earth raises durability loss a little and makes sparks worse; wind raises durability loss; water lowers quality gain a little and makes sparks worse; fire lowers quality gain. Sparks lower the success rate and raise durability loss on elemental bursts and finishing work. The light orb's color hints at stability: white is safest, rainbow riskiest but best for quality.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: 製作 (synthesis)",
+    "u": "https://web.archive.org/web/20130104005804/http://ff14wiki.info/?%E8%A3%BD%E4%BD%9C",
+    "k": "wiki",
+    "seen": "captured 2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "cr-main-sub",
+  "topic": "Crafting and gathering",
+  "about": [],
+  "title": "Main tool versus off-hand tool in synthesis",
+  "claim": "Most recipes give a different high-quality result depending on the tool: the main tool tends to make +1/+2 items, the off-hand tool more items per synthesis (for example 16 instead of 12). Dyeing a finished item never lowers its quality and keeps its materia, but a dyed item can't be re-dyed or undyed; re-forging an item into a variant (adding material) is a normal synthesis and loses materia.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: 製作 (synthesis)",
+    "u": "https://web.archive.org/web/20130104005804/http://ff14wiki.info/?%E8%A3%BD%E4%BD%9C",
+    "k": "wiki",
+    "seen": "captured 2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "ga-grades",
+  "topic": "Crafting and gathering",
+  "about": [],
+  "title": "Gathering point grades by camp",
+  "claim": "Grade 1 to 5 gathering areas: La Noscea Bearded Rock, Skull Valley, Bloodshore, Cedarwood, Iron Lake; Thanalan Black Brush, Drybone, Horizon, Nophica's Wells, Halatali; Black Shroud Bentbranch, Emerald Moss, Tranquil, Fairy Hearth, Whispering Copse; Coerthas grade 4 Camp Glory and grade 5 Camp Dragonhead. Fishing once had grade 6+ spots; patch 1.18 removed them.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: 採集 (gathering)",
+    "u": "https://web.archive.org/web/20130104021426/http://ff14wiki.info/?%E6%8E%A1%E9%9B%86",
+    "k": "wiki",
+    "seen": "captured 2013-01"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "ga-stats",
+  "topic": "Crafting and gathering",
+  "about": [],
+  "title": "Which stats help which gatherer",
+  "claim": "Official answer quoted on the wiki: STR makes the right angle easier to read when logging, VIT the right strength when mining, DEX the right rod motion when fishing; INT raises botanists' yield, MND miners', PIE fishers'. Gathering-gear stats: one lowers Remainder loss with the main tool or raises success with the off-hand, one raises attempts and fish bites, one raises the chance of high quality. Patch 1.19 made gathered items either normal or +3 quality and eased the success drop from gathering for a long time.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki: 採集 (gathering)",
+    "u": "https://web.archive.org/web/20130104021426/http://ff14wiki.info/?%E6%8E%A1%E9%9B%86",
+    "k": "wiki",
+    "seen": "captured 2013-01"
+   }
+  ],
+  "added": "2026-11-11"
  }
 ]
