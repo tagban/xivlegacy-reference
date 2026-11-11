@@ -169,3 +169,8 @@ td.small { font-size: 12px; color: var(--muted); max-width: 320px; }
 .discord:hover { text-decoration: none; background: #4752c4; }
 .leve-text { margin-top: 14px; }
 .leve-text p { margin: 8px 0 0; line-height: 1.6; }
+
+/* research findings */
+.findings .finding { padding: 10px 0; border-bottom: 1px solid var(--panel-edge); }
+.findings .finding p { margin: 6px 0; max-width: 72ch; }
+.findings .finding .src { margin-top: 4px; }

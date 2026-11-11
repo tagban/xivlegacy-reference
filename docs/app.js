@@ -134,6 +134,7 @@ async function load() {
   const got = await Promise.all(names.map((n) => fetch(`data/${n}.json`).then((r) => (r.ok ? r.json() : n === "meta" ? {} : []))));
   names.forEach((n, i) => (D[n] = got[i]));
   D.zoneNotes = await fetch("data/zone_notes.json").then((r) => (r.ok ? r.json() : {})).catch(() => ({}));
+  D.findings = await fetch("data/findings.json").then((r) => (r.ok ? r.json() : [])).catch(() => []);
   D.iconIndex = await fetch("data/icons.json").then((r) => (r.ok ? r.json() : [])).catch(() => []);
   D.icons = [];
   for (const n of Object.keys(SECTIONS).filter((k) => k !== "icons")) {
@@ -160,7 +161,45 @@ function tabs(active) {
   $("#tabs").innerHTML = Object.entries(SECTIONS)
     .filter(([k]) => D[k].length)
     .map(([k, s]) => `<a href="#${k}"${k === active ? ' aria-current="page"' : ""}>${s.title}<span class="n">${num(D[k].length)}</span></a>`)
-    .join("");
+    .join("") + (D.findings?.length ? `<a href="#sources"${active === "sources" ? ' aria-current="page"' : ""}>Sources<span class="n">${num(D.findings.length)}</span></a>` : "");
+}
+
+// --- research findings (data/findings.json) --------------------------------
+// Every claim we rebuilt from outside the client carries its sources and a
+// status, so a reader can check it: confirmed (a 1.0-era source says so),
+// reported (one player's account), default (XIVLegacy's own choice where no
+// source exists), open (unknown or disputed).
+
+const FSTATUS = {
+  confirmed: ["good", "Confirmed", "An archived 1.0-era source says so."],
+  reported: ["gold", "Reported", "One player account or a secondhand record; not yet backed by a second source."],
+  default: ["warn", "Our choice", "No source gives this. XIVLegacy picked a value; it will change if a source turns up."],
+  open: ["", "Open question", "Unknown or disputed. Sources welcome."],
+};
+const fTag = (st) => { const [c, label, tip] = FSTATUS[st] || FSTATUS.open; return `<span class="tag ${c}" title="${esc(tip)}">${label}</span>`; };
+
+function findingHtml(f, withAbout) {
+  const about = withAbout ? (f.about || []).map(([sec, id]) => (IX[sec]?.[id] ? link(sec, id, IX[sec][id].n) : esc(`${sec} ${id}`))).join(", ") : "";
+  const src = (f.sources || []).map((x) => `<a href="${esc(x.u)}" rel="noopener">${esc(x.t)}</a>${x.seen ? ` <span class="tag">${esc(x.seen)}</span>` : ""}`).join(" · ");
+  return `<li class="finding" id="f-${esc(f.id)}"><div><b>${esc(f.title)}</b> ${fTag(f.status)}</div><p>${esc(f.claim)}</p>
+    ${about ? `<div class="src">About: ${about}</div>` : ""}
+    <div class="src">${src ? `Sources: ${src}` : "No source: see status."}${f.used ? ` · Used in ${esc(f.used)}` : ""} · added ${esc(f.added)}</div></li>`;
+}
+
+function findingsFor(sec, id) {
+  const fs = (D.findings || []).filter((f) => (f.about || []).some(([s, i]) => s === sec && String(i) === String(id)));
+  return fs.length ? `<h2>Research and sources</h2><ul class="plain findings">${fs.map((f) => findingHtml(f, false)).join("")}</ul>` : "";
+}
+
+function sourcesPage() {
+  tabs("sources");
+  document.title = "Sources · XIVLegacy Reference";
+  const topics = [...new Set(D.findings.map((f) => f.topic))];
+  const count = (st) => D.findings.filter((f) => f.status === st).length;
+  return `<h1>Sources</h1><p class="lede">Facts about 1.0 that the game files don't hold, rebuilt from archived era sources: what we found, where, and how sure we are. Each claim is summarized in our own words with links to the source. Where no source exists, XIVLegacy's own choice is marked as such.</p>
+    <dl class="facts">${Object.entries(FSTATUS).map(([k, [, label, tip]]) => `<div><dt>${fTag(k)} ${num(count(k))}</dt><dd>${esc(tip)}</dd></div>`).join("")}</dl>
+    ${topics.map((t) => `<h2>${esc(t)}</h2><ul class="plain findings">${D.findings.filter((f) => f.topic === t).map((f) => findingHtml(f, true)).join("")}</ul>`).join("")}
+    <p class="src">Know a source we're missing, or think a claim is wrong? Open an issue on <a href="https://github.com/tagban/xivlegacy-reference/issues">GitHub</a>.</p>`;
 }
 
 function home() {
@@ -314,7 +353,7 @@ function detail(sec, id) {
   if (!r || !DETAIL[sec]) return `<p class="empty">Nothing here with id ${esc(id)}.</p>`;
   document.title = `${r.n} · XIVLegacy Reference`;
   const crumb = ["items", "quests", "leves"].includes(sec) ? "" : `<div class="crumb">${link(sec, "", SECTIONS[sec].title).replace(`#${sec}/`, `#${sec}`)} ›</div>`;
-  return crumb + DETAIL[sec](r);
+  return crumb + DETAIL[sec](r) + findingsFor(sec, id);
 }
 
 function search(text) {
@@ -402,6 +441,7 @@ function render() {
   let html;
   if (!sec) html = home();
   else if (sec === "search") html = search(id);
+  else if (sec === "sources") html = sourcesPage();
   else if (!SECTIONS[sec]) html = home();
   else if (id) html = detail(sec, id);
   else html = list(sec);

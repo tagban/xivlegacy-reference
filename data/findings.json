@@ -1,0 +1,242 @@
+[
+ {
+  "id": "survive-type",
+  "topic": "Leves",
+  "about": [],
+  "title": "Survive guildleves: hold an area, then beat the final targets",
+  "claim": "Survive leves (Gamer Escape files them under the \"Devotion\" type) asked the party to defend an area for a set time; when the timer ran out, final targets appeared and beating them completed the leve.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "Gamer Escape: Devotion guildleves (1.0)",
+    "u": "https://ffxiv.gamerescape.com/wiki/Devotion_(Guildleve)",
+    "k": "wiki"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "leve-12528",
+  "topic": "Leves",
+  "about": [
+   [
+    "leves",
+    12528
+   ]
+  ],
+  "title": "Sweet Revenge: a 5-minute hold, then two Cavern Efts",
+  "claim": "Players killed Ill-tempered Pteroc for 5 minutes; after that two Cavern Efts appeared as the final targets. The leve had a 30-minute limit.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "Gamer Escape: Sweet Revenge (1.0 leve)",
+    "u": "https://ffxiv.gamerescape.com/wiki/Sweet_Revenge",
+    "k": "wiki"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "leve-12508",
+  "topic": "Leves",
+  "about": [
+   [
+    "leves",
+    12508
+   ]
+  ],
+  "title": "All Nine Ivies is a Stage: Bile Gnats, then Toxic Flytrap and Plasma Spark",
+  "claim": "Players killed Bile Gnats until the defense timer reached zero, then a Toxic Flytrap and a Plasma Spark appeared near map 51,30. A May 2011 bug report on the official forum describes this run at 5 stars, with the Plasma Spark casting Thunder IV.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "Official forum, thread 10565 (May 2011)",
+    "u": "https://forum.square-enix.com/ffxiv/threads/10565",
+    "k": "forum",
+    "seen": "2011-05"
+   },
+   {
+    "t": "Gamer Escape: All Nine Ivies is a Stage",
+    "u": "https://ffxiv.gamerescape.com/wiki/All_Nine_Ivies_is_a_Stage",
+    "k": "wiki"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "survive-hold-default",
+  "topic": "Leves",
+  "about": [
+   [
+    "leves",
+    12508
+   ]
+  ],
+  "title": "Hold length for All Nine Ivies is our choice (5 minutes)",
+  "claim": "No source gives the hold length for All Nine Ivies. XIVLegacy uses 5 minutes, the only Survive hold length on record (Sweet Revenge).",
+  "status": "default",
+  "sources": [],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "survive-unknown",
+  "topic": "Leves",
+  "about": [
+   [
+    "leves",
+    10906
+   ],
+   [
+    "leves",
+    10907
+   ],
+   [
+    "leves",
+    10908
+   ],
+   [
+    "leves",
+    10927
+   ],
+   [
+    "leves",
+    10928
+   ],
+   [
+    "leves",
+    12507
+   ],
+   [
+    "leves",
+    12527
+   ]
+  ],
+  "title": "Seven Survive leves lack enough detail to rebuild",
+  "claim": "For these Survive leves no source we have found records what attacked during the hold or how long it lasted, so XIVLegacy keeps them off. Keeping the Peace (10906) has no 1.0 page at all.",
+  "status": "open",
+  "sources": [
+   {
+    "t": "Gamer Escape: Devotion guildleves (1.0)",
+    "u": "https://ffxiv.gamerescape.com/wiki/Devotion_(Guildleve)",
+    "k": "wiki"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "faction-credit",
+  "topic": "Factions",
+  "about": [],
+  "title": "Faction credit: earned from sponsored leves, spent on faction leves",
+  "claim": "Finishing a guildleve sponsored by a faction gave credit with that faction. Credit was spent at the adventurers' guild to take that faction's own leves. Three factions: Broken Blade, Azeyma's Shields, and Horn and Hand (the Japanese name reads \"Hand's Eye\"). Patch 1.18 cut Horn and Hand rewards.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki (Japanese): ファクション, 2011-2012 archive",
+    "u": "https://web.archive.org/web/2012/http://ff14wiki.info/?%E3%83%95%E3%82%A1%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3",
+    "k": "archive"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "faction-leve-flow",
+  "topic": "Factions",
+  "about": [],
+  "title": "How a faction leve ran",
+  "claim": "Pick a faction and rank at the guild counter; travel to the listed aetheryte (city ones start at the aetheryte plaza); starting it places a contact NPC on the map and starts the timer; talk to them to begin; finishing may drop a chest; report back to the contact, who sends you to the aetheryte. Faction leves used the regular leve allowance.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki (Japanese): ファクションリーヴ, 2011-2012 archive",
+    "u": "https://web.archive.org/web/2012/http://ff14wiki.info/?%E3%83%95%E3%82%A1%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E3%83%AA%E3%83%BC%E3%83%B4",
+    "k": "archive"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "faction-leve-costs",
+  "topic": "Factions",
+  "about": [],
+  "title": "Faction leve credit costs: 100 / 200 / 300 by level",
+  "claim": "Level 20 faction leves cost 100 credit, level 30 cost 200, level 40 cost 300. Level 50 NM operations cost 100 each, except the third Market and Wolfsbane operations at 400. Some leves required an earlier one first.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki (Japanese): ファクションリーヴ, 2011-2012 archive",
+    "u": "https://web.archive.org/web/2012/http://ff14wiki.info/?%E3%83%95%E3%82%A1%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E3%83%AA%E3%83%BC%E3%83%B4",
+    "k": "archive"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "gc-leves",
+  "topic": "Grand Companies",
+  "about": [],
+  "title": "Grand Company leves (patch 1.19 on)",
+  "claim": "Each company's detachment officer at a camp offered one leve at a time, solo only, costing one leve allowance. Clearing another leve issued at the same place (or taking and abandoning the company leve) changed the offer. Rewards were company seals and gil; patch 1.22a added a 50-seal completion bonus and a star-based bonus (level 40: 140 seals at 1 star up to 240 at 5).",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki (Japanese): カンパニーリーヴ, 2011-2012 archive",
+    "u": "https://web.archive.org/web/2012/http://ff14wiki.info/?%E3%82%AB%E3%83%B3%E3%83%91%E3%83%8B%E3%83%BC%E3%83%AA%E3%83%BC%E3%83%B4",
+    "k": "archive"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "gc-leve-bonus",
+  "topic": "Grand Companies",
+  "about": [],
+  "title": "Company leve completion bonus by type",
+  "claim": "Kill leves: kill at least twice the required number. Timed defense (escort) leves: keep the protected NPC's damage under a limit. Detect leves: find the crystal carrier with an emote and kill only carriers and targets. Defense leves could not end early.",
+  "status": "confirmed",
+  "sources": [
+   {
+    "t": "FF14 Online Wiki (Japanese): カンパニーリーヴ, 2011-2012 archive",
+    "u": "https://web.archive.org/web/2012/http://ff14wiki.info/?%E3%82%AB%E3%83%B3%E3%83%91%E3%83%8B%E3%83%BC%E3%83%AA%E3%83%BC%E3%83%B4",
+    "k": "archive"
+   }
+  ],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "leve-11004",
+  "topic": "Leves",
+  "about": [
+   [
+    "leves",
+    11004
+   ]
+  ],
+  "title": "Leve 11004 may never have been released",
+  "claim": "The client has this leve at level 100, and no 1.0 record of it exists on Gamer Escape. Treated as unreleased.",
+  "status": "open",
+  "sources": [],
+  "added": "2026-11-11"
+ },
+ {
+  "id": "leve-12484",
+  "topic": "Leves",
+  "about": [
+   [
+    "leves",
+    12484
+   ]
+  ],
+  "title": "Leve 12484: Gamer Escape's page describes a different leve",
+  "claim": "The Gamer Escape page under this title lists Quarrymill rather than Humblehearth and a different leve type, so it is not used as a source for this id.",
+  "status": "open",
+  "sources": [
+   {
+    "t": "Gamer Escape (1.0 leve pages)",
+    "u": "https://ffxiv.gamerescape.com/",
+    "k": "wiki"
+   }
+  ],
+  "added": "2026-11-11"
+ }
+]

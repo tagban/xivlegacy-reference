@@ -29,6 +29,14 @@ each quest shows whether the server has a script for it yet.
   by the Internet Archive. `tools/zam_fetch.py` fetches the archived pages; only factual tables
   are used (no user comments), and each page links back to its archived original.
 
+- **Research findings:** facts the game files don't hold (how a leve type played, faction credit,
+  Grand Company seal rewards…) are kept by hand in `data/findings.json`, shown on each page they
+  concern and all together under **Sources** (`#sources`). Each entry is a claim in our own words,
+  the pages it is about, links to archived 1.0-era sources (Gamer Escape's 1.0 pages, the official
+  forum, the Japanese FF14 Online Wiki at the Internet Archive), and a status: *confirmed* (an
+  era source says so), *reported* (one account only), *our choice* (no source exists; the value
+  XIVLegacy uses) or *open*. Only sources from 2010–2012 count as 1.0; later pages describe A
+  Realm Reborn.
 - **Era videos:** monsters seen in 2010–2012 gameplay videos, for places no database recorded,
   are kept by hand in `data/sightings.json` (zone, game ids, video and timestamp, notes). Send new
   ones on the Discord.
