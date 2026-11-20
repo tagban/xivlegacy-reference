@@ -2,8 +2,8 @@
 """Export the client's icons (data/1C/59 .. 1C/61) to docs/icons/<id>.png.
 
 The file id is the icon's name (data/1C/61/01/81.DAT -> 1C610181.png, the
-same name ZAM used). Writes docs/data/icons.json: every exported icon with
-its folder and size, so the site can show icons no item uses.
+same name ZAM used). Exports only the icons the site's data uses (docs/data/items.json), so
+run it after tools/build.py.
 
     tools/game_icons.py "<1.23b install>"
 """
@@ -20,6 +20,7 @@ FOLDERS = ["59", "5A", "5B", "5C", "5D", "5E", "5F", "60", "61", "62"]
 def main():
     data = os.path.join(sys.argv[1], "data", "1C")
     os.makedirs(OUT, exist_ok=True)
+    used = {i.get("ic") for i in json.load(open(os.path.join(ROOT, "docs", "data", "items.json")))}
     index = []
     for folder in FOLDERS:
         base = os.path.join(data, folder)
@@ -30,6 +31,8 @@ def main():
                 if not f.upper().endswith(".DAT"):
                     continue
                 code = f"1C{folder}{a}{f[:2]}".upper()
+                if code not in used:
+                    continue
                 got = gtex.read(os.path.join(base, a, f))
                 if not got:
                     continue
@@ -40,12 +43,8 @@ def main():
                 if not os.path.exists(target):
                     with open(target, "wb") as fh:
                         fh.write(gtex.png(w, h, rgba))
-                # empty placeholders: fully transparent, or one flat color
-                blank = all(rgba[i] == 0 for i in range(3, len(rgba), 4)) or len(set(rgba[i:i + 4] for i in range(0, len(rgba), 4 * 7))) <= 2
-                index.append([code, w, h, 1 if blank else 0])
-        print(f"1C/{folder}: {sum(1 for i in index if i[0][2:4] == folder)}", flush=True)
-    with open(os.path.join(ROOT, "docs", "data", "icons.json"), "w") as fh:
-        json.dump(index, fh, separators=(",", ":"))
+                index.append(code)
+        print(f"1C/{folder}: {sum(1 for i in index if i[2:4] == folder)}", flush=True)
     print(f"{len(index)} icons")
 
 

@@ -14,7 +14,7 @@ from collections import defaultdict
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "docs", "data")
-SCRIPTS = "/Volumes/AppStorage/xivlegacy-server-rebuild/scripts/lua/quests"
+SCRIPTS = os.environ.get("XIVLEGACY_QUEST_SCRIPTS", "/Volumes/AppStorage/xivlegacy-server-rebuild/scripts/lua/quests")
 
 # Recipe job letters, in Disciple of the Hand class order (ids 29-36).
 CRAFT_JOBS = {"A": "Carpenter", "B": "Blacksmith", "C": "Armorer", "D": "Goldsmith",
