@@ -92,7 +92,7 @@ const SECTIONS = {
     text: (r) => `${r.n} ${r.client || ""}`,
   },
   harvest: {
-    title: "Harvesting", lede: "Gathering nodes and what they yield. “On XIVLegacy” marks nodes the server has placed in the world; most still need placing.",
+    title: "Harvesting", lede: "Gathering nodes and what they yield. “On XIVLegacy” marks nodes the server has placed in the world. Mining and logging are all placed; fishing is in progress.",
     cols: [
       ["Node", (r) => link("harvest", r.id, r.n), (r) => r.id],
       ["Grade", (r) => r.gr, (r) => r.gr, "num"],
@@ -101,10 +101,6 @@ const SECTIONS = {
     ],
     filters: [["Grade", (r) => r.gr], ["On XIVLegacy", (r) => (r.placed.length ? "placed" : "not placed")]],
     text: (r) => `${r.n} ${r.y.map((y) => IX.items[y[0]]?.n || "").join(" ")}`,
-  },
-  icons: {
-    title: "Unseen Icons", lede: "Item icons in the 1.23b client that no item uses: cut items, unreleased gear, and art no database ever showed.",
-    cols: [], filters: [], text: (r) => r.n,
   },
   achievements: {
     title: "Achievements", lede: "All achievements in 1.23b.",
@@ -130,21 +126,15 @@ const SECTIONS = {
 // --- data ------------------------------------------------------------------
 
 async function load() {
-  const names = [...Object.keys(SECTIONS).filter((n) => n !== "icons"), "meta"];
+  const names = [...Object.keys(SECTIONS), "meta"];
   const got = await Promise.all(names.map((n) => fetch(`data/${n}.json`).then((r) => (r.ok ? r.json() : n === "meta" ? {} : []))));
   names.forEach((n, i) => (D[n] = got[i]));
   D.zoneNotes = await fetch("data/zone_notes.json").then((r) => (r.ok ? r.json() : {})).catch(() => ({}));
   D.findings = await fetch("data/findings.json").then((r) => (r.ok ? r.json() : [])).catch(() => []);
-  D.iconIndex = await fetch("data/icons.json").then((r) => (r.ok ? r.json() : [])).catch(() => []);
-  D.icons = [];
-  for (const n of Object.keys(SECTIONS).filter((k) => k !== "icons")) {
+  for (const n of Object.keys(SECTIONS)) {
     IX[n] = {};
     for (const r of D[n]) if (!(r.id in IX[n])) IX[n][r.id] = r;
   }
-  // icons no item uses (the item-icon folders, 64px)
-  const used = new Set(D.items.map((i) => i.ic));
-  D.icons = (D.iconIndex || []).filter(([c, w, , blank]) => w === 64 && !blank && ["5F", "60", "61"].includes(c.slice(2, 4)) && !used.has(c)).map(([c]) => ({ id: c, n: c }));
-  IX.icons = {};
   // relations used by detail pages
   D.madeFrom = {}; D.usedIn = {};
   for (const r of D.recipes) {
@@ -213,15 +203,7 @@ function home() {
     <div class="tiles">${tiles}</div>`;
 }
 
-function iconGallery() {
-  tabs("icons");
-  const S = SECTIONS.icons;
-  return `<h1>${S.title}</h1><p class="lede">${esc(S.lede)} ${num(D.icons.length)} icons.</p>
-    <div class="gallery">${D.icons.map((r) => `<figure>${icon(r.id, r.id)}<figcaption>${esc(r.id)}</figcaption></figure>`).join("")}</div>`;
-}
-
 function list(sec, query) {
-  if (sec === "icons") return iconGallery();
   const S = SECTIONS[sec];
   tabs(sec);
   let rows = D[sec];
