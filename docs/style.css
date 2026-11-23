@@ -170,3 +170,8 @@ td.small { font-size: 12px; color: var(--muted); max-width: 320px; }
 .findings .finding { padding: 10px 0; border-bottom: 1px solid var(--panel-edge); }
 .findings .finding p { margin: 6px 0; max-width: 72ch; }
 .findings .finding .src { margin-top: 4px; }
+
+/* cut scene names and the GM command to play one */
+code { font: 13px/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: var(--cream); }
+code.cmd { background: var(--edge-dark); border: 1px solid var(--panel-edge); border-radius: 4px; padding: 1px 6px; white-space: nowrap; }
+span.small { font-size: 12px; color: var(--muted); }
