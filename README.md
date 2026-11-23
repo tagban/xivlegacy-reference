@@ -1,7 +1,7 @@
 # XIVLegacy Reference
 
 A player reference for FINAL FANTASY XIV version 1.0 at its last patch, 1.23b: items, recipes,
-quests, monsters, NPCs, leves, achievements and zones.
+quests, monsters, NPCs, leves, achievements, zones and cutscenes.
 
 **Community:** questions, testing and news on the [XIVLegacy Discord](https://discord.gg/D9k3khqvy8).
 
@@ -29,6 +29,12 @@ each quest shows whether the server has a script for it yet.
   by the Internet Archive. `tools/zam_fetch.py` fetches the archived pages; only factual tables
   are used (no user comments), and each page links back to its archived original.
 
+- **Cutscenes:** `tools/cutscenes.py` lists every folder under the client's `client/cut` and reads
+  only names and counts from each scene file: the maps it names (`sea_s0_dun06` → U'Ghamaro Mines),
+  its camera clips (camera animation blocks; a shot can have more than one), and the client
+  scripts that name it (quest scripts, lifts, chocobo lenders, the login dream…). No models,
+  textures, motion or dialogue are copied. Each scene shows the GM command that plays it on
+  XIVLegacy: `!cutscene <name>`.
 - **Research findings:** facts the game files don't hold (how a leve type played, faction credit,
   Grand Company seal rewards…) are kept by hand in `data/findings.json`, shown on each page they
   concern and all together under **Sources** (`#sources`). Each entry is a claim in our own words,
@@ -49,6 +55,7 @@ tools/game_text.py "<1.23b install>" <cache dir>
 tools/game_sheets.py "<1.23b install>" <server db> <cache dir>
 tools/zam_fetch.py <cache dir>            # slow and polite: the Wayback Machine, one page at a time
 tools/build.py <server db> [<cache dir>]  # writes docs/data/*.json
+tools/cutscenes.py "<1.23b install>" [<server db>]  # docs/data/cutscenes.json (after build.py)
 python3 -m http.server -d docs            # preview
 ```
 

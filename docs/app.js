@@ -14,6 +14,14 @@ const zone = (id) => (IX.zones[id] ? IX.zones[id].n : id ? `Zone ${id}` : "—")
 const link = (sec, id, text) => `<a href="#${sec}/${id}">${esc(text ?? id)}</a>`;
 const itemLink = (id) => (IX.items[id] ? link("items", id, IX.items[id].n) : `<span class="empty">item ${id}</span>`);
 const zoneLink = (id) => (IX.zones[id] ? link("zones", id, IX.zones[id].n) : esc(zone(id)));
+const csKind = (r) => r.k.split(":")[0];
+const questName = (q) => (q.n === "[en]" ? `${q.code} (no English name in the client)` : q.n);
+const csOwner = (r) => {
+  const qs = (r.q || []).map((id) => IX.quests[id]).filter(Boolean);
+  const kind = `<span class="tag">${esc(r.k)}</span>`;
+  return kind + (qs.length ? qs.map((q) => link("quests", q.id, questName(q))).join(", ") : esc((r.by || []).join(", ")));
+};
+const csMap = (m) => (m[1] && IX.zones[m[1]] ? zoneLink(m[1]) : esc(m[2])) + ` <span class="small">(${esc(m[0])})</span>`;
 const lv = (a) => (Array.isArray(a) ? (!a[0] && !a[1] ? "—" : a[0] === a[1] ? a[0] : `${a[0]}–${a[1]}`) : a || "—");
 
 // --- sections --------------------------------------------------------------
@@ -110,6 +118,18 @@ const SECTIONS = {
     ],
     filters: [],
     text: (r) => r.n,
+  },
+  cutscenes: {
+    title: "Cutscenes", lede: "Every cutscene in the 1.23b client (client/cut), with the quest or content it belongs to, the map it names and its camera clips. GMs on XIVLegacy can play any of them where they stand with !cutscene <name>.",
+    cols: [
+      ["Cut scene", (r) => `<code>${link("cutscenes", r.id, r.n)}</code>`, (r) => r.n],
+      ["Belongs to", (r) => csOwner(r), (r) => r.k + " " + (r.qn || "")],
+      ["Map", (r) => (r.maps || []).map(csMap).join(", "), (r) => (r.maps?.[0] || [])[2] || "", "hide-sm"],
+      ["Camera clips", (r) => (r.lib ? "" : num(r.clips)), (r) => r.clips || 0, "num"],
+      ["Play", (r) => (r.lib ? '<span class="tag">not a scene</span>' : `<code class="cmd">!cutscene ${esc(r.n)}</code>`), (r) => r.n, "hide-sm"],
+    ],
+    filters: [["Kind", (r) => csKind(r)], ["Map", (r) => (r.maps?.[0] || [])[2]]],
+    text: (r) => `${r.n} ${r.k} ${r.qn || ""} ${r.qc || ""} ${(r.maps || []).map((m) => m[2]).join(" ")}`,
   },
   zones: {
     title: "Zones", lede: "Regions, cities and dungeons, with who lives there.",
@@ -262,6 +282,7 @@ const DETAIL = {
     const journal = entries.length ? `<div class="tt journal"><div class="tt-head"><div><h1>${esc(r.n)}</h1>${z.journal.npc ? `<div class="tt-type">${npcRef(z.journal.npc[0], z.journal.npc[1])}</div>` : ""}</div></div><hr>${entries.map((e) => `<p>${esc(e)}</p>`).join("")}</div>` : "";
     const stepList = steps.length ? `<ol class="steps">${steps.map(([seq, note], k) => `<li><span class="tag">step ${seq}</span> ${esc(note)}${entries[k] && entries.length === steps.length ? `<div class="step-journal">${esc(entries[k])}</div>` : ""}</li>`).join("")}</ol><p class="src">Steps from the XIVLegacy server's quest script.</p>` : "";
     const actors = (r.act || []).map((id) => (IX.npcs[id] ? [link("npcs", id, IX.npcs[id].n), "NPC"] : D.monsters.find((m) => m.cls === id) ? [link("monsters", D.monsters.find((m) => m.cls === id).id, D.monsters.find((m) => m.cls === id).n), "Monster"] : null)).filter(Boolean);
+    const cuts = (D.cutscenes || []).filter((c) => (c.q || []).includes(r.id));
     const relRows = (z.rel || []).map((x) => `<tr><td>${npcRef(x[0], x[1])}</td><td>${esc(x[2])}</td><td>${esc(x[3])}</td><td>${esc(x[4])}</td></tr>`).join("");
     const related = relRows || actors.length ? `${relRows ? `<div class="table-box"><table><thead><tr><th>Name</th><th>Zone</th><th>Role</th><th>Relation</th></tr></thead><tbody>${relRows}</tbody></table></div>` : ""}
       ${actors.length ? `<h2>Named in the server script</h2><ul class="plain">${actors.map(([l, kind]) => `<li>${l} <span class="tag">${kind}</span></li>`).join("")}</ul>` : ""}` : "";
@@ -274,6 +295,7 @@ const DETAIL = {
         ["rewards", "Rewards", z.rewards?.length && `<ul class="plain">${z.rewards.map((w) => `<li><span class="name-cell">${icon(IX.items[w[0]]?.ic)}${itemLink(w[0])}</span>${w[2] && w[2] !== "1" ? ` ×${esc(w[2])}` : ""}</li>`).join("")}</ul>`, z.rewards?.length],
         ["zones", "Related Zones", z.zones?.length && `<ul class="plain">${z.zones.map((x) => `<li>${esc(x[0])} <span class="tag">${esc(x[1])}</span> ${esc(x[2])}</li>`).join("")}</ul>`, z.zones?.length],
         ["related", "Related NPCs / Mobs", related, (z.rel?.length || 0) + actors.length],
+        ["cuts", "Cutscenes", cuts.length && `<ul class="plain">${cuts.map((c) => `<li><code>${link("cutscenes", c.id, c.n)}</code> <span class="tag">${num(c.clips)} camera clips</span></li>`).join("")}</ul>`, cuts.length],
       ])}
       <p class="src">${r.zam ? "Rank, journal, rewards and related NPCs from ZAM. " : ""}<a href="${ZAM}quest.html?ffxivquest=${r.id}">ZAM's archived page</a></p></div></div>`;
   },
@@ -312,6 +334,20 @@ const DETAIL = {
       ${facts([["Grade", r.gr], ["Attempts", r.at], ["Placed in", r.placed.map(zoneLink).join(", ") || null]])}</div>
       <h2>Yields</h2><ul class="plain">${r.y.map((y) => `<li>${itemLink(y[0])} <span class="tag">up to ${y[1]}</span></li>`).join("")}</ul>`;
   },
+  cutscenes(r) {
+    if (r.lib) return `<div class="card"><h1>${esc(r.n)}</h1><span class="tag">${esc(r.k)}</span><p>The client's shared library of motion clips that the scenes draw on. It isn't a scene and can't be played.</p></div>`;
+    const qs = (r.q || []).map((id) => IX.quests[id]).filter(Boolean);
+    return `<div class="crumb-path"><a href="#cutscenes">Cutscenes</a> › ${esc(csKind(r))} › ${esc(r.n)}</div>
+      <div class="card"><h1>${esc(r.n)}</h1><span class="tag">${esc(r.k)}</span>
+      ${facts([["Quest", qs.length ? qs.map((q) => `${link("quests", q.id, questName(q))} <span class="tag">level ${q.lv}</span>`).join("<br>") : null],
+        ["Used by", r.by?.length ? r.by.map((b) => `<code>${esc(b)}</code>`).join(", ") : null],
+        ["Map", (r.maps || []).map(csMap).join("<br>") || null],
+        ["Camera clips", num(r.clips)],
+        ["Numbered shots", r.shots ? `up to c${String(r.shots).padStart(2, "0")}` : null],
+        ["Size", `${num(r.kb)} KB`]])}</div>
+      <h2>Play it on XIVLegacy</h2><p>A GM (level 2) types <code class="cmd">!cutscene ${esc(r.n)}</code> in chat. The screen fades out, the scene plays and you're back where you stood. Scenes with dialogue wait for Enter or a click at each line. <code class="cmd">!cutscene stop</code> closes one that's stuck.</p>
+      <p class="src">Name, map, camera clips and the scripts that name it are read from the 1.23b client's files; nothing from the scene itself is copied here. Quest links come from the scene name and the client's quest scripts.</p>`;
+  },
   zones(r) {
     const npcs = D.npcs.filter((n) => n.z === r.id && !n.pa);
     const mobs = D.monsters.filter((m) => m.z === r.id || (m.zz || []).includes(r.id));
@@ -334,7 +370,7 @@ function detail(sec, id) {
   const r = IX[sec]?.[id];
   if (!r || !DETAIL[sec]) return `<p class="empty">Nothing here with id ${esc(id)}.</p>`;
   document.title = `${r.n} · XIVLegacy Reference`;
-  const crumb = ["items", "quests", "leves"].includes(sec) ? "" : `<div class="crumb">${link(sec, "", SECTIONS[sec].title).replace(`#${sec}/`, `#${sec}`)} ›</div>`;
+  const crumb = ["items", "quests", "leves", "cutscenes"].includes(sec) ? "" : `<div class="crumb">${link(sec, "", SECTIONS[sec].title).replace(`#${sec}/`, `#${sec}`)} ›</div>`;
   return crumb + DETAIL[sec](r) + findingsFor(sec, id);
 }
 
